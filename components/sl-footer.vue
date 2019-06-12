@@ -6,7 +6,7 @@
         <div class="text-caption text-center">
           2019 | Grzegorz Perun & Daniel Nguyen
         </div>
-        <div class="text-caption text-center">
+        <div class="text-caption text-center" style="white-space: normal;">
           Autorzy spisu dziękują Aleksandrze Marczuk i Adamowi Firynowiczowi za
           <a
             href="https://docs.google.com/spreadsheets/d/1b0oBrpdNXqfWx35kT4xhG0OiPY2OnYJmklGHshlv7_E/edit?fbclid=IwAR3f5V_DlCrZbtxYhKdDMV7hTiCpRaNtx5OvpZYTNpTBhkokxKafz7xzOfo"
@@ -29,6 +29,14 @@
           <a href="https://8rabin.github.io" style="text-decoration: none;"
             ><span style="font-size: 48px; color: #FFF;">8</span></a
           >
+          &nbsp;
+          <a
+            href="https://www.facebook.com/groups/spis.sekcji/"
+            style="text-decoration: none;"
+            ><i
+              class="fab fa-facebook-square"
+              style="font-size: 48px; color: #FFF;"
+          /></a>
         </div>
         <div class="q-pt-md" />
       </q-toolbar-title>

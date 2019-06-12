@@ -1,13 +1,15 @@
 <template>
-  <q-input
-    v-model="input"
-    color="secondary"
-    placeholder="Wyszukiwarka sekcji"
-  />
+  <q-input v-model="input" color="secondary" :placeholder="placeholder" />
 </template>
 
 <script>
 export default {
+  props: {
+    placeholder: {
+      type: String,
+      default: null
+    }
+  },
   computed: {
     input: {
       get() {

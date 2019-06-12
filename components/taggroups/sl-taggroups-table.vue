@@ -11,22 +11,11 @@
     :pagination.sync="pagination"
   >
     <template v-slot:top-left="props">
-      <sl-input />
+      <sl-input placeholder="Wyszukiwarka tag-grupek" />
     </template>
 
     <template v-slot:top-right="props">
       Liczba tag-grupek w spisie: {{ taggroups.length }}
-      <br />
-      Wyświetlanych:
-      {{
-        taggroups.filter(
-          x =>
-            !input ||
-            Object.values(x).find(s =>
-              (s + '').toLowerCase().includes(input.toLowerCase())
-            )
-        ).length
-      }}
       <br />
       Ostatnia aktualizacja: {{ lastUpdateDate }}
     </template>
