@@ -16,6 +16,7 @@ export const state = () => ({
     'Shitpost',
     'Spierdolenie',
     'Sport',
+    'Sztuka',
     'Technologie',
     'Wsparcie',
     'Wygląd i moda',
