@@ -121,12 +121,14 @@ export const state = () => ({
     page: 0,
     rowsPerPage: 0,
     rowsCount: 0
-  }
+  },
+  index: 0
 })
 
 export const getters = {
   columns: state => state.columns,
-  pagination: state => state.pagination
+  pagination: state => state.pagination,
+  index: state => state.index
 }
 
 export const mutations = {
@@ -135,7 +137,7 @@ export const mutations = {
   }
 }
 export const actions = {
-  SET_PAGINATION(context, pagination) {
-    context.commit('SET_PAGINATION', pagination)
+  SET_PAGINATION({ commit }, pagination) {
+    commit('SET_PAGINATION', pagination)
   }
 }

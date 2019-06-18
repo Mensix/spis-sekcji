@@ -38,6 +38,14 @@
               style="font-size: 48px; color: #FFF;"
           /></a>
         </div>
+        <div class="q-pb-md" />
+        <div class="text-caption text-center" style="white-space: normal;">
+          <a
+            href="javascript:window.__cmp('displayConsentUi')"
+            class="text-white"
+            >Ustawienia prywatności</a
+          >
+        </div>
         <div class="q-pt-md" />
       </q-toolbar-title>
     </q-toolbar>

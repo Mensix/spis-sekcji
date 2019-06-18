@@ -1,7 +1,7 @@
 export default {
   mode: 'spa',
   head: {
-    title:'Spis Sekcji JBwA',
+    title: 'Spis Sekcji JBwA',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -50,8 +50,7 @@ export default {
     }
   },
   loading: { color: '#fff' },
-  css: [],
-  plugins: ['~/plugins/quasar'],
+  plugins: ['~/plugins/quasar', '~/plugins/quantcast'],
   modules: [],
   build: {
     filenames: {
