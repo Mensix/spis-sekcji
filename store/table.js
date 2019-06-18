@@ -121,14 +121,12 @@ export const state = () => ({
     page: 0,
     rowsPerPage: 0,
     rowsCount: 0
-  },
-  index: 0
+  }
 })
 
 export const getters = {
   columns: state => state.columns,
-  pagination: state => state.pagination,
-  index: state => state.index
+  pagination: state => state.pagination
 }
 
 export const mutations = {
