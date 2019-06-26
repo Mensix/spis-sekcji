@@ -12,6 +12,7 @@ export const state = () => ({
     'Negatywne',
     'Polityka',
     'Prawo',
+    'Przyroda',
     'Pytania i dyskusje',
     'Shitpost',
     'Spierdolenie',
@@ -20,8 +21,7 @@ export const state = () => ({
     'Technologie',
     'Wsparcie',
     'Wygląd i moda',
-    'Zwiedzanie',
-    'Zwierzęta'
+    'Zwiedzanie'
   ],
   selectedCategories: null
 })
