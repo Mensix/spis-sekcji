@@ -14,6 +14,13 @@
             >poprzedni spis sekcji</a
           >
         </div>
+        <div class="text-caption text-center" style="white-space: normal;">
+          Ta strona używa Google Analytics w celu gromadzenia informacji nt.
+          wykorzystywania tej strony przez użytkowników.
+          <a href="www.google.com/policies/privacy/partners/" class="text-white"
+            >Dowiedz się więcej</a
+          >
+        </div>
         <div class="q-pb-md" />
         <q-separator dark inset />
         <div class="q-pb-md" />
@@ -21,22 +28,26 @@
           <a
             href="https://github.com/Mensix/SpisSekcji"
             style="text-decoration: none;"
-            ><i
+          >
+            <i
               class="fab fa-github text text-center"
               style="font-size: 48px; color: #FFF;"
-          /></a>
+            />
+          </a>
           &nbsp;
-          <a href="https://8rabin.github.io" style="text-decoration: none;"
-            ><span style="font-size: 48px; color: #FFF;">8</span></a
-          >
+          <a href="https://8rabin.github.io" style="text-decoration: none;">
+            <span style="font-size: 48px; color: #FFF;">8</span>
+          </a>
           &nbsp;
           <a
             href="https://www.facebook.com/groups/spis.sekcji/"
             style="text-decoration: none;"
-            ><i
+          >
+            <i
               class="fab fa-facebook-square"
               style="font-size: 48px; color: #FFF;"
-          /></a>
+            />
+          </a>
         </div>
         <div class="q-pb-md" />
         <div class="text-caption text-center" style="white-space: normal;">

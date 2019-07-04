@@ -36,15 +36,14 @@ export default {
       {
         rel: 'stylesheet',
         type: 'text/css',
-        href:
-          'https://cdn.jsdelivr.net/npm/quasar@1.0.0-rc.4/dist/quasar.min.css'
+        href: 'https://cdn.jsdelivr.net/npm/quasar@1.0.3/dist/quasar.min.css'
       }
     ],
     body: {
       script: [
         {
           src:
-            'https://cdn.jsdelivr.net/npm/quasar@1.0.0-rc.4/dist/quasar.umd.min.js'
+            'https://cdn.jsdelivr.net/npm/quasar@1.0.3/dist/quasar.umd.min.js'
         }
       ]
     }
