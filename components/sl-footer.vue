@@ -17,7 +17,9 @@
         <div class="text-caption text-center" style="white-space: normal;">
           Ta strona używa Google Analytics w celu gromadzenia informacji nt.
           wykorzystywania tej strony przez użytkowników.
-          <a href="www.google.com/policies/privacy/partners/" class="text-white"
+          <a
+            href="https://google.com/policies/privacy/partners/"
+            class="text-white"
             >Dowiedz się więcej</a
           >
         </div>

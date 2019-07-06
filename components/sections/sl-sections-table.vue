@@ -26,27 +26,7 @@
     </template>
 
     <template v-slot:body="props">
-      <q-tr
-        v-if="props.row.members >= 10000"
-        style="background-color: #F2F2F2"
-        :props="props"
-      >
-        <q-td key="Name" :props="props">
-          <span>{{ props.row.name }}</span>
-        </q-td>
-        <q-td key="Members" :props="props">
-          <span>{{ props.row.members }}</span>
-        </q-td>
-        <q-td key="Link" :props="props">
-          <a :href="props.row.link" class="text-secondary" target="_blank">
-            {{ props.row.link.replace('https://facebook.com/groups', '') }}
-          </a>
-        </q-td>
-        <q-td key="Category" :props="props">
-          <span>{{ props.row.category }}</span>
-        </q-td>
-      </q-tr>
-      <q-tr v-else :props="props">
+      <q-tr :class="{ 'bg-grey-2': props.row.members >= 10000 }" :props="props">
         <q-td key="Name" :props="props">
           <span>{{ props.row.name }}</span>
         </q-td>
