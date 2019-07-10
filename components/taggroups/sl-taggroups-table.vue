@@ -22,6 +22,9 @@
 
     <template v-slot:body="props">
       <q-tr :props="props">
+        <q-td key="Index" :props="props">
+          <span>{{ props.row.__index + 1 }}</span>
+        </q-td>
         <q-td key="Name" :props="props">
           <span>{{ props.row.name }}</span>
         </q-td>

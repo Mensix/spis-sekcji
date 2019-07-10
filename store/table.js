@@ -1,6 +1,11 @@
 export const state = () => ({
   columns: [
     {
+      name: 'Index',
+      label: '#',
+      align: 'left'
+    },
+    {
       name: 'Name',
       label: 'Nazwa',
       field: 'name',
@@ -117,10 +122,11 @@ export const state = () => ({
     }
   ],
   pagination: {
-    sortBy: 'Name',
+    sortBy: 'Members',
+    descending: true,
     page: 0,
     rowsPerPage: 0,
-    rowsCount: 0
+    rowsCount: 0,
   }
 })
 
