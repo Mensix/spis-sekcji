@@ -1,12 +1,10 @@
 <template>
-  <div v-if="taggroups !== null">
-    <sl-taggroups-table />
-  </div>
+  <sl-taggroups-table />
 </template>
 
 <script>
-import SlTaggroupsTable from '~/components/taggroups/sl-taggroups-table.vue'
 import { mapGetters } from 'vuex'
+import SlTaggroupsTable from '~/components/taggroups/sl-taggroups-table.vue'
 export default {
   layout: 'layout',
   components: {
@@ -15,8 +13,8 @@ export default {
   computed: {
     ...mapGetters({ taggroups: 'taggroups/taggroups' })
   },
-  mounted() {
-    this.$store.dispatch('taggroups/FETCH_TAGGROUPS')
+  async mounted() {
+    await this.$store.dispatch('taggroups/FETCH_TAGGROUPS')
   }
 }
 </script>

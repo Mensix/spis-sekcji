@@ -21,7 +21,7 @@ export default {
         return this.$store.state.categories.selectedCategories
       },
       set(value) {
-        this.$store.dispatch('categories/SET_CATEGORIES', value)
+        this.$store.dispatch('categories/SET_SELECTEDCATEGORIES', value)
       }
     }
   }

@@ -1,5 +1,5 @@
 export const state = () => ({
-  sections: null,
+  sections: [],
   lastUpdateDate: null
 })
 
@@ -18,8 +18,8 @@ export const mutations = {
 }
 
 export const actions = {
-  FETCH_SECTIONS(context) {
-    fetch('https://api.github.com/gists/2c9b9e0c06b6efa6e0f78584ec37b5fb')
+  async FETCH_SECTIONS(context) {
+    await fetch('https://api.github.com/gists/2c9b9e0c06b6efa6e0f78584ec37b5fb')
       .then(response => response.json())
       .then(output => JSON.parse(output.files['sections.json'].content))
       .then(output => {

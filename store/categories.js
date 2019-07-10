@@ -1,28 +1,5 @@
 export const state = () => ({
-  categories: [
-    'Filmy',
-    'Gry',
-    'Historia',
-    'Hobby',
-    'Humor',
-    'Jedzenie',
-    'Kraje świata',
-    'Muzyka',
-    'Nauka',
-    'Negatywne',
-    'Polityka',
-    'Prawo',
-    'Przyroda',
-    'Pytania i dyskusje',
-    'Shitpost',
-    'Spierdolenie',
-    'Sport',
-    'Sztuka',
-    'Technologie',
-    'Wsparcie',
-    'Wygląd i moda',
-    'Zwiedzanie'
-  ],
+  categories: null,
   selectedCategories: null
 })
 
@@ -32,13 +9,19 @@ export const getters = {
 }
 
 export const mutations = {
-  SET_CATEGORIES(state, selectedCategories) {
+  SET_CATEGORIES(state, categories) {
+    state.categories = categories
+  },
+  SET_SELECTEDCATEGORIES(state, selectedCategories) {
     state.selectedCategories = selectedCategories
   }
 }
 
 export const actions = {
-  SET_CATEGORIES({ commit }, selectedCategories) {
-    commit('SET_CATEGORIES', selectedCategories)
+  SET_CATEGORIES({ commit }, categories) {
+    commit('SET_CATEGORIES', categories)
+  },
+  SET_SELECTEDCATEGORIES({ commit }, selectedCategories) {
+    commit('SET_SELECTEDCATEGORIES', selectedCategories)
   }
 }
