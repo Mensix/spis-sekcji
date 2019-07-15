@@ -1,11 +1,6 @@
 export const state = () => ({
   columns: [
     {
-      name: 'Index',
-      label: '#',
-      align: 'left'
-    },
-    {
       name: 'Name',
       label: 'Nazwa',
       field: 'name',

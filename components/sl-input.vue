@@ -1,5 +1,9 @@
 <template>
-  <q-input v-model="input" color="secondary" :placeholder="placeholder" />
+  <q-input v-model="input" color="secondary" :placeholder="placeholder">
+    <template v-slot:append>
+      <q-icon name="search" />
+    </template>
+  </q-input>
 </template>
 
 <script>
