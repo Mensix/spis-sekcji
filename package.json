@@ -15,7 +15,7 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
     "nuxt": "^2.0.0",
-    "quasar": "^1.0.3"
+    "quasar": "^1.0.5"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^0.0.1",
@@ -23,7 +23,7 @@
     "babel-eslint": "^10.0.2",
     "eslint": "^5.15.1",
     "eslint-config-prettier": "^4.1.0",
-    "eslint-config-standard": ">=12.0.0",
+    "eslint-config-standard": "^13.0.1",
     "eslint-plugin-import": "^2.18.0",
     "eslint-plugin-jest": "^22.7.2",
     "eslint-plugin-node": ">=8.0.1",
