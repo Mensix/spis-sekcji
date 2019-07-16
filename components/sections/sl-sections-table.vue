@@ -28,7 +28,9 @@
     <template v-slot:body="props">
       <q-tr :class="{ 'bg-grey-2': props.row.members >= 10000 }" :props="props">
         <q-td key="Name" :props="props">
-          <sub class="text-grey">{{ props.row.__index + 1 }}</sub>
+          <span class="text-grey" style="font-size: 8px;">{{
+            props.row.__index + 1
+          }}</span>
           <span>{{ props.row.name }}</span>
         </q-td>
         <q-td key="Members" :props="props">
