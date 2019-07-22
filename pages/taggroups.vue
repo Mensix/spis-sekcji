@@ -1,14 +1,14 @@
 <template>
-  <sl-taggroups-table />
+  <taggroups-table />
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-import SlTaggroupsTable from '~/components/taggroups/sl-taggroups-table.vue'
+import TaggroupsTable from '~/components/ui/taggroups/taggroups-table.vue'
 export default {
   layout: 'layout',
   components: {
-    'sl-taggroups-table': SlTaggroupsTable
+    'taggroups-table': TaggroupsTable
   },
   computed: {
     ...mapGetters({ taggroups: 'taggroups/taggroups' })

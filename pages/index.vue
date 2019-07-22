@@ -1,14 +1,14 @@
 <template>
-  <sl-sections-table />
+  <sections-table />
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-import SlSectionsTable from '~/components/sections/sl-sections-table.vue'
+import SectionsTable from '~/components/ui/sections/sections-table.vue'
 export default {
   layout: 'layout',
   components: {
-    'sl-sections-table': SlSectionsTable
+    'sections-table': SectionsTable
   },
   computed: {
     ...mapGetters({ sections: 'sections/sections' })

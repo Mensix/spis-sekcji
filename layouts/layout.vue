@@ -1,25 +1,25 @@
 <template>
   <q-layout view="hHh lpR fff">
-    <sl-header />
+    <layout-header />
 
     <q-page-container>
-      <sl-info v-if="$q.screen.lt.md" />
+      <layout-info v-if="$q.screen.lt.md" />
       <nuxt />
     </q-page-container>
 
-    <sl-footer />
+    <layout-footer />
   </q-layout>
 </template>
 
 <script>
-import SlHeader from '~/components/sl-header.vue'
-import SlInfo from '~/components/sl-info.vue'
-import SlFooter from '~/components/sl-footer.vue'
+import LayoutHeader from '~/components/layout/layout-header.vue'
+import LayoutInfo from '~/components/layout/layout-info.vue'
+import LayoutFooter from '~/components/layout/layout-footer.vue'
 export default {
   components: {
-    'sl-header': SlHeader,
-    'sl-info': SlInfo,
-    'sl-footer': SlFooter
+    'layout-header': LayoutHeader,
+    'layout-info': LayoutInfo,
+    'layout-footer': LayoutFooter
   }
 }
 </script>
