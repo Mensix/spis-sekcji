@@ -26,15 +26,31 @@
     </template>
 
     <template v-slot:body="props">
-      <q-tr :class="{ 'bg-grey-2': props.row.members >= 10000 }" :props="props">
+      <q-tr
+        :class="{
+          'bg-grey-2': props.row.members >= 10000,
+          'bg-grey-4': props.row.members === '-'
+        }"
+        :props="props"
+      >
         <q-td key="Name" :props="props">
           <span class="text-grey" style="font-size: 8px;">{{
             props.row.__index + 1
           }}</span>
           <span>{{ props.row.name }}</span>
         </q-td>
-        <q-td key="Members" :props="props">
+        <q-td v-if="props.row.members !== '-'" key="Members" :props="props">
           <span>{{ props.row.members }}</span>
+        </q-td>
+        <q-td v-else key="Members" :props="props">
+          <span>-</span>
+          <q-tooltip content-class="bg-secondary" max-width="250px"
+            >Grupy mające liczbę członków wynoszącą <b>-</b> są
+            <u
+              >tajne, zaarchiwizowane, usunięte lub nie dosięgnął ich skrypt do
+              aktualizacji spisu</u
+            ></q-tooltip
+          >
         </q-td>
         <q-td key="Link" :props="props">
           <a :href="props.row.link" class="text-secondary" target="_blank">
