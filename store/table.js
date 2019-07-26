@@ -121,7 +121,7 @@ export const state = () => ({
     descending: true,
     page: 0,
     rowsPerPage: 0,
-    rowsCount: 0,
+    rowsCount: 0
   }
 })
 
