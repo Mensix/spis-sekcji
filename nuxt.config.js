@@ -10,11 +10,11 @@ export default {
         name: 'description',
         content: process.env.npm_package_description || ''
       },
-      { name: 'og:title', content: 'Spis Sekcji JBwA' },
+      { name: 'og:title', content: 'Spis Sekcji i tag-grupek JBwA' },
       {
         name: 'og:description',
         content:
-          'Na bieżąco aktualizowany największy spis sekcji JBwA i tag-grupek pod postacią eleganckiej strony internetowej.'
+          'Na bieżąco aktualizowany największy spis sekcji JBwA i tag-grupek pod postacią eleganckiej strony internetowej'
       },
       { name: 'og:type', content: 'website' },
       { name: 'og:url', content: 'https://sekcje.github.io/' },
