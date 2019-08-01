@@ -9,7 +9,16 @@ export default {
         hid: 'description',
         name: 'description',
         content: process.env.npm_package_description || ''
-      }
+      },
+      { name: 'og:title', content: 'Spis Sekcji i tag-grupek JBwA' },
+      {
+        name: 'og:description',
+        content:
+          'Na bieżąco aktualizowany największy spis sekcji JBwA i tag-grupek pod postacią eleganckiej strony internetowej'
+      },
+      { name: 'og:type', content: 'website' },
+      { name: 'og:url', content: 'https://sekcje.github.io/' },
+      { name: 'og:image', content: 'https://i.imgur.com/v4efulm.png' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
