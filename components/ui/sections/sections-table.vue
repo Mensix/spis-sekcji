@@ -17,6 +17,8 @@
     <template v-slot:top-left="props">
       <common-input placeholder="Wyszukiwarka sekcji" />
       <sections-combo />
+      <div class="q-mt-xs" />
+      <span>Autorzy: Grzegorz Perun & Daniel Nguyen</span>
     </template>
 
     <template v-slot:top-right="props">
