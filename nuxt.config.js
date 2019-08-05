@@ -10,15 +10,15 @@ export default {
         content:
           'Na bieżąco aktualizowany największy spis sekcji JBwA i tag-grupek pod postacią eleganckiej strony internetowej'
       },
-      { name: 'og:title', content: 'Spis Sekcji i tag-grupek JBwA' },
+      { property: 'og:title', content: 'Spis Sekcji i tag-grupek JBwA' },
       {
-        name: 'og:description',
+        property: 'og:description',
         content:
           'Na bieżąco aktualizowany największy spis sekcji JBwA i tag-grupek pod postacią eleganckiej strony internetowej'
       },
-      { name: 'og:type', content: 'website' },
-      { name: 'og:url', content: 'https://sekcje.github.io/' },
-      { name: 'og:image', content: 'https://i.imgur.com/v4efulm.png' }
+      { property: 'og:type', content: 'website' },
+      { property: 'og:url', content: 'https://sekcje.github.io/' },
+      { property: 'og:image', content: 'https://i.imgur.com/v4efulm.png' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
