@@ -8,7 +8,11 @@
     :data="
       selectedCategories === null || selectedCategories.length === 0
         ? sections
-        : sections.filter(x => selectedCategories.includes(x.category))
+        : sections.filter(x =>
+            Array.isArray(x.category)
+              ? selectedCategories.some(g => x.category.includes(g))
+              : selectedCategories.includes(x.category)
+          )
     "
     :filter="input"
     :filter-method="filterSections"
@@ -41,18 +45,8 @@
           }}</span>
           <span>{{ props.row.name }}</span>
         </q-td>
-        <q-td v-if="props.row.members !== '-'" key="Members" :props="props">
+        <q-td key="Members" :props="props">
           <span>{{ props.row.members }}</span>
-        </q-td>
-        <q-td v-else key="Members" :props="props">
-          <span>-</span>
-          <q-tooltip content-class="bg-secondary" max-width="250px"
-            >Grupy mające liczbę członków wynoszącą <b>-</b> są
-            <u
-              >tajne, zaarchiwizowane, usunięte lub nie dosięgnął ich skrypt do
-              aktualizacji spisu</u
-            ></q-tooltip
-          >
         </q-td>
         <q-td key="Link" :props="props">
           <a :href="props.row.link" class="text-secondary" target="_blank">
@@ -60,7 +54,11 @@
           </a>
         </q-td>
         <q-td key="Category" :props="props">
-          <span>{{ props.row.category }}</span>
+          <span>{{
+            !Array.isArray(props.row.category)
+              ? props.row.category
+              : props.row.category.join(', ')
+          }}</span>
         </q-td>
       </q-tr>
     </template>

@@ -21,7 +21,7 @@ export default {
         new Set(
           this.sections
             .map(x => x.category)
-            .filter(x => x !== null)
+            .filter(x => x !== null && !Array.isArray(x))
             .sort()
         )
       )
