@@ -1,16 +1,20 @@
 export default {
   mode: 'spa',
   head: {
-    title: 'Spis Sekcji JBwA',
+    title: 'Spis Sekcji JBwA i tag-grupek',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
+        name: 'title',
+        content: 'Spis Sekcji JBwA i tag-grupek'
+      },
+      {
         name: 'description',
         content:
-          'Na bieżąco aktualizowany największy spis sekcji JBwA i tag-grupek pod postacią eleganckiej strony internetowej'
+          'Na bieżąco aktualizowany największy spis sekcji JBwA i tag-grupek pod postacią eleganckiej strony internetowej.'
       },
-      { property: 'og:title', content: 'Spis Sekcji i tag-grupek JBwA' },
+      { property: 'og:title', content: 'Spis Sekcji JBwA i tag-grupek' },
       {
         property: 'og:description',
         content:
