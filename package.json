@@ -1,7 +1,7 @@
 {
-  "name": "betaspissekcji",
+  "name": "spissekcji",
   "version": "1.0.0",
-  "description": "Spis Sekcji Rewritten",
+  "description": "Spis Sekcji JBwA i tag-grupek",
   "author": "Mensix",
   "private": true,
   "scripts": {
