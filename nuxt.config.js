@@ -63,7 +63,7 @@ export default {
   },
   loading: { color: '#fff' },
   plugins: ['~/plugins/quasar', '~/plugins/quantcast'],
-  modules: [],
+  modules: [['@nuxtjs/google-tag-manager', { id: 'GTM-TSMWZ6P' }]],
   build: {
     filenames: {
       app: '[name].js',

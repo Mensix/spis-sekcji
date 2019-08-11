@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/google-tag-manager": "^2.2.1",
     "nuxt": "^2.0.0",
     "quasar": "^1.0.5"
   },
