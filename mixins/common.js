@@ -85,14 +85,13 @@ export default {
               Ї: 'JI',
               ї: 'ji'
             }
-            const transliterate = function(word) {
-              return word
+            const transliterate = word =>
+              word
                 .split('')
                 .map(function(char) {
                   return lettermap[char] || char
                 })
                 .join('')
-            }
             ;[a, b] = [a, b].map(s =>
               transliterate(s + '')
                 .toLowerCase()
