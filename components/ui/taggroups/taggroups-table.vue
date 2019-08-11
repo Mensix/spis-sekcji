@@ -4,6 +4,7 @@
     flat
     dense
     square
+    binary-state-sort
     :columns="columns"
     :visible-columns="['Name', 'Members', 'Link']"
     :data="taggroups"
