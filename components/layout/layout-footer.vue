@@ -14,17 +14,16 @@
           <a
             href="http://akapedia.pl/Jak_b%C4%99dzie_w_akapie%3F"
             class="text-white"
-            >spis sekcji na Akapedii</a
+            >spis sekcji na Akapedii.</a
           >
         </div>
         <div class="text-caption text-center" style="white-space: normal;">
-          Ta strona używa Google Analytics w celu gromadzenia informacji nt.
-          wykorzystywania tej strony przez użytkowników.
-          <a
-            href="https://google.com/policies/privacy/partners/"
-            class="text-white"
-            >Dowiedz się więcej</a
-          >
+          Ta strona używa plików cookies w celu prowadzenia statystyk wyświetleń
+          strony za pomocą Google Analytics.
+        </div>
+        <div class="text-caption text-center" style="white-space: normal;">
+          Wszelkie zbierane statystyki są anonimowe i nie są udostępniane
+          podmiotom trzecim.
         </div>
         <div class="q-pb-md" />
         <q-separator dark inset />
@@ -53,14 +52,6 @@
               style="font-size: 48px; color: #FFF;"
             />
           </a>
-        </div>
-        <div class="q-pb-md" />
-        <div class="text-caption text-center" style="white-space: normal;">
-          <a
-            href="javascript:window.__cmp('displayConsentUi')"
-            class="text-white"
-            >Ustawienia prywatności</a
-          >
         </div>
         <div class="q-pt-md" />
       </q-toolbar-title>

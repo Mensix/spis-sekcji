@@ -51,19 +51,24 @@ export default {
         type: 'text/css',
         href: 'https://cdn.jsdelivr.net/npm/quasar@1.0.5/dist/quasar.min.css'
       }
-    ],
-    body: {
-      script: [
-        {
-          src:
-            'https://cdn.jsdelivr.net/npm/quasar@1.0.5/dist/quasar.umd.min.js'
-        }
-      ]
-    }
+    ]
   },
   loading: { color: '#fff' },
-  plugins: ['~/plugins/quasar', '~/plugins/quantcast'],
-  modules: [['@nuxtjs/google-tag-manager', { id: 'GTM-TSMWZ6P' }]],
+  plugins: ['~/plugins/quasar'],
+  modules: [
+    [
+      '@nuxtjs/google-analytics',
+      {
+        id: 'UA-140414002-1',
+        debug: {
+          enabled: false,
+          trace: false,
+          sendHitTask: true
+        },
+        set: [{ field: 'anonymizeIp', value: true }]
+      }
+    ]
+  ],
   build: {
     filenames: {
       app: '[name].js',
