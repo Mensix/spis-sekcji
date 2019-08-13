@@ -10,6 +10,8 @@
       <q-separator dark vertical />
       <q-btn flat label="Tag-grupki" @click="$router.push('/taggroups')" />
       <q-separator dark vertical />
+      <q-btn flat label="Hades" @click="$router.push('/dead')" />
+      <q-separator dark vertical />
     </q-toolbar>
   </q-header>
 </template>
