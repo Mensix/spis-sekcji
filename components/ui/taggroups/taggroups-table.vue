@@ -32,6 +32,25 @@
       Ostatnia aktualizacja: {{ lastUpdateDate }}
     </template>
 
+    <template v-slot:top-row>
+      <q-tr>
+        <q-td key="Name">
+          <span><b>Sekcja mniej nostalgiczna (2016)</b></span>
+        </q-td>
+        <q-td key="Members">
+          <span><b>Zapraszamy! :)</b></span>
+        </q-td>
+        <q-td key="Link">
+          <a
+            href="https://facebook.com/groups/2715767105118248"
+            class="text-secondary"
+            target="_blank"
+            ><b>/2715767105118248</b></a
+          >
+        </q-td>
+      </q-tr>
+    </template>
+
     <template v-slot:body="props">
       <q-tr :class="{ 'bg-grey-2': props.row.members >= 10000 }" :props="props">
         <q-td key="Name" :props="props">

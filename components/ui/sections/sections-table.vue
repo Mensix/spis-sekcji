@@ -47,6 +47,28 @@
       Ostatnia aktualizacja: {{ lastUpdateDate }}
     </template>
 
+    <template v-slot:top-row>
+      <q-tr>
+        <q-td key="Name">
+          <span><b>Sekcja mniej nostalgiczna (2016)</b></span>
+        </q-td>
+        <q-td key="Members">
+          <span><b>Zapraszamy! :)</b></span>
+        </q-td>
+        <q-td key="Link">
+          <a
+            href="https://facebook.com/groups/2715767105118248"
+            class="text-secondary"
+            target="_blank"
+            ><b>/2715767105118248</b></a
+          >
+        </q-td>
+        <q-td key="Category">
+          <span><b>Roleplay</b></span>
+        </q-td>
+      </q-tr>
+    </template>
+
     <template v-slot:body="props">
       <q-tr
         :class="{
