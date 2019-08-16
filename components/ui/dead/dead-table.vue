@@ -112,7 +112,7 @@ export default {
       new Set(
         this.deadgroups
           .map(x => x.category)
-          .filter(x => x !== null && x !== 'Zapraszamy! :)')
+          .filter(x => x !== 'Zapraszamy! :)')
           .sort()
       )
     )
