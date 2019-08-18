@@ -92,9 +92,7 @@ export default {
       .then(output => JSON.parse(output.files['taggroups.json'].content))
       .then(output => {
         this.taggroups = Array.from(
-          output.taggroups.sort((a, b) =>
-            a.members > b.members ? 1 : b.members > a.members ? -1 : 0
-          )
+          output.taggroups.sort((a, b) => b.members - a.members)
         )
         this.lastUpdateDate = output.lastUpdateDate
       })

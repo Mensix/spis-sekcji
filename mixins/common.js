@@ -118,8 +118,6 @@ export default {
         }
       ],
       pagination: {
-        sortBy: 'Members',
-        descending: true,
         page: 0,
         rowsPerPage: 0,
         rowsCount: 0
