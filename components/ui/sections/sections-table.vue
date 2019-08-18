@@ -121,7 +121,11 @@ export default {
       .then(response => response.json())
       .then(output => JSON.parse(output.files['sections.json'].content))
       .then(output => {
-        this.sections = Array.from(output.sections)
+        this.sections = Array.from(
+          output.sections.sort((a, b) =>
+            a.members > b.members ? 1 : b.members > a.members ? -1 : 0
+          )
+        )
         this.lastUpdateDate = output.lastUpdateDate
       })
     this.categories = Array.from(
