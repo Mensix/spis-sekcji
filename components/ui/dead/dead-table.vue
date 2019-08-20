@@ -7,7 +7,7 @@
     binary-state-sort
     :columns="columns"
     :data="
-      selectedCategories === null || selectedCategories.length === 0
+      selectedCategories.length === 0
         ? deadgroups
         : deadgroups.filter(x => selectedCategories.includes(x.category))
     "
@@ -89,8 +89,8 @@ export default {
       deadgroups: [],
       lastUpdateDate: null,
       input: null,
-      categories: null,
-      selectedCategories: null,
+      categories: [],
+      selectedCategories: [],
       pagination: {
         sortBy: 'Name',
         descending: false,

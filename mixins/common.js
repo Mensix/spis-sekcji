@@ -88,9 +88,7 @@ export default {
             const transliterate = word =>
               word
                 .split('')
-                .map(function(char) {
-                  return lettermap[char] || char
-                })
+                .map(char => lettermap[char] || char)
                 .join('')
             ;[a, b] = [a, b].map(s =>
               transliterate(s + '')

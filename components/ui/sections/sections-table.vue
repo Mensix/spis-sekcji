@@ -7,7 +7,7 @@
     binary-state-sort
     :columns="columns"
     :data="
-      selectedCategories === null || selectedCategories.length === 0
+      selectedCategories.length === 0
         ? sections
         : sections.filter(x =>
             Array.isArray(x.category)
@@ -111,8 +111,8 @@ export default {
     return {
       sections: [],
       lastUpdateDate: null,
-      categories: null,
-      selectedCategories: null,
+      categories: [],
+      selectedCategories: [],
       input: null
     }
   },
