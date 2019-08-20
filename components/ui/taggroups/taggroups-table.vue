@@ -52,7 +52,7 @@
     </template>
 
     <template v-slot:body="props">
-      <q-tr :class="{ 'bg-grey-2': props.row.members >= 10000 }" :props="props">
+      <q-tr :class="{ 'bg-grey-3': props.row.members >= 10000 }" :props="props">
         <q-td key="Name" :props="props">
           <span class="text-grey" style="font-size: 8px;">{{
             props.row.__index + 1

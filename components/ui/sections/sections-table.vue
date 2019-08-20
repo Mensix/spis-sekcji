@@ -72,8 +72,7 @@
     <template v-slot:body="props">
       <q-tr
         :class="{
-          'bg-grey-2': props.row.members >= 10000,
-          'bg-grey-4': props.row.members === '-'
+          'bg-grey-3': props.row.members >= 10000
         }"
         :props="props"
       >
