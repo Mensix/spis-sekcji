@@ -7,7 +7,7 @@ import DeadTable from '~/components/ui/dead/dead-table.vue'
 export default {
   layout: 'layout',
   components: {
-    'dead-table': DeadTable
+    DeadTable
   }
 }
 </script>

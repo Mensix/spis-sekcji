@@ -7,7 +7,7 @@ import SectionsTable from '~/components/ui/sections/sections-table.vue'
 export default {
   layout: 'layout',
   components: {
-    'sections-table': SectionsTable
+    SectionsTable
   }
 }
 </script>

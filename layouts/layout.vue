@@ -17,9 +17,9 @@ import LayoutInfo from '~/components/layout/layout-info.vue'
 import LayoutFooter from '~/components/layout/layout-footer.vue'
 export default {
   components: {
-    'layout-header': LayoutHeader,
-    'layout-info': LayoutInfo,
-    'layout-footer': LayoutFooter
+    LayoutHeader,
+    LayoutInfo,
+    LayoutFooter
   }
 }
 </script>
