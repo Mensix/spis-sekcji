@@ -38,9 +38,14 @@
     </template>
 
     <template v-slot:top-right="props">
-      Liczba sekcji w spisie: {{ deadgroups.length }}
-      <br />
-      Ostatnia aktualizacja: {{ lastUpdateDate }}
+      <div v-if="deadgroups.length !== 0">
+        <span>Liczba sekcji w spisie: {{ deadgroups.length }}</span>
+        <br />
+        <span>Ostatnia aktualizacja: {{ lastUpdateDate }}</span>
+      </div>
+      <div v-else>
+        <span>Ładowanie..</span>
+      </div>
     </template>
 
     <template v-slot:top-row>

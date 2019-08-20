@@ -42,9 +42,14 @@
     </template>
 
     <template v-slot:top-right="props">
-      Liczba sekcji w spisie: {{ sections.length }}
-      <br />
-      Ostatnia aktualizacja: {{ lastUpdateDate }}
+      <div v-if="sections.length !== 0">
+        <span>Liczba sekcji w spisie: {{ sections.length }}</span>
+        <br />
+        <span>Ostatnia aktualizacja: {{ lastUpdateDate }}</span>
+      </div>
+      <div v-else>
+        <span>Ładowanie..</span>
+      </div>
     </template>
 
     <template v-slot:top-row>

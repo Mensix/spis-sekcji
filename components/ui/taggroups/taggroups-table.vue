@@ -27,9 +27,14 @@
     </template>
 
     <template v-slot:top-right="props">
-      Liczba tag-grupek w spisie: {{ taggroups.length }}
-      <br />
-      Ostatnia aktualizacja: {{ lastUpdateDate }}
+      <div v-if="taggroups.length !== 0">
+        <span>Liczba tag-grupek w spisie: {{ taggroups.length }}</span>
+        <br />
+        <span>Ostatnia aktualizacja: {{ lastUpdateDate }}</span>
+      </div>
+      <div v-else>
+        <span>Ładowanie..</span>
+      </div>
     </template>
 
     <template v-slot:top-row>
