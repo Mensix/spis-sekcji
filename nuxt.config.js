@@ -77,6 +77,14 @@ export default {
       img: '[path][name].[ext]',
       font: '[path][name].[ext]',
       video: '[path][name].[ext]'
+    },
+    extend(config) {
+      config.module.rules.push({
+        enforce: 'pre',
+        test: /\.(js|vue)$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader'
+      })
     }
   }
 }
