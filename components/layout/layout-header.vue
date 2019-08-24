@@ -1,6 +1,6 @@
 <template>
   <q-header>
-    <q-toolbar class=" bg-secondary__gradient text-white shadow-2">
+    <q-toolbar class="bg-secondary__gradient text-white shadow-2">
       <q-icon name="fas fa-list" style="font-size: 21px;" />
       <q-toolbar-title>Spis Sekcji</q-toolbar-title>
       <q-space />
