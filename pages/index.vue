@@ -1,15 +1,13 @@
 <template>
-  <sections-mobile-table v-if="$q.screen.lt.md" /><sections-table v-else />
+  <sections-table />
 </template>
 
 <script>
-import SectionsMobileTable from '../components/ui/sections/sections-mobile-table.vue'
-import SectionsTable from '~/components/ui/sections/sections-table.vue'
+import SectionsTable from '~/components/ui/sections/sections-table'
 export default {
   layout: 'layout',
   components: {
-    SectionsTable,
-    SectionsMobileTable
+    SectionsTable
   }
 }
 </script>

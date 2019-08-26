@@ -1,11 +1,14 @@
 <template>
   <q-table
-    hide-bottom
     flat
     dense
     square
     binary-state-sort
+    :loading="loading"
+    :loading-label="null"
     :columns="columns"
+    :grid="isMobileDevice"
+    :rows-per-page-options="[20, 50, 100, 150, 200, 250]"
     :data="
       selectedCategories.length === 0
         ? sections
@@ -24,6 +27,8 @@
         v-model="input"
         color="secondary"
         placeholder="Wyszukiwarka sekcji"
+        dense
+        debounce="250"
       >
         <template v-slot:append>
           <q-icon name="search" />
@@ -33,45 +38,20 @@
         v-model="selectedCategories"
         color="secondary"
         multiple
+        dense
+        options-dense
         label="Pokaż kategorie"
         options-selected-class="text-secondary"
         :options="categories"
       />
       <div class="q-mt-xs" />
       <span>Autorzy: Grzegorz Perun & Daniel Nguyen</span>
-    </template>
-
-    <template v-slot:top-right="props">
       <div v-if="sections.length !== 0">
-        <span>Liczba sekcji w spisie: {{ sections.length }}</span>
-        <br />
         <span>Ostatnia aktualizacja: {{ lastUpdateDate }}</span>
       </div>
       <div v-else>
         <span>Ładowanie..</span>
       </div>
-    </template>
-
-    <template v-slot:top-row>
-      <q-tr>
-        <q-td key="Name">
-          <span><b>Sekcja mniej nostalgiczna (2016)</b></span>
-        </q-td>
-        <q-td key="Members">
-          <span><b>Zapraszamy! :)</b></span>
-        </q-td>
-        <q-td key="Link">
-          <a
-            href="https://facebook.com/groups/2715767105118248"
-            class="text-secondary"
-            target="_blank"
-            ><b>/2715767105118248</b></a
-          >
-        </q-td>
-        <q-td key="Category">
-          <span><b>Roleplay</b></span>
-        </q-td>
-      </q-tr>
     </template>
 
     <template v-slot:body="props">
@@ -82,27 +62,74 @@
         :props="props"
       >
         <q-td key="Name" :props="props">
-          <span class="text-grey" style="font-size: 8px;">{{
-            props.row.__index + 1
-          }}</span>
+          <span class="text-grey" style="font-size: 8px;">
+            {{ props.row.__index + 1 }}
+          </span>
           <span>{{ props.row.name }}</span>
         </q-td>
         <q-td key="Members" :props="props">
           <span>{{ props.row.members }}</span>
         </q-td>
         <q-td key="Link" :props="props">
-          <a :href="props.row.link" class="text-secondary" target="_blank">
-            {{ props.row.link.replace('https://facebook.com/groups', '') }}
-          </a>
+          <a :href="props.row.link" class="text-secondary" target="_blank">{{
+            props.row.link.replace('https://facebook.com/groups', '')
+          }}</a>
         </q-td>
         <q-td key="Category" :props="props">
-          <span>{{
-            !Array.isArray(props.row.category)
-              ? props.row.category
-              : props.row.category.join(', ')
-          }}</span>
+          <span>
+            {{
+              !Array.isArray(props.row.category)
+                ? props.row.category
+                : props.row.category.join(', ')
+            }}
+          </span>
         </q-td>
       </q-tr>
+    </template>
+
+    <template v-slot:item="props">
+      <div class="col-12">
+        <q-card flat class="q-pb-md" :props="props">
+          <q-list dense>
+            <q-item>
+              <q-item-section>
+                <q-item-label caption>{{ props.cols[0].label }}</q-item-label>
+                <q-item-label>
+                  <span class="text-grey" style="font-size: 10px;"
+                    >{{ props.row.__index + 1 }}&nbsp;</span
+                  >
+                  {{ props.cols[0].value }}
+                </q-item-label>
+                <q-item-label caption>{{ props.cols[1].label }}</q-item-label>
+                <q-item-label>{{ props.cols[1].value }}</q-item-label>
+                <q-item-label caption>{{ props.cols[2].label }}</q-item-label>
+                <q-item-label>
+                  <a
+                    :href="props.cols[2].value"
+                    class="text-secondary"
+                    target="_blank"
+                  >
+                    {{
+                      props.cols[2].value.replace(
+                        'https://facebook.com/groups',
+                        ''
+                      )
+                    }}
+                  </a>
+                </q-item-label>
+                <q-item-label caption>{{ props.cols[3].label }}</q-item-label>
+                <q-item-label>
+                  {{
+                    !Array.isArray(props.cols[3].value)
+                      ? props.cols[3].value
+                      : props.cols[3].value.join(', ')
+                  }}
+                </q-item-label>
+              </q-item-section>
+            </q-item>
+          </q-list>
+        </q-card>
+      </div>
     </template>
   </q-table>
 </template>
@@ -113,6 +140,7 @@ export default {
   mixins: [common],
   data() {
     return {
+      loading: true,
       sections: [],
       lastUpdateDate: null,
       categories: [],
@@ -120,8 +148,13 @@ export default {
       input: null
     }
   },
-  async mounted() {
-    await fetch('https://api.github.com/gists/2c9b9e0c06b6efa6e0f78584ec37b5fb')
+  computed: {
+    isMobileDevice() {
+      return this.$q.screen.lt.md
+    }
+  },
+  mounted() {
+    fetch('https://api.github.com/gists/2c9b9e0c06b6efa6e0f78584ec37b5fb')
       .then(response => response.json())
       .then(output => JSON.parse(output.files['sections.json'].content))
       .then(output => {
@@ -130,14 +163,18 @@ export default {
         )
         this.lastUpdateDate = output.lastUpdateDate
       })
-    this.categories = Array.from(
-      new Set(
-        this.sections
-          .map(x => x.category)
-          .filter(x => x !== null && !Array.isArray(x))
-          .sort()
+      .then(
+        callback =>
+          (this.categories = Array.from(
+            new Set(
+              this.sections
+                .map(x => x.category)
+                .filter(x => x !== null && !Array.isArray(x))
+                .sort()
+            )
+          ))
       )
-    )
+      .then(calback => (this.loading = false))
   }
 }
 </script>

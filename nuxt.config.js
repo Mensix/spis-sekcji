@@ -56,7 +56,7 @@ export default {
       }
     ]
   },
-  css: ['~/assets/css/fix-scroll.css'],
+  css: ['~/assets/css/tweaks.css'],
   loading: { color: '#fff' },
   plugins: ['~/plugins/quasar'],
   modules: [

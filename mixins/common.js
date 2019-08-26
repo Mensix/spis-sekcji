@@ -117,7 +117,7 @@ export default {
       ],
       pagination: {
         page: 0,
-        rowsPerPage: 0,
+        rowsPerPage: 20,
         rowsCount: 0
       }
     }

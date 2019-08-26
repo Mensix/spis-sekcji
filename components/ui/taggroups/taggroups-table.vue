@@ -1,12 +1,14 @@
 <template>
   <q-table
-    hide-bottom
     flat
     :grid="$q.screen.lt.md"
     dense
     square
     binary-state-sort
+    :loading="loading"
+    :loading-label="null"
     :columns="columns"
+    :rows-per-page-options="[20, 50, 100, 150, 200, 250]"
     :visible-columns="['Name', 'Members', 'Link']"
     :data="taggroups"
     :filter="input"
@@ -18,6 +20,8 @@
         v-model="input"
         color="secondary"
         placeholder="Wyszukiwarka tag-grupek"
+        dense
+        debounce="250"
       >
         <template v-slot:append>
           <q-icon name="search" />
@@ -25,36 +29,12 @@
       </q-input>
       <div class="q-mt-xs" />
       <span>Autorzy: Grzegorz Perun & Daniel Nguyen</span>
-    </template>
-
-    <template v-slot:top-right="props">
       <div v-if="taggroups.length !== 0">
-        <span>Liczba tag-grupek w spisie: {{ taggroups.length }}</span>
-        <br />
         <span>Ostatnia aktualizacja: {{ lastUpdateDate }}</span>
       </div>
       <div v-else>
         <span>Ładowanie..</span>
       </div>
-    </template>
-
-    <template v-slot:top-row>
-      <q-tr>
-        <q-td key="Name">
-          <span><b>Sekcja mniej nostalgiczna (2016)</b></span>
-        </q-td>
-        <q-td key="Members">
-          <span><b>Zapraszamy! :)</b></span>
-        </q-td>
-        <q-td key="Link">
-          <a
-            href="https://facebook.com/groups/2715767105118248"
-            class="text-secondary"
-            target="_blank"
-            ><b>/2715767105118248</b></a
-          >
-        </q-td>
-      </q-tr>
     </template>
 
     <template v-slot:body="props">
@@ -78,6 +58,42 @@
         </q-td>
       </q-tr>
     </template>
+
+    <template v-slot:item="props">
+      <div class="col-12">
+        <q-card flat class="q-pb-md" :props="props">
+          <q-list dense>
+            <q-item>
+              <q-item-section>
+                <q-item-label caption>{{ props.cols[0].label }}</q-item-label>
+                <q-item-label
+                  ><span class="text-grey" style="font-size: 10px;"
+                    >{{ props.row.__index + 1 }}&nbsp;</span
+                  >{{ props.cols[0].value }}</q-item-label
+                >
+                <q-item-label caption>{{ props.cols[1].label }}</q-item-label>
+                <q-item-label>{{ props.cols[1].value }}</q-item-label>
+                <q-item-label caption>{{ props.cols[2].label }}</q-item-label>
+                <q-item-label>
+                  <a
+                    :href="props.cols[2].value"
+                    class="text-secondary"
+                    target="_blank"
+                  >
+                    {{
+                      props.cols[2].value.replace(
+                        'https://facebook.com/groups',
+                        ''
+                      )
+                    }}
+                  </a></q-item-label
+                >
+              </q-item-section>
+            </q-item>
+          </q-list>
+        </q-card>
+      </div>
+    </template>
   </q-table>
 </template>
 
@@ -87,9 +103,15 @@ export default {
   mixins: [common],
   data() {
     return {
+      loading: true,
       taggroups: [],
       lastUpdateDate: null,
       input: null
+    }
+  },
+  computed: {
+    isMobileDevice() {
+      return this.$q.screen.lt.md
     }
   },
   async mounted() {
@@ -102,6 +124,7 @@ export default {
         )
         this.lastUpdateDate = output.lastUpdateDate
       })
+      .then(callback => (this.loading = false))
   }
 }
 </script>
