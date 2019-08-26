@@ -41,7 +41,11 @@
             <q-item>
               <q-item-section>
                 <q-item-label caption>{{ props.cols[0].label }}</q-item-label>
-                <q-item-label>{{ props.cols[0].value }}</q-item-label>
+                <q-item-label
+                  ><span class="text-grey" style="font-size: 10px;"
+                    >{{ props.row.__index + 1 }}&nbsp;</span
+                  >{{ props.cols[0].value }}</q-item-label
+                >
                 <q-item-label caption>{{ props.cols[1].label }}</q-item-label>
                 <q-item-label>{{ props.cols[1].value }}</q-item-label>
                 <q-item-label caption>{{ props.cols[2].label }}</q-item-label>
@@ -76,14 +80,7 @@ export default {
     return {
       taggroups: [],
       lastUpdateDate: null,
-      input: null,
-      pagination: {
-        sortBy: 'Name',
-        descending: false,
-        page: 0,
-        rowsPerPage: 0,
-        rowsCount: 0
-      }
+      input: null
     }
   },
   async mounted() {
