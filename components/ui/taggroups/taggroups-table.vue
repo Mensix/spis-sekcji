@@ -2,6 +2,7 @@
   <q-table
     hide-bottom
     flat
+    :grid="$q.screen.lt.md"
     dense
     square
     binary-state-sort

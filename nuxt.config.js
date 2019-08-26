@@ -4,7 +4,10 @@ export default {
     title: 'Spis Sekcji JBwA i tag-grupek',
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      {
+        name: 'viewport',
+        content: 'width=device-width, initial-scale=1, user-scalable=no'
+      },
       {
         name: 'title',
         content: 'Spis Sekcji JBwA i tag-grupek'
@@ -53,6 +56,7 @@ export default {
       }
     ]
   },
+  css: ['~/assets/css/fix-scroll.css'],
   loading: { color: '#fff' },
   plugins: ['~/plugins/quasar'],
   modules: [

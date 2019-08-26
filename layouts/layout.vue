@@ -3,7 +3,6 @@
     <layout-header />
 
     <q-page-container>
-      <layout-info v-if="$q.screen.lt.md" />
       <nuxt />
     </q-page-container>
 
@@ -13,12 +12,10 @@
 
 <script>
 import LayoutHeader from '~/components/layout/layout-header.vue'
-import LayoutInfo from '~/components/layout/layout-info.vue'
 import LayoutFooter from '~/components/layout/layout-footer.vue'
 export default {
   components: {
     LayoutHeader,
-    LayoutInfo,
     LayoutFooter
   }
 }
