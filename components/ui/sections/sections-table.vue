@@ -8,7 +8,7 @@
     :loading-label="null"
     :columns="columns"
     :grid="isMobileDevice"
-    :rows-per-page-options="[20, 50, 100, 150, 200, 250]"
+    :rows-per-page-options="[20, 50, 100, 150, 200, 250, 0]"
     :data="
       selectedCategories.length === 0
         ? sections
