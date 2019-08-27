@@ -32,9 +32,6 @@
       <div v-if="taggroups.length !== 0">
         <span>Ostatnia aktualizacja: {{ lastUpdateDate }}</span>
       </div>
-      <div v-else>
-        <span>Ładowanie..</span>
-      </div>
     </template>
 
     <template v-slot:body="props">
