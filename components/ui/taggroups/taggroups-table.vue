@@ -40,6 +40,11 @@
           <span class="text-grey" style="font-size: 8px;">{{
             props.row.__index + 1
           }}</span>
+          <q-icon
+            v-if="props.row.members >= 10000"
+            name="star"
+            color="secondary"
+          />
           <span>{{ props.row.name }}</span>
         </q-td>
         <q-td key="Members" :props="props">
