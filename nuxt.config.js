@@ -13,6 +13,10 @@ export default {
         content: 'Spis Sekcji JBwA i tag-grupek'
       },
       {
+        name: 'theme-color',
+        content: '#26a69a'
+      },
+      {
         name: 'description',
         content:
           'Na bieżąco aktualizowany największy spis sekcji JBwA i tag-grupek pod postacią eleganckiej strony internetowej.'

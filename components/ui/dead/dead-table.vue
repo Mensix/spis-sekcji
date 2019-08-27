@@ -110,8 +110,6 @@ export default {
   data() {
     return {
       deadgroups: [],
-      lastUpdateDate: null,
-      input: null,
       categories: [],
       selectedCategories: [],
       pagination: {
@@ -123,13 +121,8 @@ export default {
       }
     }
   },
-  computed: {
-    isMobileDevice() {
-      return this.$q.screen.lt.md
-    }
-  },
-  async mounted() {
-    await fetch('https://api.github.com/gists/2a158f92e7a6f17bf7cc01a90aeed33e')
+  mounted() {
+    fetch('https://api.github.com/gists/2a158f92e7a6f17bf7cc01a90aeed33e')
       .then(response => response.json())
       .then(output => JSON.parse(output.files['deadgroups.json'].content))
       .then(output => {

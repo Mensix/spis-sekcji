@@ -148,11 +148,6 @@ export default {
       input: null
     }
   },
-  computed: {
-    isMobileDevice() {
-      return this.$q.screen.lt.md
-    }
-  },
   mounted() {
     fetch('https://api.github.com/gists/2c9b9e0c06b6efa6e0f78584ec37b5fb')
       .then(response => response.json())

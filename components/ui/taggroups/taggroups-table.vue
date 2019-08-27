@@ -109,13 +109,8 @@ export default {
       input: null
     }
   },
-  computed: {
-    isMobileDevice() {
-      return this.$q.screen.lt.md
-    }
-  },
-  async mounted() {
-    await fetch('https://api.github.com/gists/9c2ddd305a04e353e29bc65ea403bcfb')
+  mounted() {
+    fetch('https://api.github.com/gists/9c2ddd305a04e353e29bc65ea403bcfb')
       .then(response => response.json())
       .then(output => JSON.parse(output.files['taggroups.json'].content))
       .then(output => {

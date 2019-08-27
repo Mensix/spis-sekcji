@@ -119,7 +119,14 @@ export default {
         page: 0,
         rowsPerPage: 20,
         rowsCount: 0
-      }
+      },
+      lastUpdateDate: null,
+      input: null
+    }
+  },
+  computed: {
+    isMobileDevice() {
+      return this.$q.screen.lt.md
     }
   },
   methods: {
