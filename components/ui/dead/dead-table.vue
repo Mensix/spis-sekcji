@@ -41,12 +41,7 @@
       />
       <div class="q-mt-xs" />
       <span>Autorzy: Grzegorz Perun & Daniel Nguyen</span>
-    </template>
-
-    <template v-slot:top-right="props">
       <div v-if="deadgroups.length !== 0">
-        <span>Liczba sekcji w spisie: {{ deadgroups.length }}</span>
-        <br />
         <span>Ostatnia aktualizacja: {{ lastUpdateDate }}</span>
       </div>
       <div v-else>
