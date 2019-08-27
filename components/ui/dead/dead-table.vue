@@ -7,6 +7,7 @@
     binary-state-sort
     hide-bottom
     :columns="columns"
+    :loading="loading"
     :data="
       selectedCategories.length === 0
         ? deadgroups
@@ -122,9 +123,8 @@ export default {
     }
   },
   mounted() {
-    fetch('https://api.github.com/gists/2a158f92e7a6f17bf7cc01a90aeed33e')
+    fetch('https://spissekcji.firebaseio.com/deadgroups.json')
       .then(response => response.json())
-      .then(output => JSON.parse(output.files['deadgroups.json'].content))
       .then(output => {
         this.deadgroups = Array.from(output.deadgroups)
         this.lastUpdateDate = output.lastUpdateDate
@@ -135,6 +135,7 @@ export default {
             new Set(this.deadgroups.map(x => x.category).sort())
           ))
       )
+      .then(callback => (this.loading = false))
   }
 }
 </script>

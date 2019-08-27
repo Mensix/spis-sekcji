@@ -103,16 +103,12 @@ export default {
   mixins: [common],
   data() {
     return {
-      loading: true,
-      taggroups: [],
-      lastUpdateDate: null,
-      input: null
+      taggroups: []
     }
   },
   mounted() {
-    fetch('https://api.github.com/gists/9c2ddd305a04e353e29bc65ea403bcfb')
+    fetch('https://spissekcji.firebaseio.com/taggroups.json')
       .then(response => response.json())
-      .then(output => JSON.parse(output.files['taggroups.json'].content))
       .then(output => {
         this.taggroups = Array.from(
           output.taggroups.sort((a, b) => b.members - a.members)

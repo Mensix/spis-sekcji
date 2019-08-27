@@ -140,18 +140,14 @@ export default {
   mixins: [common],
   data() {
     return {
-      loading: true,
       sections: [],
-      lastUpdateDate: null,
       categories: [],
-      selectedCategories: [],
-      input: null
+      selectedCategories: []
     }
   },
   mounted() {
-    fetch('https://api.github.com/gists/2c9b9e0c06b6efa6e0f78584ec37b5fb')
+    fetch('https://spissekcji.firebaseio.com/sections.json')
       .then(response => response.json())
-      .then(output => JSON.parse(output.files['sections.json'].content))
       .then(output => {
         this.sections = Array.from(
           output.sections.sort((a, b) => b.members - a.members)

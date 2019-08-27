@@ -121,7 +121,8 @@ export default {
         rowsCount: 0
       },
       lastUpdateDate: null,
-      input: null
+      input: null,
+      loading: true
     }
   },
   computed: {
