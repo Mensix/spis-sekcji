@@ -14,7 +14,7 @@ export default {
       },
       {
         name: 'theme-color',
-        content: '#26a69a'
+        content: '#114d47'
       },
       {
         name: 'description',
