@@ -6,30 +6,47 @@ export default {
       { charset: 'utf-8' },
       {
         name: 'viewport',
-        content: 'width=device-width, initial-scale=1, user-scalable=no'
+        content: 'width=device-width, initial-scale=1, user-scalable=no',
+        hid: 'viewport'
       },
       {
         name: 'title',
-        content: 'Spis Sekcji JBwA i tag-grupek'
+        content: 'Spis Sekcji JBwA i tag-grupek',
+        hid: 'title'
       },
       {
         name: 'theme-color',
-        content: '#114d47'
+        content: '#114d47',
+        hid: 'theme-color'
       },
       {
         name: 'description',
         content:
-          'Na bieżąco aktualizowany największy spis sekcji JBwA i tag-grupek pod postacią eleganckiej strony internetowej.'
+          'Na bieżąco aktualizowany największy spis sekcji JBwA i tag-grupek pod postacią eleganckiej strony internetowej.',
+        hid: 'description'
       },
-      { property: 'og:title', content: 'Spis Sekcji JBwA i tag-grupek' },
+      {
+        property: 'og:title',
+        content: 'Spis Sekcji JBwA i tag-grupek',
+        hid: 'og:title'
+      },
       {
         property: 'og:description',
         content:
-          'Na bieżąco aktualizowany największy spis sekcji JBwA i tag-grupek pod postacią eleganckiej strony internetowej'
+          'Na bieżąco aktualizowany największy spis sekcji JBwA i tag-grupek pod postacią eleganckiej strony internetowej',
+        hid: 'og:description'
       },
-      { property: 'og:type', content: 'website' },
-      { property: 'og:url', content: 'https://sekcje.github.io/' },
-      { property: 'og:image', content: 'https://i.imgur.com/v4efulm.png' }
+      { property: 'og:type', content: 'website', hid: 'og:type' },
+      {
+        property: 'og:url',
+        content: 'https://sekcje.github.io/',
+        hid: 'og:url'
+      },
+      {
+        property: 'og:image',
+        content: 'https://i.imgur.com/v4efulm.png',
+        hid: 'og:image'
+      }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
