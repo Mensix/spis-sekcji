@@ -159,13 +159,16 @@ export default {
           (this.categories = Array.from(
             new Set(
               this.sections
+                .filter(x =>
+                  Object.prototype.hasOwnProperty.call(x, 'category')
+                )
+                .filter(x => !Array.isArray(x.category))
                 .map(x => x.category)
-                .filter(x => x !== null && !Array.isArray(x))
                 .sort()
             )
           ))
       )
-      .then(calback => (this.loading = false))
+      .then(callback => (this.loading = false))
   }
 }
 </script>
