@@ -73,7 +73,7 @@ export default {
       {
         rel: 'stylesheet',
         type: 'text/css',
-        href: 'https://cdn.jsdelivr.net/npm/quasar@1.0.5/dist/quasar.min.css'
+        href: 'https://cdn.jsdelivr.net/npm/quasar@1.1.0/dist/quasar.min.css'
       }
     ]
   },
