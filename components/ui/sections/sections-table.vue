@@ -114,8 +114,12 @@
                     }}
                   </a>
                 </q-item-label>
-                <q-item-label caption>{{ props.cols[3].label }}</q-item-label>
-                <q-item-label>
+                <q-item-label
+                  v-if="props.cols[3].value !== undefined"
+                  caption
+                  >{{ props.cols[3].label }}</q-item-label
+                >
+                <q-item-label v-if="props.cols[3].value !== undefined">
                   {{
                     !Array.isArray(props.cols[3].value)
                       ? props.cols[3].value
