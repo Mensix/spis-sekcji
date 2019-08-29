@@ -127,7 +127,7 @@ export default {
   },
   computed: {
     isMobileDevice() {
-      return this.$q.screen.lt.md
+      return this.$q.screen.lt.sm
     }
   },
   methods: {
