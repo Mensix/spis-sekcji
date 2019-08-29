@@ -5,3 +5,12 @@
     overflow-x: hidden;
   }
 }
+
+body
+  > div.q-menu.scroll
+  > div.q-virtual-scroll__content
+  > div.q-item.q-item-type.row.no-wrap.q-item--clickable.q-link.cursor-pointer.q-manual-focusable.q-item--dense.q-item--active
+  > div.q-item__section.column.q-item__section--main.justify-center
+  > div {
+  color: var(--q-color-secondary);
+}
