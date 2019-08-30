@@ -57,7 +57,9 @@
           target="__blank"
           ><img
             src="https://scontent-frt3-1.xx.fbcdn.net/v/t1.15752-9/69469141_472317053618556_1131370282133487616_n.png?_nc_cat=109&_nc_oc=AQnl8xftYX6W-GBPni1Co685nv5CLwF__7o19JVWOdMWQQixRTHNOOb2UaVV0GDOnYg&_nc_ht=scontent-frt3-1.xx&oh=42df6cf5b1273e085ae944806bf7ded2&oe=5E0557DF"
-            style="width: 375px;"/></a
+            :style="
+              `${isMobileDevice ? 'max-width: 100%' : 'width: 375px'};`
+            "/></a
       ></span>
     </template>
 
