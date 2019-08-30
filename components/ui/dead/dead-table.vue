@@ -126,9 +126,9 @@ export default {
       })
       .then(
         callback =>
-          (this.categories = Array.from(
-            new Set(this.deadgroups.map(x => x.category).sort())
-          ))
+          (this.categories = [
+            ...new Set(this.deadgroups.map(x => x.category).sort())
+          ])
       )
       .then(callback => (this.loading = false))
   }

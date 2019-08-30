@@ -156,8 +156,8 @@ export default {
       })
       .then(
         callback =>
-          (this.categories = Array.from(
-            new Set(
+          (this.categories = [
+            ...new Set(
               this.sections
                 .filter(x =>
                   Object.prototype.hasOwnProperty.call(x, 'category')
@@ -166,7 +166,7 @@ export default {
                 .map(x => x.category)
                 .sort()
             )
-          ))
+          ])
       )
       .then(callback => (this.loading = false))
   }
