@@ -5,7 +5,7 @@
     :grid="isMobileDevice"
     square
     binary-state-sort
-    hide-bottom
+    :rows-per-page-options="[20, 50, 100, 150, 200, 250, 0]"
     :columns="columns"
     :loading="loading"
     :data="
@@ -43,9 +43,6 @@
       <span>Autorzy: Grzegorz Perun & Daniel Nguyen</span>
       <div v-if="deadgroups.length !== 0">
         <span>Ostatnia aktualizacja: {{ lastUpdateDate }}</span>
-      </div>
-      <div v-else>
-        <span>Ładowanie..</span>
       </div>
     </template>
 
@@ -110,10 +107,7 @@ export default {
       selectedCategories: [],
       pagination: {
         sortBy: 'Name',
-        descending: false,
-        page: 0,
-        rowsPerPage: 0,
-        rowsCount: 0
+        descending: false
       }
     }
   },
