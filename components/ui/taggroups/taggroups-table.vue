@@ -124,9 +124,9 @@ export default {
     fetch('https://spissekcji.firebaseio.com/taggroups.json')
       .then(response => response.json())
       .then(output => {
-        this.taggroups = Array.from(
-          output.taggroups.sort((a, b) => b.members - a.members)
-        )
+        this.taggroups = [
+          ...output.taggroups.sort((a, b) => b.members - a.members)
+        ]
         this.lastUpdateDate = output.lastUpdateDate
       })
       .then(callback => (this.loading = false))

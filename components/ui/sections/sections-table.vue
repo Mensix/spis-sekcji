@@ -162,9 +162,9 @@ export default {
     fetch('https://spissekcji.firebaseio.com/sections.json')
       .then(response => response.json())
       .then(output => {
-        this.sections = Array.from(
-          output.sections.sort((a, b) => b.members - a.members)
-        )
+        this.sections = [
+          ...output.sections.sort((a, b) => b.members - a.members)
+        ]
         this.lastUpdateDate = output.lastUpdateDate
       })
       .then(

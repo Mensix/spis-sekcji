@@ -128,7 +128,7 @@ export default {
     fetch('https://spissekcji.firebaseio.com/deadgroups.json')
       .then(response => response.json())
       .then(output => {
-        this.deadgroups = Array.from(output.deadgroups)
+        this.deadgroups = [...output.deadgroups]
         this.lastUpdateDate = output.lastUpdateDate
       })
       .then(
