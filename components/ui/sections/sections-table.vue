@@ -175,8 +175,8 @@ export default {
                 .filter(x =>
                   Object.prototype.hasOwnProperty.call(x, 'category')
                 )
-                .filter(x => !Array.isArray(x.category))
                 .map(x => x.category)
+                .reduce((flat, next) => flat.concat(next), [])
                 .sort()
             )
           ])
