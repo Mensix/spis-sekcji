@@ -83,7 +83,12 @@
                 <q-item-label
                   ><span class="text-grey" style="font-size: 10px;"
                     >{{ props.row.__index + 1 }}&nbsp;</span
-                  >{{ props.cols[0].value }}</q-item-label
+                  ><q-icon
+                    v-if="props.row.members >= 10000"
+                    name="star"
+                    color="secondary"
+                  />
+                  {{ props.cols[0].value }}</q-item-label
                 >
                 <q-item-label caption>{{ props.cols[1].label }}</q-item-label>
                 <q-item-label>{{ props.cols[1].value }}</q-item-label>

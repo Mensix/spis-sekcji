@@ -112,8 +112,22 @@
               <q-item-section>
                 <q-item-label caption>{{ props.cols[0].label }}</q-item-label>
                 <q-item-label>
-                  <span class="text-grey" style="font-size: 10px;"
-                    >{{ props.row.__index + 1 }}&nbsp;</span
+                  <span class="text-grey" style="font-size: 8px;">
+                    {{ props.row.__index + 1 }}
+                  </span>
+                  <q-icon
+                    v-if="props.row.members >= 10000"
+                    name="star"
+                    color="secondary"
+                  />
+                  <span
+                    v-if="
+                      props.row.isSection !== undefined &&
+                        props.row.isSection === false
+                    "
+                    class="text-grey"
+                    style="font-size: 8px;"
+                    ><del>JBWA</del></span
                   >
                   {{ props.cols[0].value }}
                 </q-item-label>
