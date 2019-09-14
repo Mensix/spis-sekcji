@@ -74,6 +74,14 @@
             name="star"
             color="secondary"
           />
+          <span
+            v-if="
+              props.row.isSection !== undefined && props.row.isSection === false
+            "
+            class="text-grey"
+            style="font-size: 8px;"
+            ><del>JBWA</del></span
+          >
           <span>{{ props.row.name }}</span>
         </q-td>
         <q-td key="Members" :props="props">
