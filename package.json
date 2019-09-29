@@ -17,7 +17,7 @@
     "@nuxtjs/google-analytics": "^2.2.0",
     "@nuxtjs/google-tag-manager": "^2.2.1",
     "nuxt": "^2.9.2",
-    "quasar": "^1.1.0"
+    "quasar": "^1.1.5"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^0.0.1",
@@ -30,11 +30,11 @@
     "eslint-plugin-jest": "^22.17.0",
     "eslint-plugin-node": "^9.2.0",
     "eslint-plugin-nuxt": ">=0.4.2",
-    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
     "eslint-plugin-vue": "^5.2.3",
-    "nodemon": "^1.19.2",
+    "nodemon": "^1.19.3",
     "prettier": "^1.16.4"
   }
 }
