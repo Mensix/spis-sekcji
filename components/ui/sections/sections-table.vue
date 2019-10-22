@@ -86,6 +86,31 @@
         </q-td>
         <q-td key="Members" :props="props">
           <span>{{ props.row.members }}</span>
+          <span
+            :class="{
+              'text-green': props.row.membersGrowth > 0,
+              'text-red': props.row.membersGrowth < 0
+            }"
+            style="font-size: 8px;"
+          >
+            <q-icon
+              :name="
+                props.row.membersGrowth > 0
+                  ? 'arrow_upward'
+                  : props.row.membersGrowth < 0
+                  ? 'arrow_downward'
+                  : null
+              "
+            /><span>
+              {{
+                props.row.membersGrowth > 0
+                  ? `+${props.row.membersGrowth}`
+                  : props.row.membersGrowth &lt; 0
+                  ? `-${props.row.membersGrowth}`
+                  : null
+              }}
+            </span>
+          </span>
         </q-td>
         <q-td key="Link" :props="props">
           <a :href="props.row.link" class="text-secondary" target="_blank">{{
@@ -132,7 +157,34 @@
                   {{ props.cols[0].value }}
                 </q-item-label>
                 <q-item-label caption>{{ props.cols[1].label }}</q-item-label>
-                <q-item-label>{{ props.cols[1].value }}</q-item-label>
+                <q-item-label
+                  >{{ props.cols[1].value }}
+                  <span
+                    :class="{
+                      'text-green': props.row.membersGrowth > 0,
+                      'text-red': props.row.membersGrowth < 0
+                    }"
+                    style="font-size: 8px;"
+                  >
+                    <q-icon
+                      :name="
+                        props.row.membersGrowth > 0
+                          ? 'arrow_upward'
+                          : props.row.membersGrowth < 0
+                          ? 'arrow_downward'
+                          : null
+                      "
+                    /><span>
+                      {{
+                        props.row.membersGrowth > 0
+                          ? `+${props.row.membersGrowth}`
+                          : props.row.membersGrowth &lt; 0
+                          ? `-${props.row.membersGrowth}`
+                          : null
+                      }}</span
+                    ></span
+                  ></q-item-label
+                >
                 <q-item-label caption>{{ props.cols[2].label }}</q-item-label>
                 <q-item-label>
                   <a
