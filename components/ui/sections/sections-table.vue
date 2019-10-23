@@ -87,6 +87,7 @@
         <q-td key="Members" :props="props">
           <span>{{ props.row.members }}</span>
           <span
+            v-if="props.row.membersGrowth !== undefined"
             :class="{
               'text-green': props.row.membersGrowth > 0,
               'text-red': props.row.membersGrowth < 0
@@ -160,6 +161,7 @@
                 <q-item-label
                   >{{ props.cols[1].value }}
                   <span
+                    v-if="props.row.membersGrowth !== undefined"
                     :class="{
                       'text-green': props.row.membersGrowth > 0,
                       'text-red': props.row.membersGrowth < 0
