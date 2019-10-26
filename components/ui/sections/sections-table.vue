@@ -114,9 +114,18 @@
           </span>
         </q-td>
         <q-td key="Link" :props="props">
-          <a :href="props.row.link" class="text-secondary" target="_blank">{{
-            props.row.link.replace('https://facebook.com/groups', '')
-          }}</a>
+          <a
+            :id="
+              `group__${props.row.name
+                .toLowerCase()
+                .split(' ')
+                .join('-')}`
+            "
+            :href="props.row.link"
+            class="text-secondary"
+            target="_blank"
+            >{{ props.row.link.replace('https://facebook.com/groups', '') }}</a
+          >
         </q-td>
         <q-td key="Category" :props="props">
           <span>
