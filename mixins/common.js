@@ -136,8 +136,7 @@ export default {
       return rows.filter(row =>
         cols.some(
           col =>
-            col.name === 'name' ||
-            col.name === 'link' ||
+            (col.name === 'Name' || col.name === 'Link') &&
             (cellValue(col, row) + '').toLowerCase().indexOf(lowerTerms) !== -1
         )
       )
