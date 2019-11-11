@@ -68,12 +68,8 @@ export default {
       },
       {
         rel: 'stylesheet',
-        href: 'https://cdn.jsdelivr.net/npm/animate.css@3.7.1/animate.min.css'
-      },
-      {
-        rel: 'stylesheet',
         type: 'text/css',
-        href: 'https://cdn.jsdelivr.net/npm/quasar@1.2.5/dist/quasar.min.css'
+        href: 'https://cdn.jsdelivr.net/npm/quasar@1.4.1/dist/quasar.min.css'
       }
     ]
   },

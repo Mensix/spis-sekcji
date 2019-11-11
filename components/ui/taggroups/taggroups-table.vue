@@ -1,10 +1,6 @@
 <template>
   <q-table
-    flat
     :grid="$q.screen.lt.md"
-    dense
-    square
-    binary-state-sort
     :loading="loading"
     :columns="columns"
     :rows-per-page-options="[20, 50, 100, 150, 200, 250, 0]"
@@ -13,8 +9,12 @@
     :filter="input"
     :filter-method="filterData"
     :pagination.sync="pagination"
+    flat
+    dense
+    square
+    binary-state-sort
   >
-    <template v-slot:top-left="props">
+    <template v-slot:top-left>
       <q-input
         v-model="input"
         color="secondary"
@@ -33,16 +33,14 @@
       </div>
     </template>
 
-    <template v-slot:top-right="props">
+    <template v-slot:top-right>
       <span
         ><a
           href="https://docs.google.com/forms/d/1v1Bk09joesOngMWJHxK21Ly4CSMnZ8DuHYuHqPVmTe0/"
           target="__blank"
           ><img
-            src="https://scontent-frt3-1.xx.fbcdn.net/v/t1.15752-9/69469141_472317053618556_1131370282133487616_n.png?_nc_cat=109&_nc_oc=AQnl8xftYX6W-GBPni1Co685nv5CLwF__7o19JVWOdMWQQixRTHNOOb2UaVV0GDOnYg&_nc_ht=scontent-frt3-1.xx&oh=42df6cf5b1273e085ae944806bf7ded2&oe=5E0557DF"
-            :style="
-              `${isMobileDevice ? 'max-width: 100%' : 'width: 375px'};`
-            "/></a
+            :style="`${isMobileDevice ? 'max-width: 100%' : 'width: 375px'};`"
+            src="https://scontent-frt3-1.xx.fbcdn.net/v/t1.15752-9/69469141_472317053618556_1131370282133487616_n.png?_nc_cat=109&_nc_oc=AQnl8xftYX6W-GBPni1Co685nv5CLwF__7o19JVWOdMWQQixRTHNOOb2UaVV0GDOnYg&_nc_ht=scontent-frt3-1.xx&oh=42df6cf5b1273e085ae944806bf7ded2&oe=5E0557DF"/></a
       ></span>
     </template>
 
@@ -101,7 +99,7 @@
 
     <template v-slot:item="props">
       <div class="col-12">
-        <q-card flat class="q-pb-md" :props="props">
+        <q-card :props="props" flat class="q-pb-md">
           <q-list dense>
             <q-item>
               <q-item-section>
