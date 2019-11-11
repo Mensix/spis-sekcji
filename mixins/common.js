@@ -8,7 +8,7 @@ export default {
           field: 'name',
           align: 'left',
           sortable: true,
-          sort: (a, b, rowA, rowB) => {
+          sort: (a, b) => {
             const lettermap = {
               Ё: 'JO',
               Й: 'J',
@@ -111,8 +111,7 @@ export default {
           name: 'Category',
           label: 'Kategoria',
           field: 'category',
-          align: 'left',
-          sortable: true
+          align: 'left'
         }
       ],
       pagination: {
