@@ -4,6 +4,18 @@
     max-width: 100%;
     overflow-x: hidden;
   }
+
+  body
+    > div.q-dialog.fullscreen.no-pointer-events
+    > div.q-dialog__inner.flex.no-pointer-events.q-dialog__inner--minimized.q-dialog__inner--standard.fixed-full.flex-center
+    > div
+    > div
+    > div.q-virtual-scroll__content
+    > div.q-item.q-item-type.row.no-wrap.q-item--clickable.q-link.cursor-pointer.q-manual-focusable.q-item--dense.q-item--active
+    > div.q-item__section.column.q-item__section--main.justify-center
+    > div {
+    color: var(--q-color-secondary);
+  }
 }
 
 body
