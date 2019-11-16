@@ -52,11 +52,6 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       {
         rel: 'stylesheet',
-        href:
-          'https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css'
-      },
-      {
-        rel: 'stylesheet',
         type: 'text/css',
         href: 'https://use.fontawesome.com/releases/v5.9.0/css/all.css'
       },
@@ -65,15 +60,14 @@ export default {
         type: 'text/css',
         href:
           'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons'
-      },
-      {
-        rel: 'stylesheet',
-        type: 'text/css',
-        href: 'https://cdn.jsdelivr.net/npm/quasar@1.4.1/dist/quasar.min.css'
       }
     ]
   },
-  css: ['~/assets/css/tweaks.css'],
+  css: [
+    '~/assets/css/tweaks.css',
+    'quasar/dist/quasar.min.css',
+    'normalize.css/normalize.css'
+  ],
   loading: { color: '#fff' },
   plugins: ['~/plugins/quasar'],
   modules: [
