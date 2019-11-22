@@ -182,7 +182,9 @@ export default {
       .then(response => response.json())
       .then(output => {
         this.taggroups = [
-          ...output.taggroups.sort((a, b) => b.members - a.members)
+          ...output.taggroups
+            .sort((a, b) => b.members - a.members)
+            .map((_, idx) => ({ ..._, __index: idx }))
         ]
         this.lastUpdateDate = output.lastUpdateDate
       })
