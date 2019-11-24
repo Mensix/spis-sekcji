@@ -112,6 +112,13 @@ export default {
           label: 'Kategoria',
           field: 'category',
           align: 'left'
+        },
+        {
+          name: 'MembersGrowth',
+          field: 'membersGrowth',
+          label: 'Przyrost członków',
+          align: 'left',
+          sortable: true
         }
       ],
       pagination: {

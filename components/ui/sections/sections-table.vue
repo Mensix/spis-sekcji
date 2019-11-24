@@ -1,5 +1,6 @@
 <template>
   <q-table
+    ref="sectionsTable"
     :loading="loading"
     :columns="columns"
     :grid="isMobileDevice"
@@ -19,7 +20,6 @@
     flat
     dense
     square
-    binary-state-sort
   >
     <template v-slot:top-left>
       <q-input
@@ -59,6 +59,24 @@
             :style="`${isMobileDevice ? 'max-width: 100%' : 'width: 375px'};`"
             src="https://scontent-frt3-1.xx.fbcdn.net/v/t1.15752-9/69469141_472317053618556_1131370282133487616_n.png?_nc_cat=109&_nc_oc=AQnl8xftYX6W-GBPni1Co685nv5CLwF__7o19JVWOdMWQQixRTHNOOb2UaVV0GDOnYg&_nc_ht=scontent-frt3-1.xx&oh=42df6cf5b1273e085ae944806bf7ded2&oe=5E0557DF"/></a
       ></span>
+    </template>
+
+    <template v-slot:header="props">
+      <q-tr :props="props">
+        <q-th style="border: none;"/>
+        <q-th key="Members" :props="props" style="border: none;">{{
+          props.cols[1].label
+        }}</q-th
+        ><q-th style="border: none;"/><q-th style="border: none;"
+      /></q-tr>
+      <q-tr :props="props">
+        <q-th key="Name" :props="props">{{ props.cols[0].label }}</q-th>
+        <q-th key="MembersGrowth" :props="props">{{
+          props.cols[4].label
+        }}</q-th>
+        <q-th key="Link" :props="props">{{ props.cols[2].label }}</q-th>
+        <q-th key="Category" :props="props">{{ props.cols[3].label }}</q-th>
+      </q-tr>
     </template>
 
     <template v-slot:body="props">
@@ -267,6 +285,13 @@ export default {
           ])
       )
       .then(callback => (this.loading = false))
+      // eslint-disable-next-line no-console
+      .then(callback => console.log(this.$refs))
+  },
+  methods: {
+    sortBy(by) {
+      this.$refs.sectionsTable.sort(by)
+    }
   }
 }
 </script>
