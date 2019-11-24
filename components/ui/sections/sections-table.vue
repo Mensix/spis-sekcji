@@ -285,8 +285,6 @@ export default {
           ])
       )
       .then(callback => (this.loading = false))
-      // eslint-disable-next-line no-console
-      .then(callback => console.log(this.$refs))
   },
   methods: {
     sortBy(by) {
