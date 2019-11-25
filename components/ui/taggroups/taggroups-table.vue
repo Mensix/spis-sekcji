@@ -1,6 +1,6 @@
 <template>
   <q-table
-    :grid="$q.screen.lt.md"
+    :grid="isMobileDevice"
     :loading="loading"
     :columns="columns"
     :rows-per-page-options="[20, 50, 100, 150, 200, 250, 0]"
