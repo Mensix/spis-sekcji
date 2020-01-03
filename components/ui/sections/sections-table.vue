@@ -122,12 +122,7 @@
         </q-td>
         <q-td key="Link" :props="props">
           <a
-            :id="
-              `group__${props.row.name
-                .toLowerCase()
-                .split(' ')
-                .join('-')}`
-            "
+            :id="`${props.row.name.split(' ').join('-')}`"
             :href="props.row.link"
             class="text-secondary"
             target="_blank"
@@ -207,6 +202,7 @@
                 <q-item-label>
                   <a
                     :href="props.cols[2].value"
+                    :id="`${props.row.name.split(' ').join('-')}`"
                     class="text-secondary"
                     target="_blank"
                   >
