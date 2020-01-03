@@ -3,6 +3,13 @@
     <layout-header />
 
     <q-page-container>
+      <q-banner class="q-py-md">
+        <template v-slot:avatar
+          ><q-icon name="info" color="secondary"
+        /></template>
+        Zachęcamy do skorzystania z wyszukiwarki poniżej. Działa znacznie lepiej
+        niż ta na Facebooku :)
+      </q-banner>
       <nuxt />
     </q-page-container>
 
