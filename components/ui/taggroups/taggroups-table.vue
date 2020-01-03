@@ -33,17 +33,6 @@
       </div>
     </template>
 
-    <template v-slot:top-right>
-      <span
-        ><a
-          href="https://docs.google.com/forms/d/1v1Bk09joesOngMWJHxK21Ly4CSMnZ8DuHYuHqPVmTe0/"
-          target="__blank"
-          ><img
-            :style="`${isMobileDevice ? 'max-width: 100%' : 'width: 375px'};`"
-            src="https://scontent-frt3-1.xx.fbcdn.net/v/t1.15752-9/69469141_472317053618556_1131370282133487616_n.png?_nc_cat=109&_nc_oc=AQnl8xftYX6W-GBPni1Co685nv5CLwF__7o19JVWOdMWQQixRTHNOOb2UaVV0GDOnYg&_nc_ht=scontent-frt3-1.xx&oh=42df6cf5b1273e085ae944806bf7ded2&oe=5E0557DF"/></a
-      ></span>
-    </template>
-
     <template v-slot:header="props">
       <q-tr :props="props">
         <q-th style="border: none;"/>
