@@ -27,7 +27,6 @@
         color="secondary"
         placeholder="Wyszukiwarka sekcji"
         dense
-        debounce="250"
       >
         <template v-slot:append>
           <q-icon name="search" />
