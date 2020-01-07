@@ -3,12 +3,24 @@
     <layout-header />
 
     <q-page-container>
-      <q-banner class="q-py-md">
+      <q-banner
+        v-if="!$nuxt.$route.path.includes('submissions')"
+        class="q-py-md"
+      >
         <template v-slot:avatar
           ><q-icon name="info" color="secondary"
         /></template>
-        Zachęcamy do skorzystania z wyszukiwarki poniżej. Działa znacznie lepiej
-        niż ta na Facebooku :)
+        <span
+          >Zachęcamy do skorzystania z wyszukiwarki poniżej. Działa znacznie
+          lepiej niż ta na Facebooku :)</span
+        >
+        <div class="q-py-xs"></div>
+        <span
+          >Jeżeli brakuje jakiejś grupy, przejdź
+          <nuxt-link to="/submissions" class="text-secondary"
+            >tu.</nuxt-link
+          ></span
+        >
       </q-banner>
       <nuxt />
     </q-page-container>
