@@ -45,6 +45,14 @@
       </div>
     </template>
 
+    <template v-slot:top-right
+      ><a
+        href="https://docs.google.com/forms/d/e/1FAIpQLScd9v0hgwQ3TfmwpfW1I0oMMDpdciHib3eofp8fPL-VwS9XEA/viewform"
+        target="__blank"
+        rel="noopener noreferer"
+        ><img src="baner.svg" style="height: 150px; max-width: 100%;"/></a
+    ></template>
+
     <template v-slot:body="props">
       <q-tr :props="props">
         <q-td key="Name" :props="props">
