@@ -26,7 +26,9 @@
         href="https://facebook.com/groups/443388283243858"
         rel="noopener noreferer"
         target="__blank"
-        ><img src="group.svg" class="banner__ad"
+        ><img
+          :src="$q.screen.lt.sm ? 'group_s.svg' : 'group.svg'"
+          class="full-width"
       /></a>
       <nuxt />
     </q-page-container>
@@ -45,9 +47,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.banner__ad {
-  max-width: 100%;
-}
-</style>
