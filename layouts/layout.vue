@@ -26,7 +26,7 @@
         href="https://facebook.com/groups/443388283243858"
         rel="noopener noreferer"
         target="__blank"
-        ><img src="ad.svg" class="banner__ad"
+        ><img src="group.svg" class="banner__ad"
       /></a>
       <nuxt />
     </q-page-container>
