@@ -22,6 +22,11 @@
           ></span
         >
       </q-banner>
+      <a
+        href="https://facebook.com/groups/443388283243858"
+        rel="noopener noreferer"
+        ><img src="ad.svg" class="banner__ad"
+      /></a>
       <nuxt />
     </q-page-container>
 
@@ -39,3 +44,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.banner__ad {
+  max-width: 100%;
+}
+</style>

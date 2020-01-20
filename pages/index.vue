@@ -4,7 +4,7 @@
     :loading="loading"
     :columns="columns"
     :grid="isMobileDevice"
-    :rows-per-page-options="[20, 50, 100, 150, 200, 250, 0]"
+    :rows-per-page-options="[]"
     :data="
       selectedCategories.length === 0
         ? sections
@@ -54,16 +54,16 @@
         href="https://docs.google.com/forms/d/e/1FAIpQLScd9v0hgwQ3TfmwpfW1I0oMMDpdciHib3eofp8fPL-VwS9XEA/viewform"
         target="__blank"
         rel="noopener noreferer"
-        ><img src="baner.svg" style="height: 150px; max-width: 100%;"/></a
+        ><img src="baner.svg" class="banner__vote"/></a
     ></template>
 
     <template v-slot:header="props">
       <q-tr :props="props">
-        <q-th style="border: none;"/>
-        <q-th key="Members" :props="props" style="border: none;">{{
+        <q-th class="no-border"/>
+        <q-th key="Members" :props="props" class="no-border">{{
           props.cols[1].label
         }}</q-th
-        ><q-th style="border: none;"/><q-th style="border: none;"
+        ><q-th class="no-border"/><q-th class="no-border"
       /></q-tr>
       <q-tr :props="props">
         <q-th key="Name" :props="props">{{ props.cols[0].label }}</q-th>
@@ -78,7 +78,7 @@
     <template v-slot:body="props">
       <q-tr :props="props">
         <q-td key="Name" :props="props">
-          <span class="text-grey" style="font-size: 8px;">
+          <span class="text-grey row__index">
             {{ props.row.__index + 1 }}
           </span>
           <q-icon
@@ -90,8 +90,7 @@
             v-if="
               props.row.isSection !== undefined && props.row.isSection === false
             "
-            class="text-grey"
-            style="font-size: 8px;"
+            class="text-grey row__index"
             ><del>JBWA</del></span
           >
           <span>{{ props.row.name }}</span>
@@ -101,10 +100,10 @@
           <span
             v-if="props.row.membersGrowth !== undefined"
             :class="{
+              row__index: true,
               'text-green': props.row.membersGrowth > 0,
               'text-red': props.row.membersGrowth < 0
             }"
-            style="font-size: 8px;"
           >
             <q-icon
               :name="
@@ -154,7 +153,7 @@
               <q-item-section>
                 <q-item-label caption>{{ props.cols[0].label }}</q-item-label>
                 <q-item-label>
-                  <span class="text-grey" style="font-size: 8px;">
+                  <span class="text-grey row__index">
                     {{ props.row.__index + 1 }}
                   </span>
                   <q-icon
@@ -167,8 +166,7 @@
                       props.row.isSection !== undefined &&
                         props.row.isSection === false
                     "
-                    class="text-grey"
-                    style="font-size: 8px;"
+                    class="text-grey row__index"
                     ><del>JBWA</del></span
                   >
                   {{ props.cols[0].value }}
@@ -179,10 +177,10 @@
                   <span
                     v-if="props.row.membersGrowth !== undefined"
                     :class="{
+                      row__index: true,
                       'text-green': props.row.membersGrowth > 0,
                       'text-red': props.row.membersGrowth < 0
                     }"
-                    style="font-size: 8px;"
                   >
                     <q-icon
                       :name="
@@ -286,3 +284,14 @@ export default {
   }
 }
 </script>
+
+<style>
+.row__index {
+  font-size: 8px;
+}
+
+.banner__vote {
+  height: 150px;
+  max-width: 100%;
+}
+</style>

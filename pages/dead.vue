@@ -1,7 +1,7 @@
 <template>
   <q-table
     :grid="isMobileDevice"
-    :rows-per-page-options="[20, 50, 100, 150, 200, 250, 0]"
+    :rows-per-page-options="[]"
     :columns="columns"
     :loading="loading"
     :data="
@@ -50,7 +50,7 @@
         href="https://docs.google.com/forms/d/e/1FAIpQLScd9v0hgwQ3TfmwpfW1I0oMMDpdciHib3eofp8fPL-VwS9XEA/viewform"
         target="__blank"
         rel="noopener noreferer"
-        ><img src="baner.svg" style="height: 150px; max-width: 100%;"/></a
+        ><img src="baner.svg" class="banner__vote"/></a
     ></template>
 
     <template v-slot:body="props">

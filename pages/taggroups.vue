@@ -3,7 +3,7 @@
     :grid="isMobileDevice"
     :loading="loading"
     :columns="columns"
-    :rows-per-page-options="[20, 50, 100, 150, 200, 250, 0]"
+    :rows-per-page-options="[]"
     :visible-columns="['Name', 'Members', 'MembersGrowth', 'Link']"
     :data="taggroups"
     :filter="input"
@@ -37,16 +37,16 @@
         href="https://docs.google.com/forms/d/e/1FAIpQLScd9v0hgwQ3TfmwpfW1I0oMMDpdciHib3eofp8fPL-VwS9XEA/viewform"
         target="__blank"
         rel="noopener noreferer"
-        ><img src="baner.svg" style="height: 150px; max-width: 100%;"/></a
+        ><img src="baner.svg" class="banner__vote"/></a
     ></template>
 
     <template v-slot:header="props">
       <q-tr :props="props">
-        <q-th style="border: none;"/>
-        <q-th key="Members" :props="props" style="border: none;">{{
+        <q-th class="no-border"/>
+        <q-th key="Members" :props="props" class="no-border">{{
           props.cols[1].label
         }}</q-th
-        ><q-th style="border: none;"
+        ><q-th class="no-border"
       /></q-tr>
       <q-tr :props="props">
         <q-th key="Name" :props="props">{{ props.cols[0].label }}</q-th>
@@ -60,9 +60,7 @@
     <template v-slot:body="props">
       <q-tr :props="props">
         <q-td key="Name" :props="props">
-          <span class="text-grey" style="font-size: 8px;">{{
-            props.row.__index + 1
-          }}</span>
+          <span class="text-grey row__index">{{ props.row.__index + 1 }}</span>
           <q-icon
             v-if="props.row.members >= 10000"
             name="star"
@@ -78,7 +76,7 @@
               'text-green': props.row.membersGrowth > 0,
               'text-red': props.row.membersGrowth < 0
             }"
-            style="font-size: 8px;"
+            class="row__index"
           >
             <q-icon
               :name="
@@ -118,7 +116,7 @@
               <q-item-section>
                 <q-item-label caption>{{ props.cols[0].label }}</q-item-label>
                 <q-item-label
-                  ><span class="text-grey" style="font-size: 10px;"
+                  ><span class="text-grey row__index"
                     >{{ props.row.__index + 1 }}&nbsp;</span
                   ><q-icon
                     v-if="props.row.members >= 10000"
@@ -136,7 +134,7 @@
                       'text-green': props.row.membersGrowth > 0,
                       'text-red': props.row.membersGrowth < 0
                     }"
-                    style="font-size: 8px;"
+                    class="row__index"
                   >
                     <q-icon
                       :name="
