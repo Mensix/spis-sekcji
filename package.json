@@ -19,7 +19,7 @@
     "firebase": "^7.7.0",
     "normalize.css": "^8.0.1",
     "nuxt": "^2.11.0",
-    "quasar": "^1.7.4"
+    "quasar": "^1.8.3"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^0.0.1",
