@@ -47,7 +47,7 @@
 
     <template v-slot:top-right
       ><a
-        href="https://docs.google.com/forms/d/e/1FAIpQLScd9v0hgwQ3TfmwpfW1I0oMMDpdciHib3eofp8fPL-VwS9XEA/viewform"
+        href="https://docs.google.com/forms/d/1WHa71d4x0qeO_8G6CwUV4XfK-X5kL5--rBk5bTH9NDo/viewform"
         target="__blank"
         rel="noopener noreferer"
         ><img src="baner.svg" class="banner__vote"/></a

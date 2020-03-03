@@ -22,14 +22,6 @@
           ></span
         >
       </q-banner>
-      <a
-        href="https://facebook.com/groups/443388283243858"
-        rel="noopener noreferer"
-        target="__blank"
-        ><img
-          :src="$q.screen.lt.sm ? 'group_s.svg' : 'group.svg'"
-          class="full-width"
-      /></a>
       <nuxt />
     </q-page-container>
 

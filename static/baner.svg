@@ -33,8 +33,8 @@
    units="px"
    showguides="false"
    inkscape:zoom="0.45863588"
-   inkscape:cx="531.96002"
-   inkscape:cy="200.7608"
+   inkscape:cx="429.48221"
+   inkscape:cy="270.53293"
    inkscape:window-x="-8"
    inkscape:window-y="-8"
    inkscape:window-maximized="1"
@@ -746,9 +746,10 @@
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1199.44445801px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';text-align:center;text-anchor:middle;fill:#26a69a;fill-opacity:1;stroke-width:26.45833397">Głosowanie na ulubioną sekcję okołojebawkową</tspan><tspan
      sodipodi:role="line"
      x="17975.578"
-     y="6420.5024"
+     y="6429.0063"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1270px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';text-align:center;text-anchor:middle;fill:#26a69a;fill-opacity:1;stroke-width:26.45833397"
-     id="tspan1709">Zima 2020</tspan></text>
+     id="tspan1709">Wiosna 2020</tspan></text>
+
 
 <path
    style="fill:#26a69a;fill-opacity:1;stroke:#26a69a;stroke-width:26.45833397px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -770,6 +771,7 @@
      y="9174.7529"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1693.33337402px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';fill:#26a69a;fill-opacity:1;stroke-width:26.45833397">Kliknij, aby dowiedzieć się więcej</tspan></text>
 
+
 <text
    xml:space="preserve"
    style="font-style:normal;font-weight:normal;font-size:1058.33337402px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:26.45833397"
@@ -781,5 +783,6 @@
      x="17274.467"
      y="11297.533"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:776.11114502px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';fill:#26a69a;fill-opacity:1;stroke-width:26.45833397">&gt;&gt;&gt;</tspan></text>
+
 
 </svg>
