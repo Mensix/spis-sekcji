@@ -15,16 +15,16 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.9.5",
     "@nuxtjs/google-analytics": "^2.2.3",
-    "@nuxtjs/google-tag-manager": "^2.3.1",
-    "firebase": "^7.8.2",
+    "@nuxtjs/google-tag-manager": "^2.3.2",
+    "firebase": "^7.9.3",
     "normalize.css": "^8.0.1",
     "nuxt": "^2.11.0",
-    "quasar": "^1.9.3"
+    "quasar": "^1.9.7"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^0.0.1",
     "@nuxtjs/eslint-module": "^0.0.1",
-    "babel-eslint": "^10.0.3",
+    "babel-eslint": "^10.1.0",
     "eslint": "^5.15.1",
     "eslint-config-prettier": "^4.1.0",
     "eslint-config-standard": "^13.0.1",
