@@ -257,7 +257,13 @@ export default {
         this.sections = [
           ...output.sections
             .sort((a, b) => b.members - a.members)
-            .map((_, idx) => ({ ..._, __index: idx }))
+            .map((_, idx) => ({
+              ..._,
+              category: Array.isArray(_.category)
+                ? [..._.category.sort()]
+                : _.category,
+              __index: idx
+            }))
         ]
         this.lastUpdateDate = output.lastUpdateDate
       })
@@ -266,11 +272,13 @@ export default {
           (this.categories = [
             ...new Set(
               this.sections
-                .filter(x =>
-                  Object.prototype.hasOwnProperty.call(x, 'category')
+                .filter(
+                  x =>
+                    Object.prototype.hasOwnProperty.call(x, 'category') &&
+                    x.category
                 )
                 .map(x => x.category)
-                .reduce((flat, next) => flat.concat(next), [])
+                .flat()
                 .sort()
             )
           ])
