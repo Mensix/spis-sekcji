@@ -54,7 +54,7 @@
         href="https://docs.google.com/forms/d/1WHa71d4x0qeO_8G6CwUV4XfK-X5kL5--rBk5bTH9NDo/viewform"
         target="__blank"
         rel="noopener noreferer"
-        ><img src="baner.svg" class="banner__vote"/></a
+        ><img src="baner.svg" class="banner-vote"/></a
     ></template>
 
     <template v-slot:header="props">
@@ -78,7 +78,7 @@
     <template v-slot:body="props">
       <q-tr :props="props">
         <q-td key="Name" :props="props">
-          <span class="text-grey row__index">
+          <span class="text-grey text-caption2">
             {{ props.row.__index + 1 }}
           </span>
           <q-icon
@@ -90,7 +90,7 @@
             v-if="
               props.row.isSection !== undefined && props.row.isSection === false
             "
-            class="text-grey row__index"
+            class="text-grey text-caption2"
             ><del>JBWA</del></span
           >
           <span>{{ props.row.name }}</span>
@@ -100,7 +100,7 @@
           <span
             v-if="props.row.membersGrowth !== undefined"
             :class="{
-              row__index: true,
+              'text-caption2': true,
               'text-green': props.row.membersGrowth > 0,
               'text-red': props.row.membersGrowth < 0
             }"
@@ -153,7 +153,7 @@
               <q-item-section>
                 <q-item-label caption>{{ props.cols[0].label }}</q-item-label>
                 <q-item-label>
-                  <span class="text-grey row__index">
+                  <span class="text-grey text-caption2">
                     {{ props.row.__index + 1 }}
                   </span>
                   <q-icon
@@ -166,7 +166,7 @@
                       props.row.isSection !== undefined &&
                         props.row.isSection === false
                     "
-                    class="text-grey row__index"
+                    class="text-grey text-caption2"
                     ><del>JBWA</del></span
                   >
                   {{ props.cols[0].value }}
@@ -177,7 +177,7 @@
                   <span
                     v-if="props.row.membersGrowth !== undefined"
                     :class="{
-                      row__index: true,
+                      'text-caption2': true,
                       'text-green': props.row.membersGrowth > 0,
                       'text-red': props.row.membersGrowth < 0
                     }"
@@ -192,8 +192,8 @@
                       "
                     /><span>
                       {{
-                        props.row.membersGrowth > 0
-                          ? `+${props.row.membersGrowth}`
+                        props.row.membersGrowth > 0 ? 
+                          `+${props.row.membersGrowth}`
                           : props.row.membersGrowth &lt; 0
                           ? `-${props.row.membersGrowth}`
                           : null
@@ -286,11 +286,13 @@ export default {
 </script>
 
 <style>
-.row__index {
-  font-size: 8px;
+.text-caption2 {
+  font-size: 0.55rem;
+  font-weight: 400;
+  letter-spacing: 0.03333em;
 }
 
-.banner__vote {
+.banner-vote {
   height: 150px;
   max-width: 100%;
 }

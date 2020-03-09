@@ -37,7 +37,7 @@
         href="https://docs.google.com/forms/d/1WHa71d4x0qeO_8G6CwUV4XfK-X5kL5--rBk5bTH9NDo/viewform"
         target="__blank"
         rel="noopener noreferer"
-        ><img src="baner.svg" class="banner__vote"/></a
+        ><img src="baner.svg" class="banner-vote"/></a
     ></template>
 
     <template v-slot:header="props">
@@ -60,7 +60,9 @@
     <template v-slot:body="props">
       <q-tr :props="props">
         <q-td key="Name" :props="props">
-          <span class="text-grey row__index">{{ props.row.__index + 1 }}</span>
+          <span class="text-grey text-caption2">{{
+            props.row.__index + 1
+          }}</span>
           <q-icon
             v-if="props.row.members >= 10000"
             name="star"
@@ -76,7 +78,7 @@
               'text-green': props.row.membersGrowth > 0,
               'text-red': props.row.membersGrowth < 0
             }"
-            class="row__index"
+            class="text-caption2"
           >
             <q-icon
               :name="
@@ -116,7 +118,7 @@
               <q-item-section>
                 <q-item-label caption>{{ props.cols[0].label }}</q-item-label>
                 <q-item-label
-                  ><span class="text-grey row__index"
+                  ><span class="text-grey text-caption2"
                     >{{ props.row.__index + 1 }}&nbsp;</span
                   ><q-icon
                     v-if="props.row.members >= 10000"
@@ -134,7 +136,7 @@
                       'text-green': props.row.membersGrowth > 0,
                       'text-red': props.row.membersGrowth < 0
                     }"
-                    class="row__index"
+                    class="text-caption2"
                   >
                     <q-icon
                       :name="
