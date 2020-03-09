@@ -3,7 +3,7 @@
     <q-toolbar>
       <q-toolbar-title>
         <div class="q-pb-md" />
-        <div class="text-caption text-center" style="white-space: normal;">
+        <p class="text-caption text-center text-whitespace-normal no-margin">
           Autorzy spisu dziękują Aleksandrze Marczuk i Adamowi Firynowiczowi za
           <a
             href="https://docs.google.com/spreadsheets/d/1b0oBrpdNXqfWx35kT4xhG0OiPY2OnYJmklGHshlv7_E/edit?fbclid=IwAR3f5V_DlCrZbtxYhKdDMV7hTiCpRaNtx5OvpZYTNpTBhkokxKafz7xzOfo"
@@ -16,45 +16,53 @@
             class="text-white"
             >spis sekcji na Akapedii.</a
           >
-        </div>
-        <div class="text-caption text-center" style="white-space: normal;">
+        </p>
+        <p class="text-caption text-center text-whitespace-normal no-margin">
           Ta strona używa plików cookies w celu prowadzenia statystyk wyświetleń
           strony za pomocą Google Analytics oraz Google Tag Manager.
-        </div>
-        <div class="text-caption text-center" style="white-space: normal;">
+        </p>
+        <p class="text-caption text-center text-whitespace-normal no-margin">
           Wszelkie zbierane statystyki są anonimowe i nie są udostępniane
           podmiotom trzecim.
-        </div>
+        </p>
         <div class="q-pb-md" />
         <q-separator dark inset />
         <div class="q-pb-md" />
-        <div class="text-center">
+        <div class="text-caption text-center no-margin">
           <a
-            href="https://github.com/Mensix/SpisSekcji"
-            style="text-decoration: none;"
-          >
-            <i
-              class="fab fa-github text text-center"
-              style="font-size: 48px; color: #FFF;"
-            />
-          </a>
-          &nbsp;
-          <a href="https://8rabin.github.io" style="text-decoration: none;">
-            <span style="font-size: 48px; color: #FFF;">8</span>
-          </a>
-          &nbsp;
+            href="https://github.com/Mensix/SpisSekcji/"
+            class="text-white text-whitespace-normal"
+            rel="noopener noreferer"
+            target="__blank"
+            >GitHub</a
+          ><span> | </span>
           <a
-            href="https://www.facebook.com/groups/spis.sekcji/"
-            style="text-decoration: none;"
+            href="https://8rabin.github.io/"
+            class="text-white text-whitespace-normal"
+            rel="noopener noreferer"
+            target="__blank"
+            >8rabin</a
+          ><span> | </span
+          ><a
+            href="https://facebook.com/groups/spis.sekcji/"
+            class="text-white text-whitespace-normal"
+            rel="noopener noreferer"
+            target="__blank"
+            >Facebook</a
           >
-            <i
-              class="fab fa-facebook-square"
-              style="font-size: 48px; color: #FFF;"
-            />
-          </a>
         </div>
-        <div class="q-pt-md" />
+        <div class="q-pb-md" />
       </q-toolbar-title>
     </q-toolbar>
   </q-footer>
 </template>
+
+<style scoped>
+.text-decoration-none {
+  text-decoration: none;
+}
+
+.text-whitespace-normal {
+  white-space: normal;
+}
+</style>
