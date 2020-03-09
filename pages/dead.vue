@@ -50,7 +50,7 @@
         href="https://docs.google.com/forms/d/1WHa71d4x0qeO_8G6CwUV4XfK-X5kL5--rBk5bTH9NDo/viewform"
         target="__blank"
         rel="noopener noreferer"
-        ><img src="baner.svg" class="banner__vote"/></a
+        ><img src="baner.svg" class="banner-vote"/></a
     ></template>
 
     <template v-slot:body="props">
