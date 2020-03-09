@@ -15,7 +15,7 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.9.5",
     "@nuxtjs/google-analytics": "^2.2.3",
-    "@nuxtjs/google-tag-manager": "^2.3.2",
+    "@nuxtjs/gtm": "^2.2.2",
     "firebase": "^7.10.0",
     "normalize.css": "^8.0.1",
     "nuxt": "^2.11.0",

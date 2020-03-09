@@ -19,7 +19,7 @@
         </div>
         <div class="text-caption text-center" style="white-space: normal;">
           Ta strona używa plików cookies w celu prowadzenia statystyk wyświetleń
-          strony za pomocą Google Analytics.
+          strony za pomocą Google Analytics oraz Google Tag Manager.
         </div>
         <div class="text-caption text-center" style="white-space: normal;">
           Wszelkie zbierane statystyki są anonimowe i nie są udostępniane

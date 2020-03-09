@@ -82,9 +82,12 @@ export default {
         },
         set: [{ field: 'anonymizeIp', value: true }]
       }
-    ],
-    ['@nuxtjs/google-tag-manager', { id: 'GTM-K2QFVPC' }]
+    ]
   ],
+  buildModules: ['@nuxtjs/gtm'],
+  gtm: {
+    id: 'GTM-K2QFVPC'
+  },
   build: {
     filenames: {
       app: '[name].js',
