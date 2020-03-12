@@ -79,7 +79,7 @@
       <q-tr :props="props">
         <q-td key="Name" :props="props">
           <span class="text-grey text-caption2">
-            {{ props.row.__index + 1 }}
+            {{ props.row.__index }}
           </span>
           <q-icon
             v-if="props.row.members >= 10000"
@@ -154,7 +154,7 @@
                 <q-item-label caption>{{ props.cols[0].label }}</q-item-label>
                 <q-item-label>
                   <span class="text-grey text-caption2">
-                    {{ props.row.__index + 1 }}
+                    {{ props.row.__index }}
                   </span>
                   <q-icon
                     v-if="props.row.members >= 10000"
@@ -262,7 +262,7 @@ export default {
               category: Array.isArray(_.category)
                 ? [..._.category.sort()]
                 : _.category,
-              __index: idx
+              __index: idx + 1
             }))
         ]
         this.lastUpdateDate = output.lastUpdateDate

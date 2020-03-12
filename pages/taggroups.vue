@@ -60,9 +60,7 @@
     <template v-slot:body="props">
       <q-tr :props="props">
         <q-td key="Name" :props="props">
-          <span class="text-grey text-caption2">{{
-            props.row.__index + 1
-          }}</span>
+          <span class="text-grey text-caption2">{{ props.row.__index }}</span>
           <q-icon
             v-if="props.row.members >= 10000"
             name="star"
@@ -119,7 +117,7 @@
                 <q-item-label caption>{{ props.cols[0].label }}</q-item-label>
                 <q-item-label
                   ><span class="text-grey text-caption2"
-                    >{{ props.row.__index + 1 }}&nbsp;</span
+                    >{{ props.row.__index }}&nbsp;</span
                   ><q-icon
                     v-if="props.row.members >= 10000"
                     name="star"
@@ -198,7 +196,7 @@ export default {
         this.taggroups = [
           ...output.taggroups
             .sort((a, b) => b.members - a.members)
-            .map((_, idx) => ({ ..._, __index: idx }))
+            .map((_, idx) => ({ ..._, __index: idx + 1 }))
         ]
         this.lastUpdateDate = output.lastUpdateDate
       })
