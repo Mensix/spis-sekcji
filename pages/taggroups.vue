@@ -204,9 +204,3 @@ export default {
   }
 }
 </script>
-
-<style>
-.q-item--active {
-  color: var(--q-color-secondary);
-}
-</style>
