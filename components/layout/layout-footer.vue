@@ -33,21 +33,21 @@
             href="https://github.com/Mensix/SpisSekcji/"
             class="text-white text-whitespace-normal"
             rel="noopener noreferer"
-            target="__blank"
+            target="_blank"
             >GitHub</a
           ><span> | </span>
           <a
             href="https://8rabin.github.io/"
             class="text-white text-whitespace-normal"
             rel="noopener noreferer"
-            target="__blank"
+            target="_blank"
             >8rabin</a
           ><span> | </span
           ><a
             href="https://facebook.com/groups/spis.sekcji/"
             class="text-white text-whitespace-normal"
             rel="noopener noreferer"
-            target="__blank"
+            target="_blank"
             >Facebook</a
           >
         </div>
