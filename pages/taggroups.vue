@@ -196,7 +196,11 @@ export default {
         this.taggroups = [
           ...output.taggroups
             .sort((a, b) => b.members - a.members)
-            .map((_, idx) => ({ ..._, __index: idx + 1 }))
+            .map((_, idx) => ({
+              ..._,
+              membersGrowth: _.membersGrowth || 0,
+              __index: idx + 1
+            }))
         ]
         this.lastUpdateDate = output.lastUpdateDate
       })

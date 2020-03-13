@@ -262,6 +262,7 @@ export default {
               category: Array.isArray(_.category)
                 ? [..._.category.sort()]
                 : _.category,
+              membersGrowth: _.membersGrowth || 0,
               __index: idx + 1
             }))
         ]
