@@ -118,7 +118,7 @@
                 props.row.membersGrowth > 0
                   ? `+${props.row.membersGrowth}`
                   : props.row.membersGrowth &lt; 0
-                  ? `-${props.row.membersGrowth}`
+                  ? `${props.row.membersGrowth}`
                   : null
               }}
             </span>
@@ -195,7 +195,7 @@
                         props.row.membersGrowth > 0 ? 
                           `+${props.row.membersGrowth}`
                           : props.row.membersGrowth &lt; 0
-                          ? `-${props.row.membersGrowth}`
+                          ? `${props.row.membersGrowth}`
                           : null
                       }}</span
                     ></span
