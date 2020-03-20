@@ -293,16 +293,3 @@ export default {
   }
 }
 </script>
-
-<style>
-.text-caption2 {
-  font-size: 0.55rem;
-  font-weight: 400;
-  letter-spacing: 0.03333em;
-}
-
-.banner-vote {
-  height: 150px;
-  max-width: 100%;
-}
-</style>
