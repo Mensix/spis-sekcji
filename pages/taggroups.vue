@@ -116,8 +116,9 @@
               <q-item-section>
                 <q-item-label caption>{{ props.cols[0].label }}</q-item-label>
                 <q-item-label
-                  ><span class="text-grey text-caption2"
-                    >{{ props.row.__index }</span
+                  ><span class="text-grey text-caption2">{{
+                    props.row.__index
+                  }}</span
                   ><q-icon
                     v-if="props.row.members >= 10000"
                     name="star"
