@@ -194,7 +194,7 @@ export default {
       .then(response => response.json())
       .then(output => {
         this.taggroups = [
-          ...output.taggroups
+          ...output.groups
             .sort((a, b) => b.members - a.members)
             .map((_, idx) => ({
               ..._,
