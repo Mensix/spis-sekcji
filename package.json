@@ -22,9 +22,11 @@
     "quasar": "^1.9.10"
   },
   "devDependencies": {
+    "@babel/runtime-corejs2": "^7.9.2",
     "@nuxtjs/eslint-config": "^0.0.1",
     "@nuxtjs/eslint-module": "^0.0.1",
     "babel-eslint": "^10.1.0",
+    "core-js": "^2.6.11",
     "eslint": "^5.15.1",
     "eslint-config-prettier": "^4.1.0",
     "eslint-config-standard": "^13.0.1",

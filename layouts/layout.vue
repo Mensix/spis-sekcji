@@ -22,7 +22,8 @@
           ></span
         >
       </q-banner>
-      <nuxt />
+
+      <nuxt keep-alive />
     </q-page-container>
 
     <layout-footer />
