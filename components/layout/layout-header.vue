@@ -1,6 +1,6 @@
 <template>
   <q-header>
-    <q-toolbar class="bg--secondary-gradient text-white shadow-2">
+    <q-toolbar class="bg-secondary-gradient text-white shadow-2">
       <q-icon name="fas fa-list" class="toolbar-icon" />
       <q-toolbar-title>Spis Sekcji</q-toolbar-title>
       <q-space />
@@ -16,7 +16,7 @@
   font-size: 21px;
 }
 
-.bg--secondary-gradient {
+.bg-secondary-gradient {
   background: rgb(38, 166, 153);
   background: linear-gradient(
     90deg,
