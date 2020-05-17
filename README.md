@@ -1,6 +1,6 @@
 # Spis Sekcji JBwA i tag-grupek
 
-Repozytorium z kodem źródłowym. Napisane
+Repozytorium z kodem źródłowym.
 
 ## Technologie
 * Vue
