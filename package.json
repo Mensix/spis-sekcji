@@ -13,16 +13,16 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.10.2",
+    "@nuxtjs/axios": "^5.10.3",
     "@nuxtjs/google-analytics": "^2.2.3",
     "@nuxtjs/gtm": "^2.2.3",
-    "firebase": "^7.14.2",
+    "firebase": "^7.14.4",
     "normalize.css": "^8.0.1",
     "nuxt": "^2.12.2",
-    "quasar": "^1.9.16"
+    "quasar": "^1.11.3"
   },
   "devDependencies": {
-    "@babel/runtime-corejs2": "^7.9.2",
+    "@babel/runtime-corejs2": "^7.9.6",
     "@nuxtjs/eslint-config": "^0.0.1",
     "@nuxtjs/eslint-module": "^0.0.1",
     "babel-eslint": "^10.1.0",
