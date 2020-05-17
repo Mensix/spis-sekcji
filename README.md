@@ -1,8 +1,11 @@
-![Logo](https://github.com/Mensix/SpisSekcji/blob/master/logo.png)
-
 # Spis Sekcji JBwA i tag-grupek
 
-Repozytorium z kodem źródłowym.
+Repozytorium z kodem źródłowym. Napisane
+
+## Technologie
+* Vue
+* Quasar
+* Firebase
 
 ## Instalacja na systemie Windows
 
