@@ -3,6 +3,7 @@
 Repozytorium z kodem źródłowym.
 
 ## Technologie
+
 * Vue
 * Quasar
 * Firebase
