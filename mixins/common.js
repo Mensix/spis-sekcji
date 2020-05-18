@@ -30,6 +30,10 @@ export default {
           label: 'Przyrost członków',
           align: 'left',
           sortable: true
+        },
+        {
+          name: 'Keywords',
+          field: 'keywords'
         }
       ],
       pagination: {
@@ -53,7 +57,9 @@ export default {
       return rows.filter(row =>
         cols.some(
           col =>
-            (col.name === 'Name' || col.name === 'Link') &&
+            (col.name === 'Name' ||
+              col.name === 'Link' ||
+              col.name === 'Keywords') &&
             (cellValue(col, row) + '').toLowerCase().indexOf(lowerTerms) !== -1
         )
       )
