@@ -12,8 +12,7 @@
     </div>
     <div class="row">
       <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">
-        <div class="q-py-sm"></div>
-        <q-form @submit="onSubmit" class="q-gutter-sm">
+        <q-form @submit="onSubmit" class="q-my-md q-gutter-sm">
           <q-input
             v-model="groupName"
             color="secondary"
@@ -108,10 +107,8 @@ export default {
           })
 
         this.isInvalid = false
-        this.groupName = ''
-        this.groupLink = ''
-        this.groupCategory = ''
-        this.selectedType = ''
+        this.groupName = this.groupLink = this.groupCategory = this.selectedType =
+          ''
       } else {
         this.isInvalid = true
       }

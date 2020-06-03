@@ -42,11 +42,10 @@
         label="Pokaż kategorie"
         options-selected-class="text-secondary"
       />
-      <div class="q-mt-xs" />
-      <span>Autorzy: Grzegorz Perun & Daniel Nguyen</span>
-      <div v-if="sections.length !== 0">
+      <p class="q-mt-xs q-mb-none">Autorzy: Grzegorz Perun & Daniel Nguyen</p>
+      <p v-if="sections.length > 0">
         <span>Ostatnia aktualizacja: {{ lastUpdateDate }}</span>
-      </div>
+      </p>
     </template>
 
     <template v-slot:top-right
@@ -78,29 +77,27 @@
     <template v-slot:body="props">
       <q-tr :props="props">
         <q-td key="Name" :props="props">
-          <span class="text-grey text-caption2">
+          <small class="text-grey">
             {{ props.row.__index }}
-          </span>
+          </small>
           <q-icon
             v-if="props.row.members >= 10000"
             name="star"
             color="secondary"
           />
-          <span
+          <small
             v-if="
               props.row.isSection !== undefined && props.row.isSection === false
             "
-            class="text-grey text-caption2"
-            ><del>JBWA</del></span
+            class="text-grey"
+            ><del>JBWA</del></small
           >
           <span>{{ props.row.name }}</span>
         </q-td>
         <q-td key="Members" :props="props">
           <span>{{ props.row.members }}</span>
-          <span
-            v-if="props.row.membersGrowth !== undefined"
+          <small
             :class="{
-              'text-caption2': true,
               'text-green': props.row.membersGrowth > 0,
               'text-red': props.row.membersGrowth < 0
             }"
@@ -118,11 +115,11 @@
                 props.row.membersGrowth > 0
                   ? `+${props.row.membersGrowth}`
                   : props.row.membersGrowth &lt; 0
-                  ? `${props.row.membersGrowth}`
+                  ? props.row.membersGrowth
                   : null
               }}
             </span>
-          </span>
+          </small>
         </q-td>
         <q-td key="Link" :props="props">
           <a
@@ -130,6 +127,7 @@
             :href="props.row.link"
             class="text-secondary"
             target="_blank"
+            rel="noopener noreferer"
             >{{ props.row.link.replace('https://facebook.com/groups', '') }}</a
           >
         </q-td>
@@ -147,37 +145,35 @@
 
     <template v-slot:item="props">
       <div class="col-12">
-        <q-card :props="props" flat class="q-pb-md">
+        <q-card :props="props" flat class="q-mb-md">
           <q-list dense>
             <q-item>
               <q-item-section>
                 <q-item-label caption>{{ props.cols[0].label }}</q-item-label>
                 <q-item-label>
-                  <span class="text-grey text-caption2">
+                  <small class="text-grey">
                     {{ props.row.__index }}
-                  </span>
+                  </small>
                   <q-icon
                     v-if="props.row.members >= 10000"
                     name="star"
                     color="secondary"
                   />
-                  <span
+                  <small
                     v-if="
                       props.row.isSection !== undefined &&
                         props.row.isSection === false
                     "
-                    class="text-grey text-caption2"
-                    ><del>JBWA</del></span
+                    class="text-grey"
+                    ><del>JBWA</del></small
                   >
                   {{ props.cols[0].value }}
                 </q-item-label>
                 <q-item-label caption>{{ props.cols[1].label }}</q-item-label>
                 <q-item-label
                   >{{ props.cols[1].value }}
-                  <span
-                    v-if="props.row.membersGrowth !== undefined"
+                  <small
                     :class="{
-                      'text-caption2': true,
                       'text-green': props.row.membersGrowth > 0,
                       'text-red': props.row.membersGrowth < 0
                     }"
@@ -195,10 +191,10 @@
                         props.row.membersGrowth > 0 ? 
                           `+${props.row.membersGrowth}`
                           : props.row.membersGrowth &lt; 0
-                          ? `${props.row.membersGrowth}`
+                          ? props.row.membersGrowth
                           : null
                       }}</span
-                    ></span
+                    ></small
                   ></q-item-label
                 >
                 <q-item-label caption>{{ props.cols[2].label }}</q-item-label>
@@ -208,6 +204,7 @@
                     :id="`${props.row.name.split(' ').join('@')}`"
                     class="text-secondary"
                     target="_blank"
+                    rel="noopener noreferer"
                   >
                     {{
                       props.cols[2].value.replace(
@@ -285,11 +282,6 @@ export default {
           ])
       )
       .then(callback => (this.loading = false))
-  },
-  methods: {
-    sortBy(by) {
-      this.$refs.sectionsTable.sort(by)
-    }
   }
 }
 </script>

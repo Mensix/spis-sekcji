@@ -38,11 +38,10 @@
         label="Pokaż kategorie"
         options-selected-class="text-secondary"
       />
-      <div class="q-mt-xs" />
-      <span>Autorzy: Grzegorz Perun & Daniel Nguyen</span>
-      <div v-if="deadgroups.length !== 0">
+      <p class="q-mt-xs q-mb-none">Autorzy: Grzegorz Perun & Daniel Nguyen</p>
+      <p v-if="deadgroups.length > 0">
         <span>Ostatnia aktualizacja: {{ lastUpdateDate }}</span>
-      </div>
+      </p>
     </template>
 
     <template v-slot:top-right
@@ -59,7 +58,12 @@
           <span>{{ props.row.name }}</span>
         </q-td>
         <q-td key="Link" :props="props">
-          <a :href="props.row.link" class="text-secondary" target="_blank">
+          <a
+            :href="props.row.link"
+            class="text-secondary"
+            target="_blank"
+            rel="noopener noreferer"
+          >
             {{ props.row.link.replace('https://facebook.com/groups', '') }}
           </a>
         </q-td>
@@ -71,7 +75,7 @@
 
     <template v-slot:item="props">
       <div class="col-12">
-        <q-card :props="props" flat class="q-pb-md">
+        <q-card :props="props" flat class="q-mb-md">
           <q-list dense>
             <q-item>
               <q-item-section>
@@ -83,6 +87,7 @@
                     :href="props.cols[1].value"
                     class="text-secondary"
                     target="_blank"
+                    rel="noopener noreferer"
                   >
                     {{
                       props.cols[1].value.replace(
