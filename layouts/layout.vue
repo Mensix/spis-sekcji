@@ -10,11 +10,10 @@
         <template v-slot:avatar
           ><q-icon name="info" color="secondary"
         /></template>
-        <span
-          >Zachęcamy do skorzystania z wyszukiwarki poniżej. Działa znacznie
-          lepiej niż ta na Facebooku :)</span
-        >
-        <div class="q-py-xs"></div>
+        <p class="q-ma-none q-mb-sm">
+          Zachęcamy do skorzystania z wyszukiwarki poniżej. Działa znacznie
+          lepiej niż ta na Facebooku :)
+        </p>
         <span
           >Jeżeli brakuje jakiejś grupy, przejdź
           <nuxt-link to="/submissions" class="text-secondary"
