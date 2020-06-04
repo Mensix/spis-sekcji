@@ -1,8 +1,7 @@
 <template>
   <q-footer class="bg-grey-10 text-white">
     <q-toolbar>
-      <q-toolbar-title>
-        <div class="q-pb-md" />
+      <q-toolbar-title class="q-mt-md q-mb-md">
         <p class="text-caption text-center text-whitespace-normal no-margin">
           Autorzy spisu dziękują Aleksandrze Marczuk i Adamowi Firynowiczowi za
           <a
@@ -25,9 +24,7 @@
           Wszelkie zbierane statystyki są anonimowe i nie są udostępniane
           podmiotom trzecim.
         </p>
-        <div class="q-pb-md" />
-        <q-separator dark inset />
-        <div class="q-pb-md" />
+        <q-separator dark inset class="q-mt-md q-mb-md" />
         <div class="text-caption text-center no-margin">
           <a
             href="https://github.com/Mensix/SpisSekcji/"
@@ -51,7 +48,6 @@
             >Facebook</a
           >
         </div>
-        <div class="q-pb-md" />
       </q-toolbar-title>
     </q-toolbar>
   </q-footer>
