@@ -68,6 +68,10 @@
             Formularz do zgłaszania brakujących grup
           </div>
           <q-separator class="q-mt-sm" />
+          <small v-if="wasFormSend === true" class="text-green"
+            >Dziękujemy! Twoja grupa zostanie dodana po aktualizacji spisu w
+            najbliższą niedzielę.</small
+          >
           <q-form @submit="onSubmit" class="q-gutter-xs">
             <q-select
               v-model="form.groupType"
@@ -83,6 +87,7 @@
               color="secondary"
               hint="Nazwa grupy"
               dense
+              required
             >
               <template v-slot:append>
                 <q-icon name="create" />
@@ -95,6 +100,7 @@
               color="secondary"
               hint="Link"
               dense
+              required
             >
               <template v-slot:append>
                 <q-icon name="link" />
@@ -146,8 +152,9 @@ export default {
     return {
       isInfoDialogShown: false,
       isFormDialogShown: false,
+      wasFormSend: false,
       form: {
-        groupType: '',
+        groupType: 'Sekcja',
         name: '',
         link: '',
         category: '',
@@ -188,6 +195,7 @@ export default {
 
       this.form.groupType = this.form.name = this.form.link = this.form.category = this.form.keywords =
         ''
+      this.wasFormSend = true
     },
     validateKeywords(val) {
       if (val.length === 0) return true
