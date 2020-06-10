@@ -187,7 +187,7 @@ export default {
         )
         .push({
           name: this.form.name,
-          link: this.form.link,
+          link: `https://facebook.com/groups/${this.form.link}`,
           category:
             this.form.groupType === 'Sekcja' ? this.form.category : null,
           keywords: this.form.groupType === 'Sekcja' ? this.form.keywords : null
