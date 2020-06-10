@@ -53,8 +53,8 @@
           <p>
             Jeżeli wszystko się powiedzie, to zgodnie z tym jak spis działa,
             dane aktualizowane będą w niedzielę. W tą niedzielę możecie się też
-            spodziewać dodania nawet 1000 kolejnych sekcji, które gdzieś tam
-            cały czas powstają.
+            spodziewać dodania kolejnych kilkuset sekcji, które gdzieś tam cały
+            czas powstają.
           </p>
           <p class="q-ma-none">Pozdrawiamy :)</p>
           <p>Grzegorz Perun i Daniel Nguyen</p>
