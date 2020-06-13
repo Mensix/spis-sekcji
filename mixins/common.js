@@ -3,7 +3,7 @@ export default {
     return {
       columns: [
         {
-          name: 'Name',
+          name: 'name',
           label: 'Nazwa',
           field: 'name',
           align: 'left',
@@ -11,28 +11,28 @@ export default {
           sort: (a, b) => a.localeCompare(b)
         },
         {
-          name: 'Members',
+          name: 'members',
           label: 'Liczba członków',
           field: 'members',
           align: 'left',
           sortable: true
         },
-        { name: 'Link', label: 'Link', field: 'link', align: 'left' },
+        { name: 'link', label: 'Link', field: 'link', align: 'left' },
         {
-          name: 'Category',
+          name: 'category',
           label: 'Kategoria',
           field: 'category',
           align: 'left'
         },
         {
-          name: 'MembersGrowth',
+          name: 'membersGrowth',
           field: 'membersGrowth',
           label: 'Przyrost członków',
           align: 'left',
           sortable: true
         },
         {
-          name: 'Keywords',
+          name: 'keywords',
           field: 'keywords'
         }
       ],

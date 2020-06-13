@@ -4,7 +4,7 @@
     :loading="loading"
     :columns="columns"
     :rows-per-page-options="[]"
-    :visible-columns="['Name', 'Members', 'MembersGrowth', 'Link']"
+    :visible-columns="['name', 'members', 'membersGrowth', 'link']"
     :data="taggroups"
     :filter="input"
     :filter-method="filterData"
@@ -43,23 +43,23 @@
     <template v-slot:header="props">
       <q-tr :props="props">
         <q-th class="no-border"/>
-        <q-th key="Members" :props="props" class="no-border">{{
+        <q-th key="members" :props="props" class="no-border">{{
           props.cols[1].label
         }}</q-th
         ><q-th class="no-border"
       /></q-tr>
       <q-tr :props="props">
-        <q-th key="Name" :props="props">{{ props.cols[0].label }}</q-th>
-        <q-th key="MembersGrowth" :props="props">{{
+        <q-th key="name" :props="props">{{ props.cols[0].label }}</q-th>
+        <q-th key="membersGrowth" :props="props">{{
           props.cols[3].label
         }}</q-th>
-        <q-th key="Link" :props="props">{{ props.cols[2].label }}</q-th>
+        <q-th key="link" :props="props">{{ props.cols[2].label }}</q-th>
       </q-tr>
     </template>
 
     <template v-slot:body="props">
       <q-tr :props="props">
-        <q-td key="Name" :props="props">
+        <q-td key="name" :props="props">
           <small class="text-grey">{{ props.row.__index }}</small>
           <q-icon
             v-if="props.row.members >= 10000"
@@ -68,7 +68,7 @@
           />
           <span>{{ props.row.name }}</span>
         </q-td>
-        <q-td key="Members" :props="props">
+        <q-td key="members" :props="props">
           <span>{{ props.row.members }}</span>
           <small
             :class="{
@@ -96,7 +96,7 @@
             </span>
           </small>
         </q-td>
-        <q-td key="Link" :props="props">
+        <q-td key="link" :props="props">
           <a
             :href="props.row.link"
             class="text-secondary"

@@ -9,7 +9,7 @@
         ? deadgroups
         : deadgroups.filter(x => selectedCategories.includes(x.category))
     "
-    :visible-columns="['Name', 'Link', 'Category']"
+    :visible-columns="['name', 'link', 'category']"
     :filter="input"
     :pagination.sync="pagination"
     flat
@@ -54,10 +54,10 @@
 
     <template v-slot:body="props">
       <q-tr :props="props">
-        <q-td key="Name" :props="props">
+        <q-td key="name" :props="props">
           <span>{{ props.row.name }}</span>
         </q-td>
-        <q-td key="Link" :props="props">
+        <q-td key="link" :props="props">
           <a
             :href="props.row.link"
             class="text-secondary"
@@ -67,7 +67,7 @@
             {{ props.row.link.replace('https://facebook.com/groups', '') }}
           </a>
         </q-td>
-        <q-td key="Category" :props="props">
+        <q-td key="category" :props="props">
           <span>{{ props.row.category }}</span>
         </q-td>
       </q-tr>
