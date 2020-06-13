@@ -116,9 +116,7 @@
               <q-item-section>
                 <q-item-label caption>{{ props.cols[0].label }}</q-item-label>
                 <q-item-label
-                  ><span class="text-grey text-caption2">{{
-                    props.row.__index
-                  }}</span
+                  ><small class="text-grey">{{ props.row.__index }}</small
                   ><q-icon
                     v-if="props.row.members >= 10000"
                     name="star"
@@ -129,13 +127,12 @@
                 <q-item-label caption>{{ props.cols[1].label }}</q-item-label>
                 <q-item-label
                   >{{ props.cols[1].value }}
-                  <span
+                  <small
                     v-if="props.row.membersGrowth !== undefined"
                     :class="{
                       'text-green': props.row.membersGrowth > 0,
                       'text-red': props.row.membersGrowth < 0
                     }"
-                    class="text-caption2"
                   >
                     <q-icon
                       :name="
@@ -153,7 +150,7 @@
                           ? `${props.row.membersGrowth}`
                           : null
                       }}</span
-                    ></span
+                    ></small
                   ></q-item-label
                 >
                 <q-item-label caption>{{ props.cols[2].label }}</q-item-label>
