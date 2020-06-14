@@ -124,11 +124,11 @@
         <q-td key="link" :props="props">
           <a
             :id="`${props.row.name.split(' ').join('@')}`"
-            :href="props.row.link"
+            :href="`https://facebook.com/groups/${props.row.link}`"
             class="text-secondary"
             target="_blank"
             rel="noopener noreferer"
-            >{{ props.row.link.replace('https://facebook.com/groups', '') }}</a
+            >/{{ props.row.link }}</a
           >
         </q-td>
         <q-td key="category" :props="props">
@@ -200,18 +200,13 @@
                 <q-item-label caption>{{ props.cols[2].label }}</q-item-label>
                 <q-item-label>
                   <a
-                    :href="props.cols[2].value"
+                    :href="`https://facebook.com/groups/${props.cols[2].value}`"
                     :id="`${props.row.name.split(' ').join('@')}`"
                     class="text-secondary"
                     target="_blank"
                     rel="noopener noreferer"
                   >
-                    {{
-                      props.cols[2].value.replace(
-                        'https://facebook.com/groups',
-                        ''
-                      )
-                    }}
+                    /{{ props.cols[2].value }}
                   </a>
                 </q-item-label>
                 <q-item-label
