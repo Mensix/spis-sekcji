@@ -57,9 +57,9 @@ export default {
       return rows.filter(row =>
         cols.some(
           col =>
-            (col.name === 'Name' ||
-              col.name === 'Link' ||
-              col.name === 'Keywords') &&
+            (col.name === 'name' ||
+              col.name === 'link' ||
+              col.name === 'keywords') &&
             (cellValue(col, row) + '').toLowerCase().indexOf(lowerTerms) !== -1
         )
       )
