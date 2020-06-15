@@ -37,15 +37,13 @@
               :options="['Sekcja', 'Tag-grupka']"
               color="secondary"
               options-selected-class="text-secondary"
-              hint="Typ grupy"
-              dense
+              label="Typ grupy"
               options-dense
             />
             <q-input
               v-model="form.name"
               color="secondary"
-              hint="Nazwa grupy"
-              dense
+              label="Nazwa grupy"
               required
             >
               <template v-slot:append>
@@ -54,11 +52,9 @@
             </q-input>
             <q-input
               v-model="form.link"
-              prefix="https://facebook.com/groups/"
               type="link"
               color="secondary"
-              hint="Link"
-              dense
+              label="Link"
               required
             >
               <template v-slot:append>
@@ -69,8 +65,7 @@
               v-model="form.category"
               :disable="form.groupType === 'Tag-grupka'"
               color="secondary"
-              hint="Kategoria"
-              dense
+              label="Kategoria"
             >
               <template v-slot:append>
                 <q-icon name="list" />
@@ -81,11 +76,10 @@
               :disable="form.groupType === 'Tag-grupka'"
               :rules="[val => validateKeywords(val)]"
               color="secondary"
-              hint="Słowa kluczowe"
-              dense
+              label="Słowa kluczowe"
             />
             <q-btn
-              class="q-mt-md full-width"
+              class="full-width"
               type="submit"
               color="secondary"
               label="Wyślij"
