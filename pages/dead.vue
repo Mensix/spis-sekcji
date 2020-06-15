@@ -21,7 +21,7 @@
       <q-input
         v-model="input"
         color="secondary"
-        placeholder="Wyszukiwarka sekcji"
+        label="Wyszukiwarka sekcji"
         dense
       >
         <template v-slot:append>

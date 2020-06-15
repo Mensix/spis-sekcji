@@ -18,7 +18,7 @@
       <q-input
         v-model="input"
         color="secondary"
-        placeholder="Wyszukiwarka tag-grupek"
+        label="Wyszukiwarka tag-grupek"
         dense
       >
         <template v-slot:append>
