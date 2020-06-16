@@ -53,7 +53,7 @@ export default {
   },
   methods: {
     filterData(rows, terms, cols, cellValue) {
-      const lowerTerms = terms ? terms.toLowerCase() : ''
+      const lowerTerms = terms ? terms.toLowerCase().trim() : ''
       return rows.filter(row =>
         cols.some(
           col =>
