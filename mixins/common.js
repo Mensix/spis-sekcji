@@ -41,8 +41,8 @@ export default {
         rowsPerPage: 20,
         rowsCount: 0
       },
-      lastUpdateDate: null,
-      input: null,
+      lastUpdateDate: undefined,
+      input: undefined,
       loading: true
     }
   },
@@ -60,7 +60,7 @@ export default {
             (col.name === 'name' ||
               col.name === 'link' ||
               col.name === 'keywords') &&
-            (cellValue(col, row) + '').toLowerCase().indexOf(lowerTerms) !== -1
+            (cellValue(col, row) + '').toLowerCase().includes(lowerTerms)
         )
       )
     }

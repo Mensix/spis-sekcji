@@ -270,8 +270,8 @@ export default {
                     Object.prototype.hasOwnProperty.call(x, 'category') &&
                     x.category
                 )
-                .map(x => x.category)
-                .flat()
+                .flatMap(x => x.category)
+
                 .sort()
             )
           ])

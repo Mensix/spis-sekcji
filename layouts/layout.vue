@@ -16,7 +16,6 @@
           >
         </p>
       </q-banner>
-
       <nuxt keep-alive />
     </q-page-container>
     <layout-footer />
@@ -74,7 +73,7 @@
             <q-input
               v-model="form.keywords"
               :disable="form.groupType === 'Tag-grupka'"
-              :rules="[val => validateKeywords(val)]"
+              :rules="[value => validateKeywords(value)]"
               color="secondary"
               label="Słowa kluczowe"
             />
@@ -115,7 +114,7 @@ export default {
     }
   },
   mounted() {
-    if (!firebase.apps.length) {
+    if (firebase.apps.length === 0) {
       const firebaseConfig = {
         apiKey: 'AIzaSyAF0NQG_JKmIjnHRzsDYxuWMjhyuF0RBeY',
         authDomain: 'spissekcji.firebaseapp.com',
@@ -141,21 +140,22 @@ export default {
           name: this.form.name,
           link: `https://facebook.com/groups/${this.form.link}`,
           category:
-            this.form.groupType === 'Sekcja' ? this.form.category : null,
-          keywords: this.form.groupType === 'Sekcja' ? this.form.keywords : null
+            this.form.groupType === 'Sekcja' ? this.form.category : undefined,
+          keywords:
+            this.form.groupType === 'Sekcja' ? this.form.keywords : undefined
         })
 
       this.form.groupType = this.form.name = this.form.link = this.form.category = this.form.keywords =
         ''
       this.wasFormSend = true
     },
-    validateKeywords(val) {
-      if (val.length === 0) return true
+    validateKeywords(value) {
+      if (value.length === 0) return true
       else if (
-        val.length > 0 &&
+        value.length > 0 &&
         [this.form.name, this.form.link, this.form.category]
           .map(x => x.toLowerCase())
-          .every(x => !x.includes(val.toLowerCase()))
+          .every(x => !x.includes(value.toLowerCase()))
       )
         return true
       else
