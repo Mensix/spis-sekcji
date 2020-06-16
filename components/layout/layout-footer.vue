@@ -27,7 +27,7 @@
         <q-separator dark inset class="q-mt-md q-mb-md" />
         <div class="text-caption text-center no-margin">
           <a
-            href="https://github.com/Mensix/SpisSekcji/"
+            href="https://github.com/Mensix/spis-sekcji/"
             class="text-white text-whitespace-normal"
             rel="noopener noreferer"
             target="_blank"
