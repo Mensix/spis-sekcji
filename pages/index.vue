@@ -1,6 +1,5 @@
 <template>
   <q-table
-    ref="sectionsTable"
     :loading="loading"
     :columns="columns"
     :grid="isMobileDevice"
@@ -20,6 +19,7 @@
     flat
     dense
     square
+    binary-state-sort
   >
     <template v-slot:top-left>
       <q-input
