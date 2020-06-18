@@ -27,6 +27,7 @@
         <q-separator dark inset class="q-mt-md q-mb-md" />
         <div class="text-caption text-center no-margin">
           <a
+            id="github-link"
             href="https://github.com/Mensix/spis-sekcji/"
             class="text-white text-whitespace-normal"
             rel="noopener noreferer"
@@ -34,6 +35,7 @@
             >GitHub</a
           ><span> | </span>
           <a
+            id="8rabin-link"
             href="https://8rabin.github.io/"
             class="text-white text-whitespace-normal"
             rel="noopener noreferer"
@@ -41,6 +43,7 @@
             >8rabin</a
           ><span> | </span
           ><a
+            id="facebook-link"
             href="https://facebook.com/groups/spis.sekcji/"
             class="text-white text-whitespace-normal"
             rel="noopener noreferer"
