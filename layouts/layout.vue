@@ -150,16 +150,18 @@ export default {
       this.wasFormSend = true
     },
     validateKeywords(value) {
-      if (value.length === 0) return true
-      else if (
+      if (value.length === 0) {
+        return true
+      } else if (
         value.length > 0 &&
         [this.form.name, this.form.link, this.form.category]
           .map(x => x.toLowerCase())
           .every(x => !x.includes(value.toLowerCase()))
-      )
+      ) {
         return true
-      else
+      } else {
         return 'Słowa kluczowe nie mogą zawierać nazwy grupy, jej linku lub kategorii'
+      }
     }
   }
 }
