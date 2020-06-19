@@ -6,6 +6,15 @@
         <template v-slot:avatar
           ><q-icon name="info" color="secondary"
         /></template>
+        <p
+          v-if="updateStatus.current > 0 && updateStatus.total > 0"
+          class="q-mb-xs"
+        >
+          Trwa aktualizacja spisu sekcji,
+          <a @click="isUpdaterDialogShown = !isUpdaterDialogShown"
+            >kliknij by zobaczyć postępy.</a
+          >
+        </p>
         <p class="q-mb-xs">
           W wyniku błędu w kodzie, nie działało zgłaszanie tag-grupek, wobec
           czego prosimy <b>o ponowne przesłanie próśb o dodanie grupy.</b>
@@ -106,6 +115,7 @@ export default {
   },
   data() {
     return {
+      updateStatus: {},
       isFormDialogShown: false,
       wasFormSend: false,
       form: {
@@ -118,6 +128,10 @@ export default {
     }
   },
   mounted() {
+    fetch('https://spissekcji.firebaseio.com/update.json')
+      .then(response => response.json())
+      .then(output => (this.updateStatus = output))
+
     if (firebase.apps.length === 0) {
       const firebaseConfig = {
         apiKey: 'AIzaSyAF0NQG_JKmIjnHRzsDYxuWMjhyuF0RBeY',
