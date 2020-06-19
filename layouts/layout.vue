@@ -6,6 +6,10 @@
         <template v-slot:avatar
           ><q-icon name="info" color="secondary"
         /></template>
+        <p class="q-mb-xs">
+          W wyniku błędu w kodzie, nie działało zgłaszanie tag-grupek, wobec
+          czego prosimy <b>o ponowne przesłanie próśb o dodanie grupy.</b>
+        </p>
         <p class="q-ma-none">
           Jeżeli w spisie brakuje jakiejś grupy,
           <a
@@ -139,10 +143,8 @@ export default {
         .push({
           name: this.form.name,
           link: this.form.link,
-          category:
-            this.form.groupType === 'Sekcja' ? this.form.category : undefined,
-          keywords:
-            this.form.groupType === 'Sekcja' ? this.form.keywords : undefined
+          category: this.form.groupType === 'Sekcja' && this.form.category,
+          keywords: this.form.groupType === 'Sekcja' && this.form.keywords
         })
 
       this.form.groupType = this.form.name = this.form.link = this.form.category = this.form.keywords =
