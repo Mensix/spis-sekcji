@@ -271,7 +271,6 @@ export default {
                     x.category
                 )
                 .flatMap(x => x.category)
-
                 .sort()
             )
           ])
