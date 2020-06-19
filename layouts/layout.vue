@@ -11,7 +11,10 @@
           class="q-mb-xs"
         >
           Trwa aktualizacja spisu sekcji,
-          <a @click="isUpdaterDialogShown = !isUpdaterDialogShown"
+          <a
+            @click="isUpdaterDialogShown = !isUpdaterDialogShown"
+            href="#"
+            class="text-secondary"
             >kliknij by zobaczyć postępy.</a
           >
         </p>
@@ -100,12 +103,36 @@
         </q-card-section>
       </q-card>
     </q-dialog>
+    <q-dialog v-model="isUpdaterDialogShown">
+      <q-card>
+        <q-card-section>
+          <div class="text-h6 q-mb-sm">
+            Aktualizacja spisu sekcji - {{ todayDate }}
+          </div>
+          <q-linear-progress
+            :value="updateStatus.current / updateStatus.total"
+            color="secondary"
+            size="25px"
+          >
+            <div class="absolute-full flex flex-center">
+              <q-badge
+                :label="percentageStatus"
+                color="white"
+                text-color="secondary"
+              /></div
+          ></q-linear-progress>
+          <small>{{ updateStatus.current }} / {{ updateStatus.total }}</small>
+        </q-card-section>
+      </q-card>
+    </q-dialog>
   </q-layout>
 </template>
 
 <script>
 import firebase from 'firebase/app'
 import 'firebase/database'
+import roundTo from 'round-to'
+import { format } from 'date-fns'
 import LayoutHeader from '~/components/layout/layout-header.vue'
 import LayoutFooter from '~/components/layout/layout-footer.vue'
 export default {
@@ -116,6 +143,7 @@ export default {
   data() {
     return {
       updateStatus: {},
+      isUpdaterDialogShown: true,
       isFormDialogShown: false,
       wasFormSend: false,
       form: {
@@ -125,6 +153,17 @@ export default {
         category: '',
         keywords: ''
       }
+    }
+  },
+  computed: {
+    todayDate() {
+      return format(new Date(), 'dd/MM/yyyy')
+    },
+    percentageStatus() {
+      return `${roundTo(
+        this.updateStatus.current / this.updateStatus.total,
+        3
+      ) * 100}%`
     }
   },
   mounted() {
