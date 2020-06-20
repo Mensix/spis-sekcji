@@ -55,6 +55,10 @@
                 >tutaj.</a
               >
             </li>
+            <li>
+              Najpierw pobierane są dane tag-grupek, następnie sekcji (z tego
+              powodu status typu grup, które nie są pobierane wynosi 0 / 0)
+            </li>
           </ul>
         </q-card-section>
       </q-card>
