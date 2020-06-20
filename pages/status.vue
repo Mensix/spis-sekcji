@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="Object.keys(updateStatus).length > 0"
-    class="row q-ma-md items-center justify-center"
+    class="row q-ma-md justify-center"
   >
     <div class="col-10 col-xs-12 col-sm-12 col-md-12">
       <q-card class="q-mb-md">
