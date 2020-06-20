@@ -3,7 +3,7 @@
     v-if="Object.keys(updateStatus).length > 0"
     class="row q-ma-md items-center justify-center"
   >
-    <div class="col-10">
+    <div class="col-10 col-xs-12 col-sm-12 col-md-12">
       <q-card class="q-mb-md">
         <q-card-section>
           <p class="text-grey q-ma-none">
@@ -16,7 +16,10 @@
         </q-card-section>
       </q-card>
     </div>
-    <div v-if="!isNotInProgress" class="col-5 q-pr-sm q-mb-md">
+    <div
+      v-if="!isNotInProgress"
+      class="col-10 col-xs-6 col-sm-6 col-md-6 q-pr-sm q-mb-md"
+    >
       <q-card>
         <q-card-section>
           <p class="text-grey q-mb-sm">Sekcje</p>
@@ -27,7 +30,10 @@
         </q-card-section>
       </q-card>
     </div>
-    <div v-if="!isNotInProgress" class="col-5 q-pl-sm q-mb-md">
+    <div
+      v-if="!isNotInProgress"
+      class="col-10 col-xs-6 col-sm-6 col-md-6 q-pl-sm q-mb-md"
+    >
       <q-card>
         <q-card-section>
           <p class="text-grey q-mb-sm">Tag-grupki</p>
@@ -38,7 +44,7 @@
         </q-card-section>
       </q-card>
     </div>
-    <div class="col-10">
+    <div class="col-10 col-xs-12 col-sm-12 col-md-12">
       <q-card>
         <q-card-section>
           <p class="q-ma-none q-mb-sm">Informacje dotyczące aktualizacji:</p>
