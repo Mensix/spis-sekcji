@@ -2,20 +2,14 @@
   <q-layout view="hHh lpR fff">
     <layout-header />
     <q-page-container>
-      <q-banner class="q-py-md">
+      <q-banner v-if="!$nuxt.$route.path.match(/\/status/)" class="q-py-md">
         <template v-slot:avatar
           ><q-icon name="info" color="secondary"
         /></template>
-        <p
-          v-if="updateStatus.current > 0 && updateStatus.total > 0"
-          class="q-mb-xs"
-        >
+        <p v-if="!isNotInProgress" class="q-mb-xs">
           Trwa aktualizacja spisu sekcji,
-          <a
-            @click="isUpdaterDialogShown = !isUpdaterDialogShown"
-            href="#"
-            class="text-secondary"
-            >kliknij by zobaczyć postępy.</a
+          <nuxt-link to="/status" class="text-secondary"
+            >kliknij by zobaczyć postępy.</nuxt-link
           >
         </p>
         <p class="q-mb-xs">
@@ -32,7 +26,7 @@
           >
         </p>
       </q-banner>
-      <nuxt keep-alive />
+      <nuxt :keep-alive="!$nuxt.$route.path.match(/\/status/)" />
     </q-page-container>
     <layout-footer />
     <q-dialog v-model="isFormDialogShown">
@@ -103,36 +97,12 @@
         </q-card-section>
       </q-card>
     </q-dialog>
-    <q-dialog v-model="isUpdaterDialogShown">
-      <q-card>
-        <q-card-section>
-          <div class="text-h6 q-mb-sm">
-            Aktualizacja spisu sekcji - {{ todayDate }}
-          </div>
-          <q-linear-progress
-            :value="updateStatus.current / updateStatus.total"
-            color="secondary"
-            size="25px"
-          >
-            <div class="absolute-full flex flex-center">
-              <q-badge
-                :label="percentageStatus"
-                color="white"
-                text-color="secondary"
-              /></div
-          ></q-linear-progress>
-          <small>{{ updateStatus.current }} / {{ updateStatus.total }}</small>
-        </q-card-section>
-      </q-card>
-    </q-dialog>
   </q-layout>
 </template>
 
 <script>
 import firebase from 'firebase/app'
 import 'firebase/database'
-import roundTo from 'round-to'
-import { format } from 'date-fns'
 import LayoutHeader from '~/components/layout/layout-header.vue'
 import LayoutFooter from '~/components/layout/layout-footer.vue'
 export default {
@@ -143,7 +113,6 @@ export default {
   data() {
     return {
       updateStatus: {},
-      isUpdaterDialogShown: true,
       isFormDialogShown: false,
       wasFormSend: false,
       form: {
@@ -156,21 +125,22 @@ export default {
     }
   },
   computed: {
-    todayDate() {
-      return format(new Date(), 'dd/MM/yyyy')
-    },
-    percentageStatus() {
-      return `${roundTo(
-        this.updateStatus.current / this.updateStatus.total,
-        3
-      ) * 100}%`
+    isNotInProgress() {
+      return (
+        Object.values(this.updateStatus).length > 0 &&
+        this.updateStatus.sections.current === 0 &&
+        this.updateStatus.sections.total === 0 &&
+        this.updateStatus.taggroups.current === 0 &&
+        this.updateStatus.taggroups.total === 0
+      )
     }
   },
   mounted() {
     fetch('https://spissekcji.firebaseio.com/update.json')
       .then(response => response.json())
-      .then(output => (this.updateStatus = output))
-
+      .then(output => {
+        this.updateStatus = output
+      })
     if (firebase.apps.length === 0) {
       const firebaseConfig = {
         apiKey: 'AIzaSyAF0NQG_JKmIjnHRzsDYxuWMjhyuF0RBeY',
