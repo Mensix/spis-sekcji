@@ -6,7 +6,10 @@
         <template v-slot:avatar
           ><q-icon name="info" color="secondary"
         /></template>
-        <p v-if="!isNotInProgress" class="q-mb-xs">
+        <p
+          v-if="!isNotInProgress && Object.keys(updateStatus).length > 0"
+          class="q-mb-xs"
+        >
           Trwa aktualizacja spisu sekcji,
           <nuxt-link to="/status" class="text-secondary"
             >kliknij by zobaczyć postępy.</nuxt-link
