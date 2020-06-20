@@ -2,10 +2,16 @@
   <q-layout view="hHh lpR fff">
     <layout-header />
     <q-page-container>
-      <q-banner class="q-py-md">
+      <q-banner v-if="!$nuxt.$route.path.match(/\/status/)" class="q-py-md">
         <template v-slot:avatar
           ><q-icon name="info" color="secondary"
         /></template>
+        <p v-if="!isNotInProgress" class="q-mb-xs">
+          Trwa aktualizacja spisu sekcji,
+          <nuxt-link to="/status" class="text-secondary"
+            >kliknij by zobaczyć postępy.</nuxt-link
+          >
+        </p>
         <p class="q-mb-xs">
           W wyniku błędu w kodzie, nie działało zgłaszanie tag-grupek, wobec
           czego prosimy <b>o ponowne przesłanie próśb o dodanie grupy.</b>
@@ -20,7 +26,7 @@
           >
         </p>
       </q-banner>
-      <nuxt keep-alive />
+      <nuxt :keep-alive="!$nuxt.$route.path.match(/\/status/)" />
     </q-page-container>
     <layout-footer />
     <q-dialog v-model="isFormDialogShown">
@@ -106,6 +112,7 @@ export default {
   },
   data() {
     return {
+      updateStatus: {},
       isFormDialogShown: false,
       wasFormSend: false,
       form: {
@@ -117,7 +124,23 @@ export default {
       }
     }
   },
+  computed: {
+    isNotInProgress() {
+      return (
+        Object.values(this.updateStatus).length > 0 &&
+        this.updateStatus.sections.current === 0 &&
+        this.updateStatus.sections.total === 0 &&
+        this.updateStatus.taggroups.current === 0 &&
+        this.updateStatus.taggroups.total === 0
+      )
+    }
+  },
   mounted() {
+    fetch('https://spissekcji.firebaseio.com/update.json')
+      .then(response => response.json())
+      .then(output => {
+        this.updateStatus = output
+      })
     if (firebase.apps.length === 0) {
       const firebaseConfig = {
         apiKey: 'AIzaSyAF0NQG_JKmIjnHRzsDYxuWMjhyuF0RBeY',
