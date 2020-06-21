@@ -91,12 +91,17 @@
               label="Słowa kluczowe"
             />
             <q-btn
-              class="full-width"
+              class="full-width q-mb-md"
               type="submit"
               color="secondary"
               label="Wyślij"
             />
           </q-form>
+          <q-separator />
+          <small
+            >Prosimy o niewysyłanie grup tajnych, ponieważ skrypt do
+            aktualizacji ich nie wykrywa.</small
+          >
         </q-card-section>
       </q-card>
     </q-dialog>
