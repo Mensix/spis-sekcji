@@ -17,8 +17,8 @@
       </q-card>
     </div>
     <div
-      v-if="!isNotInProgress"
-      class="col-10 col-xs-6 col-sm-6 col-md-6 q-pr-sm q-mb-md"
+      v-if="isNotInProgress"
+      class="col-10 col-xs-12 col-sm-12 col-md-12 q-mb-md"
     >
       <q-card>
         <q-card-section>
@@ -31,8 +31,8 @@
       </q-card>
     </div>
     <div
-      v-if="!isNotInProgress"
-      class="col-10 col-xs-6 col-sm-6 col-md-6 q-pl-sm q-mb-md"
+      v-if="isNotInProgress"
+      class="col-10 col-xs-12 col-sm-12 col-md-12 q-mb-md"
     >
       <q-card>
         <q-card-section>
