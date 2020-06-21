@@ -15,10 +15,7 @@
             >kliknij by zobaczyć postępy.</nuxt-link
           >
         </p>
-        <p class="q-mb-xs">
-          W wyniku błędu w kodzie, nie działało zgłaszanie tag-grupek, wobec
-          czego prosimy <b>o ponowne przesłanie próśb o dodanie grupy.</b>
-        </p>
+        <p v-if="message.length > 0" v-html="message" class="q-mb-xs"></p>
         <p class="q-ma-none">
           Jeżeli w spisie brakuje jakiejś grupy,
           <a
@@ -120,6 +117,7 @@ export default {
   },
   data() {
     return {
+      message: '',
       updateStatus: {},
       isFormDialogShown: false,
       wasFormSend: false,
@@ -144,6 +142,9 @@ export default {
     }
   },
   mounted() {
+    fetch('https://spissekcji.firebaseio.com/info.json')
+      .then(response => response.json())
+      .then(output => (this.message = output.message))
     fetch('https://spissekcji.firebaseio.com/update.json')
       .then(response => response.json())
       .then(output => {
