@@ -1,18 +1,28 @@
 <template>
   <div class="column justify-center items-center window-height">
-    <q-card :flat="$q.screen.lt.sm" class="q-pa-lg q-mb-sm">
+    <q-card :flat="$q.screen.lt.sm" class="q-pa-md">
       <q-card-section>
         <h5 class="text-center q-ma-none q-mb-sm">
           Dodaj nową grupę
         </h5>
         <p class="text-center q-mb-xl">lub zaaktualizuj istniejącą</p>
-        <q-form class="q-gutter-md">
+        <q-form v-if="choice === 'Dodaj nową grupę'" class="q-gutter-md">
           <q-select
             v-model="choice"
-            :options="options"
+            :options="['Dodaj nową grupę', 'Zaaktualizuj istniejącą grupę']"
             color="secondary"
             options-selected-class="text-secondary"
             label="Co chcesz zrobić?"
+            class="q-mb-md custom-width"
+            stack-label
+            outlined
+          />
+          <q-select
+            v-model="add.type"
+            :options="['Sekcja', 'Tag-grupka']"
+            color="secondary"
+            options-selected-class="text-secondary"
+            label="Typ grupy"
             class="custom-width"
             stack-label
             outlined
@@ -49,7 +59,6 @@
             options-selected-class="text-secondary"
             label="Kategoria"
             class="custom-width"
-            new-value-mode="add-unique"
             multiple
             stack-label
             outlined
@@ -66,17 +75,83 @@
               <q-icon name="vertical_split" />
             </template>
           </q-input>
+          <div class="row justify-between">
+            <q-btn
+              @click="$router.push('/')"
+              color="secondary"
+              label="Wróć na stronę główną"
+              flat
+            />
+            <q-btn color="secondary" label="Wyślij" flat />
+          </div>
+        </q-form>
+        <q-form v-else class="q-gutter-md">
+          <q-select
+            v-model="choice"
+            :options="['Dodaj nową grupę', 'Zaaktualizuj istniejącą grupę']"
+            color="secondary"
+            options-selected-class="text-secondary"
+            label="Co chcesz zrobić?"
+            class="q-mb-md custom-width"
+            stack-label
+            outlined
+          />
+          <q-select
+            v-model="update.name"
+            @filter="filterGroups"
+            :options="filtered.map(x => x.name)"
+            color="secondary"
+            options-selected-class="text-secondary"
+            label="Nazwa grupy"
+            class="custom-width"
+            stack-label
+            outlined
+            use-input
+            autocomplete
+          />
+          <q-select
+            v-model="update.categories"
+            :options="
+              categories.filter(
+                x =>
+                  !sections
+                    .filter(g => g.name === update.name)
+                    .map(g => g.category)
+                    .includes(x)
+              )
+            "
+            color="secondary"
+            options-selected-class="text-secondary"
+            label="Dodaj kategorię"
+            class="custom-width"
+            new-value-mode="add-unique"
+            multiple
+            stack-label
+            outlined
+          />
+          <q-input
+            v-model="update.keywords"
+            color="secondary"
+            label="Słowa kluczowe"
+            class="custom-width"
+            stack-label
+            outlined
+          >
+            <template v-slot:append>
+              <q-icon name="vertical_split" />
+            </template>
+          </q-input>
+          <div class="row justify-between">
+            <q-btn
+              @click="$router.push('/')"
+              color="secondary"
+              label="Wróć na stronę główną"
+              flat
+            />
+            <q-btn color="secondary" label="Wyślij" flat />
+          </div>
         </q-form>
       </q-card-section>
-      <div class="row justify-between">
-        <q-btn
-          @click="$router.push('/')"
-          color="secondary"
-          label="Wróć na stronę główną"
-          flat
-        />
-        <q-btn color="secondary" label="Wyślij" flat />
-      </div>
     </q-card>
   </div>
 </template>
@@ -86,11 +161,19 @@ import { mapGetters } from 'vuex'
 export default {
   data() {
     return {
-      choice: undefined,
-      options: ['Dodaj nową grupę', 'Zaaktualizuj istniejącą grupę'],
+      choice: 'Dodaj nową grupę',
+      filtered: [],
       add: {
+        type: '',
         name: '',
-        categories: []
+        link: '',
+        categories: [],
+        keywords: ''
+      },
+      update: {
+        name: '',
+        categories: [],
+        kewyords: ''
       }
     }
   },
@@ -133,6 +216,23 @@ export default {
             )
           ])
         )
+    }
+  },
+  methods: {
+    filterGroups(value, update) {
+      if (value === '') {
+        update(() => {
+          this.filtered = this.sections
+        })
+        return
+      }
+
+      update(() => {
+        const needle = value.toLowerCase()
+        this.filtered = this.sections.filter(v =>
+          v.name.toLowerCase().includes(needle)
+        )
+      })
     }
   }
 }
