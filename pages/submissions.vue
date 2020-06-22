@@ -5,8 +5,12 @@
         <h5 class="text-center q-ma-none q-mb-sm">
           Dodaj nową grupę
         </h5>
-        <p class="text-center q-mb-xl">lub zaaktualizuj istniejącą</p>
-        <q-form v-if="choice === 'Dodaj nową grupę'" class="q-gutter-md">
+        <p class="text-center q-ma-none q-pb-md">lub zaaktualizuj istniejącą</p>
+        <q-form
+          @submit="onAddSubmit"
+          v-if="choice === 'Dodaj nową grupę'"
+          class="q-gutter-md"
+        >
           <q-select
             v-model="choice"
             :options="['Dodaj nową grupę', 'Zaaktualizuj istniejącą grupę']"
@@ -34,6 +38,7 @@
             class="custom-width"
             stack-label
             outlined
+            required
           >
             <template v-slot:append>
               <q-icon name="create" />
@@ -47,6 +52,7 @@
             prefix="https://facebook.com/groups/"
             stack-label
             outlined
+            required
           >
             <template v-slot:append>
               <q-icon name="link" />
@@ -65,6 +71,7 @@
           />
           <q-input
             v-model="add.keywords"
+            :rules="[value => validateKeywords(value)]"
             color="secondary"
             label="Słowa kluczowe"
             class="custom-width"
@@ -82,7 +89,7 @@
               label="Wróć na stronę główną"
               flat
             />
-            <q-btn color="secondary" label="Wyślij" flat />
+            <q-btn type="submit" color="secondary" label="Wyślij" flat />
           </div>
         </q-form>
         <q-form v-else class="q-gutter-md">
@@ -108,6 +115,7 @@
             outlined
             use-input
             autocomplete
+            required
           />
           <q-select
             v-model="update.categories"
@@ -128,6 +136,7 @@
             multiple
             stack-label
             outlined
+            required
           />
           <q-input
             v-model="update.keywords"
@@ -148,7 +157,7 @@
               label="Wróć na stronę główną"
               flat
             />
-            <q-btn color="secondary" label="Wyślij" flat />
+            <q-btn type="submit" color="secondary" label="Wyślij" flat />
           </div>
         </q-form>
       </q-card-section>
@@ -157,6 +166,8 @@
 </template>
 
 <script>
+import firebase from 'firebase/app'
+import 'firebase/database'
 import { mapGetters } from 'vuex'
 export default {
   data() {
@@ -164,7 +175,7 @@ export default {
       choice: 'Dodaj nową grupę',
       filtered: [],
       add: {
-        type: '',
+        type: 'Sekcja',
         name: '',
         link: '',
         categories: [],
@@ -174,7 +185,8 @@ export default {
         name: '',
         categories: [],
         kewyords: ''
-      }
+      },
+      wasFormSend: false
     }
   },
   computed: {
@@ -184,6 +196,19 @@ export default {
     })
   },
   mounted() {
+    if (firebase.apps.length === 0) {
+      const firebaseConfig = {
+        apiKey: 'AIzaSyAF0NQG_JKmIjnHRzsDYxuWMjhyuF0RBeY',
+        authDomain: 'spissekcji.firebaseapp.com',
+        databaseURL: 'https://spissekcji.firebaseio.com',
+        projectId: 'spissekcji',
+        storageBucket: 'spissekcji.appspot.com',
+        messagingSenderId: '752464608547',
+        appId: '1:752464608547:web:7786ca37c8ae1dd0'
+      }
+      firebase.initializeApp(firebaseConfig)
+    }
+
     if (Object.values(this.sections).length === 0) {
       fetch('https://spissekcji.firebaseio.com/sections.json')
         .then(response => response.json())
@@ -233,15 +258,51 @@ export default {
           v.name.toLowerCase().includes(needle)
         )
       })
+    },
+    onAddSubmit() {
+      firebase
+        .database()
+        .ref(
+          `/submissions/${
+            this.add.type === 'Sekcja' ? 'sections' : 'taggroups'
+          }`
+        )
+        .push({
+          name: this.add.name,
+          link: this.add.link,
+          category: this.add.type === 'Sekcja' && this.add.categories,
+          keywords: this.add.type === 'Sekcja' && this.add.keywords
+        })
+      this.add.type = this.add.name = this.add.link = this.add.categories = this.add.keywords =
+        ''
+      this.wasFormSend = true
+    },
+    validateKeywords(value) {
+      if (value.length === 0) {
+        return true
+      } else if (
+        value.length > 0 &&
+        [this.add.name, this.add.link, this.add.categories.join(',')]
+          .map(x => x.toLowerCase())
+          .every(x => !x.includes(value.toLowerCase()))
+      ) {
+        return true
+      } else {
+        return 'Słowa kluczowe nie mogą zawierać nazwy grupy, jej linku lub kategorii'
+      }
     }
   }
 }
 </script>
 
-<style scoped>
+<style>
 @media (min-width: 1023px) {
   .custom-width {
-    width: 25vw;
+    width: 30vw;
   }
+}
+
+.text-break {
+  word-wrap: break-word;
 }
 </style>

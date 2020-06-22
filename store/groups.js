@@ -2,14 +2,16 @@ export const state = () => ({
   message: '',
   updateStatus: {},
   categories: [],
-  sections: []
+  sections: [],
+  taggroups: []
 })
 
 export const getters = {
   message: state => state.message,
   updateStatus: state => state.updateStatus,
   categories: state => state.categories,
-  sections: state => state.sections
+  sections: state => state.sections,
+  taggroups: state => state.taggroups
 }
 
 export const mutations = {
@@ -24,6 +26,9 @@ export const mutations = {
   },
   SET_SECTIONS(state, groups) {
     state.sections = groups
+  },
+  SET_TAGGROUPS(state, groups) {
+    state.taggroups = groups
   }
 }
 
@@ -39,5 +44,8 @@ export const actions = {
   },
   SET_SECTIONS({ commit }, groups) {
     commit('SET_SECTIONS', groups)
+  },
+  SET_TAGGROUPS({ commit }, groups) {
+    commit('SET_TAGGROUPS', groups)
   }
 }

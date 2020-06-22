@@ -173,31 +173,36 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import common from '~/mixins/common.js'
 export default {
   layout: 'layout',
   mixins: [common],
-  data() {
-    return {
-      taggroups: []
-    }
+  computed: {
+    ...mapGetters({
+      taggroups: 'groups/taggroups'
+    })
   },
   mounted() {
-    fetch('https://spissekcji.firebaseio.com/taggroups.json')
-      .then(response => response.json())
-      .then(output => {
-        this.taggroups = [
-          ...output.groups
-            .sort((a, b) => b.members - a.members)
-            .map((_, idx) => ({
-              ..._,
-              membersGrowth: _.membersGrowth || 0,
-              __index: idx + 1
-            }))
-        ]
-        this.lastUpdateDate = output.lastUpdateDate
-      })
-      .then(callback => (this.loading = false))
+    if (Object.values(this.taggroups).length === 0) {
+      fetch('https://spissekcji.firebaseio.com/taggroups.json')
+        .then(response => response.json())
+        .then(output => {
+          this.$store.dispatch('groups/SET_TAGGROUPS', [
+            ...output.groups
+              .sort((a, b) => b.members - a.members)
+              .map((_, idx) => ({
+                ..._,
+                membersGrowth: _.membersGrowth || 0,
+                __index: idx + 1
+              }))
+          ])
+          this.lastUpdateDate = output.lastUpdateDate
+        })
+        .then(callback => (this.loading = false))
+    } else {
+      this.loading = false
+    }
   }
 }
 </script>
