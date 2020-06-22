@@ -13,7 +13,7 @@
         >
           <q-select
             v-model="choice"
-            :options="['Dodaj nową grupę', 'Zaaktualizuj istniejącą grupę']"
+            :options="['Dodać nową grupę', 'Zaaktualizować istniejącą grupę']"
             :dense="$q.screen.lt.sm"
             :options-dense="$q.screen.lt.sm"
             color="secondary"
