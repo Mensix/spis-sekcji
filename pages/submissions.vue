@@ -71,7 +71,6 @@
           />
           <q-input
             v-model="add.keywords"
-            :rules="[value => validateKeywords(value)]"
             color="secondary"
             label="Słowa kluczowe"
             class="custom-width"
@@ -92,7 +91,7 @@
             <q-btn type="submit" color="secondary" label="Wyślij" flat />
           </div>
         </q-form>
-        <q-form v-else class="q-gutter-md">
+        <q-form @submit="onUpdateSubmit" v-else class="q-gutter-md">
           <q-select
             v-model="choice"
             :options="['Dodaj nową grupę', 'Zaaktualizuj istniejącą grupę']"
@@ -115,7 +114,6 @@
             outlined
             use-input
             autocomplete
-            required
           />
           <q-select
             v-model="update.categories"
@@ -132,14 +130,13 @@
             options-selected-class="text-secondary"
             label="Dodaj kategorię"
             class="custom-width"
-            new-value-mode="add-unique"
             multiple
             stack-label
             outlined
-            required
           />
           <q-input
             v-model="update.keywords"
+            debounce="250"
             color="secondary"
             label="Słowa kluczowe"
             class="custom-width"
@@ -294,19 +291,23 @@ export default {
         ''
       this.wasFormSend = true
     },
-    validateKeywords(value) {
-      if (value.length === 0) {
-        return true
-      } else if (
-        value.length > 0 &&
-        [this.add.name, this.add.link, this.add.categories.join(',')]
-          .map(x => x.toLowerCase())
-          .every(x => !x.includes(value.toLowerCase()))
-      ) {
-        return true
-      } else {
-        return 'Słowa kluczowe nie mogą zawierać nazwy grupy, jej linku lub kategorii'
-      }
+    onUpdateSubmit() {
+      firebase
+        .database()
+        .ref(
+          `/submissions/${
+            this.add.type === 'Sekcja' ? 'sections' : 'taggroups'
+          }`
+        )
+        .push({
+          update: true,
+          name: this.update.name,
+          categories: this.update.categories,
+          keywords: this.update.keywords
+        })
+      this.update.name = this.update.keywords = ''
+      this.update.categories = []
+      this.wasFormSend = true
     }
   }
 }
