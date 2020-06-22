@@ -14,6 +14,8 @@
           <q-select
             v-model="choice"
             :options="['Dodaj nową grupę', 'Zaaktualizuj istniejącą grupę']"
+            :dense="$q.screen.lt.sm"
+            :options-dense="$q.screen.lt.sm"
             color="secondary"
             options-selected-class="text-secondary"
             label="Co chcesz zrobić?"
@@ -24,6 +26,8 @@
           <q-select
             v-model="add.type"
             :options="['Sekcja', 'Tag-grupka']"
+            :dense="$q.screen.lt.sm"
+            :options-dense="$q.screen.lt.sm"
             color="secondary"
             options-selected-class="text-secondary"
             label="Typ grupy"
@@ -33,6 +37,7 @@
           />
           <q-input
             v-model="add.name"
+            :dense="$q.screen.lt.sm"
             color="secondary"
             label="Nazwa grupy"
             class="custom-width"
@@ -46,6 +51,7 @@
           </q-input>
           <q-input
             v-model="add.link"
+            :dense="$q.screen.lt.sm"
             color="secondary"
             label="Link"
             class="custom-width"
@@ -60,6 +66,7 @@
           </q-input>
           <q-select
             v-model="add.category"
+            :dense="$q.screen.lt.sm"
             :options="categories"
             color="secondary"
             options-selected-class="text-secondary"
@@ -71,6 +78,7 @@
           />
           <q-input
             v-model="add.keywords"
+            :dense="$q.screen.lt.sm"
             color="secondary"
             label="Słowa kluczowe"
             class="custom-width"
@@ -95,6 +103,8 @@
           <q-select
             v-model="choice"
             :options="['Dodaj nową grupę', 'Zaaktualizuj istniejącą grupę']"
+            :dense="$q.screen.lt.sm"
+            :options-dense="$q.screen.lt.sm"
             color="secondary"
             options-selected-class="text-secondary"
             label="Co chcesz zrobić?"
@@ -104,6 +114,8 @@
           />
           <q-select
             v-model="update.name"
+            :dense="$q.screen.lt.sm"
+            :options-dense="$q.screen.lt.sm"
             @filter="filterGroups"
             :options="filtered.map(x => x.name)"
             color="secondary"
@@ -126,6 +138,8 @@
                     .includes(x)
               )
             "
+            :dense="$q.screen.lt.sm"
+            :options-dense="$q.screen.lt.sm"
             color="secondary"
             options-selected-class="text-secondary"
             label="Dodaj kategorię"
@@ -136,6 +150,7 @@
           />
           <q-input
             v-model="update.keywords"
+            :dense="$q.screen.lt.sm"
             debounce="250"
             color="secondary"
             label="Słowa kluczowe"
