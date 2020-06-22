@@ -66,6 +66,7 @@
           </q-input>
           <q-select
             v-model="add.category"
+            v-if="add.type === 'Sekcja'"
             :dense="$q.screen.lt.sm"
             :options="categories"
             color="secondary"
@@ -78,6 +79,7 @@
           />
           <q-input
             v-model="add.keywords"
+            v-if="add.type === 'Sekcja'"
             :dense="$q.screen.lt.sm"
             color="secondary"
             label="Słowa kluczowe"
