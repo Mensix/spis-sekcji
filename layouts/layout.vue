@@ -18,11 +18,8 @@
         <p v-if="message.length > 0" v-html="message" class="q-mb-xs"></p>
         <p class="q-ma-none">
           Jeżeli w spisie brakuje jakiejś grupy,
-          <a
-            @click="isFormDialogShown = !isFormDialogShown"
-            href="#"
-            class="text-secondary"
-            >kliknij tu.</a
+          <nuxt-link to="/submissions" class="text-secondary"
+            >kliknij tu.</nuxt-link
           >
         </p>
       </q-banner>
@@ -45,14 +42,7 @@ export default {
   data() {
     return {
       message: '',
-      updateStatus: {},
-      form: {
-        groupType: 'Sekcja',
-        name: '',
-        link: '',
-        category: '',
-        keywords: ''
-      }
+      updateStatus: {}
     }
   },
   computed: {

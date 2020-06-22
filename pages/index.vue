@@ -231,38 +231,43 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import common from '~/mixins/common.js'
 export default {
   layout: 'layout',
   mixins: [common],
   data() {
     return {
-      sections: [],
-      categories: [],
       selectedCategories: []
     }
   },
+  computed: {
+    ...mapGetters({
+      sections: 'groups/sections',
+      categories: 'groups/categories'
+    })
+  },
   mounted() {
-    fetch('https://spissekcji.firebaseio.com/sections.json')
-      .then(response => response.json())
-      .then(output => {
-        this.sections = [
-          ...output.groups
-            .sort((a, b) => b.members - a.members)
-            .map((_, idx) => ({
-              ..._,
-              category: Array.isArray(_.category)
-                ? [..._.category.sort()]
-                : _.category,
-              membersGrowth: _.membersGrowth || 0,
-              __index: idx + 1
-            }))
-        ]
-        this.lastUpdateDate = output.lastUpdateDate
-      })
-      .then(
-        callback =>
-          (this.categories = [
+    if (Object.values(this.sections).length === 0) {
+      fetch('https://spissekcji.firebaseio.com/sections.json')
+        .then(response => response.json())
+        .then(output => {
+          this.$store.dispatch('groups/SET_SECTIONS', [
+            ...output.groups
+              .sort((a, b) => b.members - a.members)
+              .map((_, idx) => ({
+                ..._,
+                category: Array.isArray(_.category)
+                  ? [..._.category.sort()]
+                  : _.category,
+                membersGrowth: _.membersGrowth || 0,
+                __index: idx + 1
+              }))
+          ])
+          this.lastUpdateDate = output.lastUpdateDate
+        })
+        .then(callback =>
+          this.$store.dispatch('groups/SET_CATEGORIES', [
             ...new Set(
               this.sections
                 .filter(
@@ -274,8 +279,11 @@ export default {
                 .sort()
             )
           ])
-      )
-      .then(callback => (this.loading = false))
+        )
+        .then(callback => (this.loading = false))
+    } else {
+      this.loading = false
+    }
   }
 }
 </script>
