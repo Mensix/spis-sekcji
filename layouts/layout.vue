@@ -23,13 +23,14 @@
           >
         </p>
       </q-banner>
-      <nuxt :keep-alive="!$nuxt.$route.path.match(/\/status/)" />
+      <nuxt />
     </q-page-container>
     <layout-footer />
   </q-layout>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import firebase from 'firebase/app'
 import 'firebase/database'
 import LayoutHeader from '~/components/layout/layout-header.vue'
@@ -39,13 +40,11 @@ export default {
     LayoutHeader,
     LayoutFooter
   },
-  data() {
-    return {
-      message: '',
-      updateStatus: {}
-    }
-  },
   computed: {
+    ...mapGetters({
+      message: 'groups/message',
+      updateStatus: 'groups/updateStatus'
+    }),
     isNotInProgress() {
       return (
         Object.values(this.updateStatus).length > 0 &&
@@ -57,14 +56,17 @@ export default {
     }
   },
   mounted() {
-    fetch('https://spissekcji.firebaseio.com/info.json')
-      .then(response => response.json())
-      .then(output => (this.message = output.message))
-    fetch('https://spissekcji.firebaseio.com/update.json')
-      .then(response => response.json())
-      .then(output => {
-        this.updateStatus = output
-      })
+    if (this.message === '' && Object.values(this.updateStatus).length === 0) {
+      fetch('https://spissekcji.firebaseio.com/info.json')
+        .then(response => response.json())
+        .then(output =>
+          this.$store.dispatch('groups/SET_MESSAGE', output.message)
+        )
+      fetch('https://spissekcji.firebaseio.com/update.json')
+        .then(response => response.json())
+        .then(output => this.$store.dispatch('groups/SET_UPDATESTATUS', output))
+    }
+
     if (firebase.apps.length === 0) {
       const firebaseConfig = {
         apiKey: 'AIzaSyAF0NQG_JKmIjnHRzsDYxuWMjhyuF0RBeY',
