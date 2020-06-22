@@ -23,7 +23,7 @@
           >
         </p>
       </q-banner>
-      <nuxt />
+      <nuxt :keep-alive="!$nuxt.$route.path.match(/\/submissions/)" />
     </q-page-container>
     <layout-footer />
   </q-layout>

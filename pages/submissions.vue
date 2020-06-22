@@ -1,6 +1,6 @@
 <template>
   <div class="column justify-center items-center window-height">
-    <q-card :flat="$q.screen.lt.sm" class="q-pa-md">
+    <q-card :flat="$q.screen.lt.sm" v-if="!wasFormSend" class="q-pa-md">
       <q-card-section>
         <h5 class="text-center q-ma-none q-mb-sm">
           Dodaj nową grupę
@@ -161,6 +161,23 @@
           </div>
         </q-form>
       </q-card-section>
+    </q-card>
+    <q-card :flat="$q.screen.lt.sm" v-else class="q-pa-md">
+      <h5 class="text-center q-ma-none q-mb-sm">
+        Dziękujemy!
+      </h5>
+      <p class="text-center q-ma-none q-mb-md">
+        Twoja grupa zostanie dodana wraz z aktalizacją spisu w najbliższą
+        niedzielę
+      </p>
+      <div class="row justify-center">
+        <q-btn
+          @click="$router.push('/')"
+          color="secondary"
+          label="Wróć na stronę główną"
+          flat
+        />
+      </div>
     </q-card>
   </div>
 </template>
