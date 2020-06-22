@@ -176,13 +176,13 @@
         </q-form>
       </q-card-section>
     </q-card>
-    <q-card :flat="$q.screen.lt.sm" v-else class="q-pa-md">
+    <q-card :flat="$q.screen.lt.sm" v-else class="small-width q-pa-md">
       <h5 class="text-center q-ma-none q-mb-sm">
         Dziękujemy!
       </h5>
       <p class="text-center q-ma-none q-mb-md">
-        Twoja grupa zostanie dodana wraz z aktalizacją spisu w najbliższą
-        niedzielę
+        Twoja grupa zostanie dodana/zaaktualizowana wraz z aktalizacją spisu w
+        najbliższą niedzielę
       </p>
       <div class="row justify-center">
         <q-btn
