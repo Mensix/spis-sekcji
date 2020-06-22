@@ -215,7 +215,7 @@ export default {
       update: {
         name: '',
         categories: [],
-        kewyords: ''
+        keywords: ''
       },
       wasFormSend: false
     }
