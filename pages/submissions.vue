@@ -8,7 +8,7 @@
         <p class="text-center q-ma-none q-pb-md">lub zaaktualizuj istniejącą</p>
         <q-form
           @submit="onAddSubmit"
-          v-if="choice === 'Dodaj nową grupę'"
+          v-if="choice === 'Dodać nową grupę'"
           class="q-gutter-md"
         >
           <q-select
