@@ -65,7 +65,7 @@
             </template>
           </q-input>
           <q-select
-            v-model="add.category"
+            v-model="add.categories"
             v-if="add.type === 'Sekcja'"
             :dense="$q.screen.lt.sm"
             :options="categories"
