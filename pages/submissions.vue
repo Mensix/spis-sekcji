@@ -203,7 +203,7 @@ import { mapGetters } from 'vuex'
 export default {
   data() {
     return {
-      choice: 'Dodaj nową grupę',
+      choice: 'Dodać nową grupę',
       filtered: [],
       add: {
         type: 'Sekcja',
