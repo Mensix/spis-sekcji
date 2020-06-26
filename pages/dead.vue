@@ -136,6 +136,8 @@ export default {
             ])
         )
         .then(callback => (this.loading = false))
+    } else {
+      this.loading = false
     }
   }
 }
