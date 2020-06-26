@@ -134,7 +134,7 @@
             :options="
               categories.filter(
                 x =>
-                  !sections
+                  !sections.groups
                     .filter(g => g.name === update.name)
                     .map(g => g.category)
                     .includes(x)
@@ -244,24 +244,26 @@ export default {
       fetch('https://spissekcji.firebaseio.com/sections.json')
         .then(response => response.json())
         .then(output => {
-          this.$store.dispatch('groups/SET_SECTIONS', [
-            ...output.groups
-              .sort((a, b) => b.members - a.members)
-              .map((_, idx) => ({
-                ..._,
-                category: Array.isArray(_.category)
-                  ? [..._.category.sort()]
-                  : _.category,
-                membersGrowth: _.membersGrowth || 0,
-                __index: idx + 1
-              }))
-          ])
-          this.lastUpdateDate = output.lastUpdateDate
+          this.$store.dispatch('groups/SET_SECTIONS', {
+            lastUpdateDate: output.lastUpdateDate,
+            groups: [
+              ...output.groups
+                .sort((a, b) => b.members - a.members)
+                .map((_, idx) => ({
+                  ..._,
+                  category: Array.isArray(_.category)
+                    ? [..._.category.sort()]
+                    : _.category,
+                  membersGrowth: _.membersGrowth || 0,
+                  __index: idx + 1
+                }))
+            ]
+          })
         })
         .then(callback =>
           this.$store.dispatch('groups/SET_CATEGORIES', [
             ...new Set(
-              this.sections
+              this.sections.groups
                 .filter(
                   x =>
                     Object.prototype.hasOwnProperty.call(x, 'category') &&
@@ -278,14 +280,14 @@ export default {
     filterGroups(value, update) {
       if (value === '') {
         update(() => {
-          this.filtered = this.sections
+          this.filtered = this.sections.groups
         })
         return
       }
 
       update(() => {
         const needle = value.toLowerCase()
-        this.filtered = this.sections.filter(v =>
+        this.filtered = this.sections.groups.filter(v =>
           v.name.toLowerCase().includes(needle)
         )
       })
