@@ -6,8 +6,8 @@
     :rows-per-page-options="[]"
     :data="
       selectedCategories.length === 0
-        ? sections
-        : sections.filter(x =>
+        ? sections.groups
+        : sections.groups.filter(x =>
             Array.isArray(x.category)
               ? selectedCategories.some(g => x.category.includes(g))
               : selectedCategories.includes(x.category)
@@ -43,8 +43,8 @@
         options-selected-class="text-secondary"
       />
       <p class="q-mt-xs q-mb-none">Autorzy: Grzegorz Perun & Daniel Nguyen</p>
-      <p v-if="sections.length > 0">
-        <span>Ostatnia aktualizacja: {{ lastUpdateDate }}</span>
+      <p v-if="Object.values(sections).length > 0" class="q-mb-none">
+        Ostatnia aktualizacja: {{ sections.lastUpdateDate }}
       </p>
     </template>
 
@@ -252,24 +252,26 @@ export default {
       fetch('https://spissekcji.firebaseio.com/sections.json')
         .then(response => response.json())
         .then(output => {
-          this.$store.dispatch('groups/SET_SECTIONS', [
-            ...output.groups
-              .sort((a, b) => b.members - a.members)
-              .map((_, idx) => ({
-                ..._,
-                category: Array.isArray(_.category)
-                  ? [..._.category.sort()]
-                  : _.category,
-                membersGrowth: _.membersGrowth || 0,
-                __index: idx + 1
-              }))
-          ])
-          this.lastUpdateDate = output.lastUpdateDate
+          this.$store.dispatch('groups/SET_SECTIONS', {
+            lastUpdateDate: output.lastUpdateDate,
+            groups: [
+              ...output.groups
+                .sort((a, b) => b.members - a.members)
+                .map((_, idx) => ({
+                  ..._,
+                  category: Array.isArray(_.category)
+                    ? [..._.category.sort()]
+                    : _.category,
+                  membersGrowth: _.membersGrowth || 0,
+                  __index: idx + 1
+                }))
+            ]
+          })
         })
         .then(callback =>
           this.$store.dispatch('groups/SET_CATEGORIES', [
             ...new Set(
-              this.sections
+              this.sections.groups
                 .filter(
                   x =>
                     Object.prototype.hasOwnProperty.call(x, 'category') &&

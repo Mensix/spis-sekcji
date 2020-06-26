@@ -6,8 +6,8 @@
     :loading="loading"
     :data="
       selectedCategories.length === 0
-        ? deadgroups
-        : deadgroups.filter(x => selectedCategories.includes(x.category))
+        ? deadgroups.groups
+        : deadgroups.groups.filter(x => selectedCategories.includes(x.category))
     "
     :visible-columns="['name', 'link', 'category']"
     :filter="input"
@@ -39,8 +39,8 @@
         options-selected-class="text-secondary"
       />
       <p class="q-mt-xs q-mb-none">Autorzy: Grzegorz Perun & Daniel Nguyen</p>
-      <p v-if="deadgroups.length > 0">
-        <span>Ostatnia aktualizacja: {{ lastUpdateDate }}</span>
+      <p v-if="Object.values(deadgroups).length > 0" class="q-mb-none">
+        Ostatnia aktualizacja: {{ deadgroups.lastUpdateDate }}
       </p>
     </template>
 
@@ -104,13 +104,13 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import common from '~/mixins/common.js'
 export default {
   layout: 'layout',
   mixins: [common],
   data() {
     return {
-      deadgroups: [],
       categories: [],
       selectedCategories: [],
       pagination: {
@@ -119,20 +119,24 @@ export default {
       }
     }
   },
+  computed: {
+    ...mapGetters({
+      deadgroups: 'groups/deadgroups'
+    })
+  },
   mounted() {
-    fetch('https://spissekcji.firebaseio.com/deadgroups.json')
-      .then(response => response.json())
-      .then(output => {
-        this.deadgroups = [...output.groups]
-        this.lastUpdateDate = output.lastUpdateDate
-      })
-      .then(
-        callback =>
-          (this.categories = [
-            ...new Set(this.deadgroups.map(x => x.category).sort())
-          ])
-      )
-      .then(callback => (this.loading = false))
+    if (Object.values(this.deadgroups).length === 0) {
+      fetch('https://spissekcji.firebaseio.com/deadgroups.json')
+        .then(response => response.json())
+        .then(output => this.$store.dispatch('groups/SET_DEADGROUPS', output))
+        .then(
+          callback =>
+            (this.categories = [
+              ...new Set(this.deadgroups.groups.map(x => x.category).sort())
+            ])
+        )
+        .then(callback => (this.loading = false))
+    }
   }
 }
 </script>

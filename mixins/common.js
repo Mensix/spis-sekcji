@@ -41,7 +41,6 @@ export default {
         rowsPerPage: 20,
         rowsCount: 0
       },
-      lastUpdateDate: undefined,
       input: undefined,
       loading: true
     }

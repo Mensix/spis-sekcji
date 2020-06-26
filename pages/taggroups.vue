@@ -5,7 +5,7 @@
     :columns="columns"
     :rows-per-page-options="[]"
     :visible-columns="['name', 'members', 'membersGrowth', 'link']"
-    :data="taggroups"
+    :data="taggroups.groups"
     :filter="input"
     :filter-method="filterData"
     :pagination.sync="pagination"
@@ -25,11 +25,10 @@
           <q-icon name="search" />
         </template>
       </q-input>
-      <div class="q-mt-xs" />
-      <span>Autorzy: Grzegorz Perun & Daniel Nguyen</span>
-      <div v-if="taggroups.length > 0">
-        <span>Ostatnia aktualizacja: {{ lastUpdateDate }}</span>
-      </div>
+      <p class="q-mt-xs q-mb-none">Autorzy: Grzegorz Perun & Daniel Nguyen</p>
+      <p v-if="Object.values(taggroups).length > 0" class="q-mb-none">
+        Ostatnia aktualizacja: {{ taggroups.lastUpdateDate }}
+      </p>
     </template>
 
     <template v-slot:top-right
@@ -188,16 +187,18 @@ export default {
       fetch('https://spissekcji.firebaseio.com/taggroups.json')
         .then(response => response.json())
         .then(output => {
-          this.$store.dispatch('groups/SET_TAGGROUPS', [
-            ...output.groups
-              .sort((a, b) => b.members - a.members)
-              .map((_, idx) => ({
-                ..._,
-                membersGrowth: _.membersGrowth || 0,
-                __index: idx + 1
-              }))
-          ])
-          this.lastUpdateDate = output.lastUpdateDate
+          this.$store.dispatch('groups/SET_TAGGROUPS', {
+            lastUpdateDate: output.lastUpdateDate,
+            groups: [
+              ...output.groups
+                .sort((a, b) => b.members - a.members)
+                .map((_, idx) => ({
+                  ..._,
+                  membersGrowth: _.membersGrowth || 0,
+                  __index: idx + 1
+                }))
+            ]
+          })
         })
         .then(callback => (this.loading = false))
     } else {
