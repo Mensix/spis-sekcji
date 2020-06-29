@@ -313,11 +313,7 @@ export default {
     onUpdateSubmit() {
       firebase
         .database()
-        .ref(
-          `/submissions/${
-            this.add.type === 'Sekcja' ? 'sections' : 'taggroups'
-          }`
-        )
+        .ref('/submissions/sections')
         .push({
           update: true,
           name: this.update.name,
