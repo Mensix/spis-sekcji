@@ -52,9 +52,8 @@
             <li>Spis sekcji jest aktualizowany co niedzielę od godziny 12</li>
             <li>Aktualizacja trwa mniej niż godzinę</li>
             <li>
-              Do aktualizacji wykorzystywany jest napisany w JavaScript skrypt
-              (kod źródłowy póki co nie jest udostępniony publicznie), poprzedni
-              skrypt jest napisany w C#, a jego kod źródłowy można znaleźć
+              Do aktualizacji wykorzystywany jest napisany w C# skrypt, jego kod
+              źródłowy można znaleźć
               <a
                 href="https://github.com/Mensix/SpisSekcjiManager"
                 class="text-secondary"
