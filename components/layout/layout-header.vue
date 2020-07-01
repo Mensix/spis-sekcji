@@ -4,9 +4,14 @@
       <q-icon name="fas fa-list" class="toolbar-icon" />
       <q-toolbar-title>Spis Sekcji</q-toolbar-title>
       <q-space />
-      <q-btn @click="$router.push('/')" flat label="Sekcje" />
-      <q-btn @click="$router.push('/taggroups')" flat label="Tag-grupki" />
-      <q-btn @click="$router.push('/dead')" flat label="Hades" />
+      <div v-if="!$q.screen.lt.sm">
+        <q-btn @click="$router.push('/')" flat label="Sekcje" />
+        <q-btn @click="$router.push('/taggroups')" flat label="Tag-grupki" />
+        <q-btn @click="$router.push('/dead')" flat label="Hades" />
+      </div>
+      <div v-else>
+        <q-btn @click="$router.push('/privacy')" flat label="Prywatność" />
+      </div>
     </q-toolbar>
   </q-header>
 </template>

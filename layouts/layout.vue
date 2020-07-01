@@ -1,8 +1,11 @@
 <template>
-  <q-layout view="hHh lpR fff">
+  <q-layout :view="$q.screen.lt.sm ? 'hHh lpR fFf' : 'hHh lpR fff'">
     <layout-header />
     <q-page-container>
-      <q-banner v-if="!$nuxt.$route.path.match(/\/status/)" class="q-py-md">
+      <q-banner
+        v-if="!$nuxt.$route.path.match(/(\/status)|(\/privacy)/)"
+        class="q-py-md"
+      >
         <template v-slot:avatar
           ><q-icon name="info" color="secondary"
         /></template>
@@ -25,7 +28,8 @@
       </q-banner>
       <nuxt :keep-alive="!$nuxt.$route.path.match(/\/submissions/)" />
     </q-page-container>
-    <layout-footer />
+    <layout-bottom-mobile v-if="$q.screen.lt.sm" />
+    <layout-footer v-else />
   </q-layout>
 </template>
 
@@ -35,10 +39,12 @@ import firebase from 'firebase/app'
 import 'firebase/database'
 import LayoutHeader from '~/components/layout/layout-header.vue'
 import LayoutFooter from '~/components/layout/layout-footer.vue'
+import LayoutBottomMobile from '~/components/layout/layout-bottom-mobile'
 export default {
   components: {
     LayoutHeader,
-    LayoutFooter
+    LayoutFooter,
+    LayoutBottomMobile
   },
   computed: {
     ...mapGetters({
