@@ -85,6 +85,11 @@
             name="star"
             color="secondary"
           />
+          <q-icon
+            v-if="props.row.isOpen !== undefined && props.row.isOpen === true"
+            name="lock_open"
+            color="secondary"
+          />
           <small
             v-if="
               props.row.isSection !== undefined && props.row.isSection === false
@@ -157,6 +162,14 @@
                   <q-icon
                     v-if="props.row.members >= 10000"
                     name="star"
+                    color="secondary"
+                  />
+                  <q-icon
+                    v-if="
+                      props.row.isOpen !== undefined &&
+                        props.row.isOpen === true
+                    "
+                    name="lock_open"
                     color="secondary"
                   />
                   <small
