@@ -76,7 +76,7 @@
 </template>
 
 <script>
-import { format, lastDayOfISOWeek } from 'date-fns'
+import { format, lastDayOfISOWeek, addWeeks, isSunday } from 'date-fns'
 export default {
   layout: 'layout',
   data() {
@@ -87,7 +87,9 @@ export default {
   },
   computed: {
     nearestUpdate() {
-      return format(lastDayOfISOWeek(new Date()), 'dd/MM/yyyy')
+      return this.updateStatus.isDone === false && isSunday === false
+        ? format(lastDayOfISOWeek(new Date()), 'dd/MM/yyyy')
+        : format(lastDayOfISOWeek(addWeeks(new Date(), 1)), 'dd/MM/yyyy')
     },
     isNotInProgress() {
       return (
