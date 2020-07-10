@@ -65,6 +65,11 @@
             name="star"
             color="secondary"
           />
+          <q-icon
+            v-if="props.row.isOpen !== undefined && props.row.isOpen === true"
+            name="lock_open"
+            color="secondary"
+          />
           <span>{{ props.row.name }}</span>
         </q-td>
         <q-td key="members" :props="props">
@@ -119,6 +124,14 @@
                   ><q-icon
                     v-if="props.row.members >= 10000"
                     name="star"
+                    color="secondary"
+                  />
+                  <q-icon
+                    v-if="
+                      props.row.isOpen !== undefined &&
+                        props.row.isOpen === true
+                    "
+                    name="lock_open"
                     color="secondary"
                   />
                   {{ props.cols[0].value }}</q-item-label
