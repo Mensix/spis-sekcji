@@ -13,14 +13,14 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.11.0",
+    "@nuxtjs/axios": "^5.12.0",
     "@nuxtjs/google-analytics": "^2.3.0",
     "@nuxtjs/gtm": "^2.3.0",
     "date-fns": "^2.14.0",
     "firebase": "^7.16.0",
     "normalize.css": "^8.0.1",
     "nuxt": "^2.13.3",
-    "quasar": "^1.12.8",
+    "quasar": "^1.12.10",
     "round-to": "^4.1.0"
   },
   "devDependencies": {
