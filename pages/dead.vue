@@ -20,6 +20,7 @@
     <template v-slot:top-left>
       <q-input
         v-model="input"
+        debounce="250"
         color="secondary"
         label="Wyszukiwarka sekcji"
         dense
