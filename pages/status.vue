@@ -57,16 +57,16 @@
               <a
                 href="https://github.com/Mensix/SpisSekcjiManager"
                 class="text-secondary"
-                >tutaj.</a
+                >tutaj</a
               >
             </li>
             <li>
-              Najpierw pobierane są dane tag-grupek, następnie sekcji (z tego
+              Najpierw pobierane są dane sekcji, następnie tag-grupek (z tego
               powodu status typu grup, które nie są pobierane wynosi 0 / 0)
             </li>
             <li>
               Dane wyświetlane powyżej są pobierane co sekundę i mają małe
-              opóźnienie względem skryptu.
+              opóźnienie względem skryptu
             </li>
           </ul>
         </q-card-section>
