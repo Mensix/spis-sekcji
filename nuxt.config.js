@@ -63,11 +63,7 @@ export default {
       }
     ]
   },
-  css: [
-    '~/assets/css/tweaks.css',
-    'quasar/dist/quasar.min.css',
-    'normalize.css/normalize.css'
-  ],
+  css: ['quasar/dist/quasar.min.css', 'normalize.css/normalize.css'],
   loading: { color: '#fff' },
   plugins: ['~/plugins/quasar'],
   modules: [

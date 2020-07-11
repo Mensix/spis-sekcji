@@ -49,14 +49,6 @@
       </p>
     </template>
 
-    <template v-slot:top-right
-      ><a
-        href="https://docs.google.com/forms/d/1WHa71d4x0qeO_8G6CwUV4XfK-X5kL5--rBk5bTH9NDo/viewform"
-        target="_blank"
-        rel="noopener noreferer"
-        ><img src="baner.svg" class="banner-vote"/></a
-    ></template>
-
     <template v-slot:header="props">
       <q-tr :props="props">
         <q-th class="no-border"/>
