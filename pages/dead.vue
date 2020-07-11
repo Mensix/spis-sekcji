@@ -22,7 +22,7 @@
         v-model="input"
         debounce="250"
         color="secondary"
-        label="Wyszukiwarka sekcji"
+        label="Wyszukiwarka grup"
         dense
       >
         <template v-slot:append>
