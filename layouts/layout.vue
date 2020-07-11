@@ -20,7 +20,8 @@
         </p>
         <p v-if="message.length > 0" v-html="message" class="q-mb-xs"></p>
         <p class="q-ma-none">
-          Jeżeli w spisie brakuje jakiejś grupy,
+          Jeżeli w spisie brakuje jakiejś grupy, jakaś sekcja nie ma kategorii
+          lub słów kluczowych,
           <nuxt-link to="/submissions" class="text-secondary"
             >kliknij tu.</nuxt-link
           >
