@@ -10,7 +10,7 @@ All notable changes to this project will be documented in this file.
 - **(tweak)** Added public taggroups indicator ([c33b268](https://github.com/Mensix/spis-sekcji/commit/c33b268ae0dcef1858b70bdff92177403898240b))
 - **(tweak)** Changed update submissions path ([9c78f24](https://github.com/Mensix/spis-sekcji/commit/9c78f2449e5018988e1c5987235b458553020c04))
 - **(tweak)** New mobile footer, privacy policy, code tweaks ([5d8a0dc](https://github.com/Mensix/spis-sekcji/commit/5d8a0dc93875a1b23b9c621400ea2666b7355f5d))
-- **(tweak)** Set loading to false when deadgroups al... ([d718c37](https://github.com/Mensix/spis-sekcji/commit/d718c37f2f5520a79e2da4c0c8a177bcbe4e0eb9))
+- **(tweak)** Set loading to false when deadgroups already fetched ([d718c37](https://github.com/Mensix/spis-sekcji/commit/d718c37f2f5520a79e2da4c0c8a177bcbe4e0eb9))
 - **(tweak)** Unified groups JSON properties ([bb83ee4](https://github.com/Mensix/spis-sekcji/commit/bb83ee444f534529b8baf8b9ccaf2b92d371d119))
 - **(tweak)** Updated nearestUpdate property at status ([8144dec](https://github.com/Mensix/spis-sekcji/commit/8144dec61c128a8f719d2b0f8e16244cd44328b6))
 - **(tweak)** Updated status info ([0cc3aff](https://github.com/Mensix/spis-sekcji/commit/0cc3aff7ae7070d12df85dcd90aec1e9269ab62a))
@@ -28,7 +28,7 @@ All notable changes to this project will be documented in this file.
 - **(tweak)** Added updating groups (WIP) ([5c068d7](https://github.com/Mensix/spis-sekcji/commit/5c068d75d0b6c7adeb7994567b60c958323247af))
 - **(tweak)** Better submission confirmation message ([3669d86](https://github.com/Mensix/spis-sekcji/commit/3669d860fd8aaac7da54735e76bd262818ad2271))
 - **(tweak)** Dense sumbission form on mobile ([e25821a](https://github.com/Mensix/spis-sekcji/commit/e25821a4462d826489bba569a25a00e99fb7f9b1))
-- **(tweak)** Don't show keywords&categories when tag... ([18e9946](https://github.com/Mensix/spis-sekcji/commit/18e9946d4041271686e20b9513b20df16652aac9))
+- **(tweak)** Don't show keywords&categories when taggroup option selected ([18e9946](https://github.com/Mensix/spis-sekcji/commit/18e9946d4041271686e20b9513b20df16652aac9))
 - **(tweak)** Further store expansion ([e0d54f6](https://github.com/Mensix/spis-sekcji/commit/e0d54f660015c8f28bac044537a7524da667890a))
 - **(tweak)** Init panel ([cdab51e](https://github.com/Mensix/spis-sekcji/commit/cdab51ef095d2ced5abf93cb748c9278567747da))
 - **(tweak)** New submissions panel ([abf18c4](https://github.com/Mensix/spis-sekcji/commit/abf18c47a75773fe466a3a9bde44b183928d6020))
@@ -61,8 +61,7 @@ All notable changes to this project will be documented in this file.
 
 ## Added
 
-- **(pr)** Merge pull request ([#1](https://github.com/Mensix/spis-sekcji/pull/1))
-- from Mensix/feature-update-integration ([e8f9fdc](https://github.com/Mensix/spis-sekcji/commit/e8f9fdc5039ac53135226c0162fce07e7458269e))
+- **(pr)** Merge pull request ([#1](https://github.com/Mensix/spis-sekcji/pull/1)) from Mensix/feature-update-integration ([e8f9fdc](https://github.com/Mensix/spis-sekcji/commit/e8f9fdc5039ac53135226c0162fce07e7458269e))
 
 ### [1.14.1] - 2020-06-19
 
