@@ -72,16 +72,18 @@
     <template v-slot:body="props">
       <q-tr :props="props">
         <q-td key="name" :props="props">
-          <small class="text-grey">
+          <small class="text-grey q-mr-xxs">
             {{ props.row.__index }}
           </small>
           <q-icon
             v-if="props.row.members >= 10000"
+            class="q-mr-xxs"
             name="star"
             color="secondary"
           />
           <q-icon
             v-if="props.row.isOpen !== undefined && props.row.isOpen === true"
+            class="q-mr-xxs"
             name="lock_open"
             color="secondary"
           />
@@ -89,13 +91,13 @@
             v-if="
               props.row.isSection !== undefined && props.row.isSection === false
             "
-            class="text-grey"
+            class="text-grey q-mr-xxs"
             ><del>JBWA</del></small
           >
           <span>{{ props.row.name }}</span>
         </q-td>
         <q-td key="members" :props="props">
-          <span>{{ props.row.members }}</span>
+          <span class="q-mr-xxs">{{ props.row.members }}</span>
           <small
             :class="{
               'text-green': props.row.membersGrowth > 0,
@@ -346,3 +348,9 @@ export default {
   }
 }
 </script>
+
+<style>
+.q-mr-xxs {
+  margin-right: 1px;
+}
+</style>
