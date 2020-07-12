@@ -72,9 +72,7 @@
     <template v-slot:body="props">
       <q-tr :props="props">
         <q-td key="name" :props="props">
-          <small class="text-grey q-mr-xxs">
-            {{ props.row.__index }}
-          </small>
+          <small class="text-grey q-mr-xxs"> {{ props.row.__index }}. </small>
           <q-icon
             v-if="props.row.members >= 10000"
             class="q-mr-xxs"
@@ -153,9 +151,7 @@
               <q-item-section>
                 <q-item-label caption>{{ props.cols[0].label }}</q-item-label>
                 <q-item-label>
-                  <small class="text-grey">
-                    {{ props.row.__index }}
-                  </small>
+                  <small class="text-grey"> {{ props.row.__index }}. </small>
                   <q-icon
                     v-if="props.row.members >= 10000"
                     name="star"
