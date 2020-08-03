@@ -7,7 +7,7 @@
     :visible-columns="
       hasCategories === false
         ? ['name', 'members', 'membersGrowth', 'link']
-        : ['name', 'link', 'membersGrowth', 'members', 'category']
+        : ['name', 'link', 'membersGrowth', 'members', 'category', 'keywords']
     "
     :data="computedDataset"
     :filter="input"
