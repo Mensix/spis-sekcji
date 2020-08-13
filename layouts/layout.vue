@@ -3,7 +3,9 @@
     <layout-header />
     <q-page-container>
       <q-banner
-        v-if="!$nuxt.$route.path.match(/(\/status)|(\/privacy)/)"
+        v-if="
+          !$nuxt.$route.path.match(/(\/status)|(\/privacy)|(\/submissions)/)
+        "
         class="q-py-md"
       >
         <template v-slot:avatar
