@@ -96,7 +96,7 @@ export default {
       ]
     },
     sendCategory(category) {
-      fetch('http://spis-sekcji.herokuapp.com/v1/submissions/categories', {
+      fetch('https://spis-sekcji.herokuapp.com/v1/submissions/categories', {
         method: 'POST',
         mode: 'cors',
         headers: {
