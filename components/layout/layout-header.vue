@@ -9,9 +9,6 @@
         <q-btn @click="$router.push('/taggroups')" flat label="Tag-grupki" />
         <q-btn @click="$router.push('/dead')" flat label="Hades" />
       </div>
-      <div v-else>
-        <q-btn @click="$router.push('/privacy')" flat label="Prywatność" />
-      </div>
     </q-toolbar>
   </q-header>
 </template>

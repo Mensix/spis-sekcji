@@ -4,7 +4,11 @@
     <q-page-container>
       <q-banner
         v-if="
-          !$nuxt.$route.path.match(/(\/status)|(\/privacy)|(\/submissions)/)
+          (!isNotInProgress && Object.keys(updateStatus).length > 0) ||
+            (message.length > 0 &&
+              !$nuxt.$route.path.match(
+                /(\/status)|(\/privacy)|(\/submissions)/
+              ))
         "
         class="q-py-md"
       >
@@ -21,13 +25,6 @@
           >
         </p>
         <p v-if="message.length > 0" v-html="message" class="q-mb-xs"></p>
-        <p class="q-ma-none">
-          Jeżeli w spisie brakuje jakiejś grupy, jakaś sekcja nie ma kategorii
-          lub słów kluczowych,
-          <nuxt-link to="/submissions" class="text-secondary"
-            >kliknij tu.</nuxt-link
-          >
-        </p>
       </q-banner>
       <nuxt :keep-alive="!$nuxt.$route.path.match(/\/submissions/)" />
     </q-page-container>
