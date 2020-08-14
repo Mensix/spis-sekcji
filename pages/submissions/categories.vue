@@ -1,35 +1,48 @@
 <template>
-  <div class="row items-center justify-center fixed-height">
-    <div v-if="pickedSection && sections.groups && sections.groups.length > 1">
-      <div class="col-12 q-mb-xl">
-        <h4 class="text-center q-ma-none q-mx-md">{{ pickedSection.name }}</h4>
-      </div>
-      <q-separator class="q-mb-xl" color="secondary" />
-      <div class="col-12 q-mx-md">
+  <div>
+    <div
+      v-if="sections.groups && sections.groups.length > 0"
+      :class="{
+        'row fixed-height justify-center items-center': true,
+        'q-my-md': $q.screen.lt.sm
+      }"
+    >
+      <q-banner class="bg-white q-mr-auto q-mb-sm">
+        <template v-slot:avatar>
+          <q-icon name="info" color="secondary" />
+        </template>
+        Jeśli chcesz pomóc spisowi sekcji, to w tym miejscu możesz
+        podporządkowywać grupom pasujące do nich kategorie. W przypadku, gdy
+        sekcji nie można przyporządkować żadnej z dostępnych kategorii, kliknij
+        przycisk Pomiń.
+      </q-banner>
+      <div class="row justify-center items-center">
+        <div class="col-12">
+          <h4 class="text-center q-ma-none q-mb-xl">
+            {{ pickedSection.name }}
+          </h4>
+        </div>
         <q-btn
+          :label="category"
           v-for="category in categories"
-          @click="sendCategory(category)"
           :key="category"
-          :disable="pickedSection.category"
-          :ripple="false"
-          no-caps
+          @click="sendCategory(category)"
           flat
-          class="q-mr-xs q-mb-xs"
-          >{{ category }}</q-btn
-        >
+          no-caps
+          class="q-btn--fixed-width q-mr-sm q-mb-sm"
+        />
         <q-btn
           @click="pickSection()"
-          :ripple="false"
+          class="q-btn--fixed-width q-mr-sm q-mb-sm"
+          label="Pomiń"
+          text-color="secondary"
           flat
           no-caps
-          class="q-mr-xs q-mb-xs"
-          text-color="secondary"
-          >Pomiń</q-btn
-        >
+        />
       </div>
     </div>
-    <div v-else class="row justify-center">
-      <q-spinner color="secondary" size="3em" />
+    <div v-else class="row fixed-height justify-center items-center">
+      <q-spinner color="secondary" class="text-h2" />
     </div>
   </div>
 </template>
@@ -119,11 +132,14 @@ export default {
   .fixed-height {
     height: calc(100vh - 155px);
   }
+  .q-btn--fixed-width {
+    width: 200px;
+  }
 }
 
 @media (max-width: 599px) {
-  .fixed-height {
-    height: calc(100vh - 123px);
+  .q-btn--fixed-width {
+    width: 75px;
   }
 }
 </style>

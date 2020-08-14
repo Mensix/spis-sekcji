@@ -8,13 +8,18 @@
         <q-btn @click="$router.push('/')" flat label="Sekcje" />
         <q-btn @click="$router.push('/taggroups')" flat label="Tag-grupki" />
         <q-btn @click="$router.push('/dead')" flat label="Hades" />
-        <q-btn @click="$router.push('/submissions')" flat label="Dodaj grupę" />
-        <q-btn
-          @click="$router.push('/submissions/categories')"
-          flat
-          label="Dodaj kategorie"
-        />
-        <q-btn @click="$router.puh('/privacy')" flat label="Prywatność" />
+        <q-btn-dropdown flat label="Dodaj...">
+          <q-item @click="$router.push('/submissions')" clickable>
+            <q-item-section>
+              <q-item-label>Grupę</q-item-label>
+            </q-item-section>
+          </q-item>
+          <q-item @click="$router.push('/submissions/categories')" clickable>
+            <q-item-section>
+              <q-item-label>Kategorie</q-item-label>
+            </q-item-section>
+          </q-item>
+        </q-btn-dropdown>
       </div>
     </q-toolbar>
   </q-header>

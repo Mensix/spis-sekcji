@@ -19,32 +19,34 @@
     binary-state-sort
   >
     <template v-slot:top-left>
-      <q-input
-        v-model="input"
-        debounce="250"
-        color="secondary"
-        label="Wyszukiwarka grup"
-        dense
-      >
-        <template v-slot:append>
-          <q-icon name="search" />
-        </template>
-      </q-input>
-      <q-select
-        v-model="selectedCategories"
-        v-if="hasCategories === true"
-        :options="categories"
-        color="secondary"
-        multiple
-        dense
-        options-dense
-        label="Pokaż kategorie"
-        options-selected-class="text-secondary"
-      />
-      <p class="q-mt-xs q-mb-none">Autorzy: Grzegorz Perun & Daniel Nguyen</p>
-      <p v-if="Object.values(dataset).length > 0" class="q-mb-none">
-        Ostatnia aktualizacja: {{ dataset.lastUpdateDate }}
-      </p>
+      <div class="q-my-md">
+        <q-input
+          v-model="input"
+          debounce="250"
+          color="secondary"
+          label="Wyszukiwarka grup"
+          dense
+        >
+          <template v-slot:append>
+            <q-icon name="search" />
+          </template>
+        </q-input>
+        <q-select
+          v-model="selectedCategories"
+          v-if="hasCategories === true"
+          :options="categories"
+          color="secondary"
+          multiple
+          dense
+          options-dense
+          label="Pokaż kategorie"
+          options-selected-class="text-secondary"
+        />
+        <p class="q-mt-xs q-mb-none">Autorzy: Grzegorz Perun & Daniel Nguyen</p>
+        <p v-if="Object.values(dataset).length > 0" class="q-mb-none">
+          Ostatnia aktualizacja: {{ dataset.lastUpdateDate }}
+        </p>
+      </div>
     </template>
 
     <template v-slot:header="props">
